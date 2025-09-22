@@ -1,0 +1,259 @@
+Build me a bright, playful, mobile-first childcare directory website for the Birmingham, Alabama metro area.
+Tech stack: vanilla HTML, CSS, and JavaScript (no frameworks). Ship as a single-folder project with:
+
+index.html (UI + content)
+
+styles.css (theme + layout)
+
+app.js (data loading, filtering, search, sort)
+
+data/centers.json (editable dataset)
+
+assets/ (logo placeholder + icons)
+
+README.md (how to update data)
+
+Purpose
+
+Parents and soon-to-be parents should be able to quickly find vetted childcare options around Birmingham (city + suburbs). The directory should be easy to browse, filter, and compare.
+
+Design Direction
+
+Vibe: bright, friendly, playful—think modern kids’ library, not cartoonish.
+
+Color palette:
+
+Primary: #FFB703 (sunny yellow)
+
+Accent 1: #8ECAE6 (sky blue)
+
+Accent 2: #219EBC (deep teal)
+
+Accent 3: #FB8500 (orange)
+
+Neutral: #F7F7F7 / text #1F2937
+
+Typography: rounded sans for headings (e.g., “Poppins” or “Quicksand”), humanist sans for body (e.g., “Inter”). Include Google Fonts links.
+
+Components: pill filters, friendly badges (e.g., “Infant Care,” “Openings”), soft card shadows, rounded corners (16–20px), playful iconography (simple SVGs).
+
+Accessibility: sufficient contrast, focus states, semantic HTML, ARIA for filter controls.
+
+Pages/Sections
+
+Single-page app with anchored sections:
+
+Hero
+
+Logo, headline: “Birmingham Childcare Directory”
+
+Subhead: “Find quality childcare across the Birmingham metro—compare programs, locations, costs, and openings.”
+
+Prominent search bar (keyword) + quick filters (age range, location).
+
+Filters Bar (sticky on scroll)
+
+Search (name, keywords, neighborhood)
+
+Location (multi-select): Birmingham, Homewood, Mountain Brook, Hoover, Vestavia Hills, Trussville, Alabaster, Pelham, Irondale, Gardendale
+
+Age Range (checkboxes): Infant (0–12m), Toddler (1–3), Preschool (3–5), Pre-K, After-School
+
+Program Type: Center-based, In-Home, Faith-based
+
+Accreditation/Quality: AL DHR Licensed, NAEYC, First Class Pre-K, QRIS star level (if any)
+
+Practicals: Accepts Subsidy/CCDF, Part-Time Available, Openings Now
+
+Hours slider (earliest open / latest close)
+
+Sorting: Distance (if user shares location), Tuition (low→high), Name A→Z, Earliest Open, Latest Close
+
+Results Grid
+
+Responsive cards (3-col desktop, 2-col tablet, 1-col mobile) with:
+
+Name, neighborhood/city, short blurb
+
+Badges (ages served, accreditation, openings)
+
+Quick facts row: Hours, Tuition range, Phone
+
+CTA buttons: “View Details,” “Call,” “Website,” “Directions”
+
+Details Drawer/Modal (JS-driven)
+
+Photos (simple carousel), description, programs, ratios (optional), waitlist note, map embed, contact info, tuition notes, enrollment process, FAQs.
+
+Map (optional toggle)
+
+Simple Leaflet map showing pins for current filtered results. No external APIs required; use Leaflet with local tiles or embed links only. If including Leaflet, keep it lightweight.
+
+Submit a Center
+
+Static form UI (Name, Address, City, Phone, Email, Website, Programs, Ages, Tuition range, Hours, Accreditation, Notes). For now, clicking “Submit” opens mailto with prefilled body to hello@example.com. Put placeholder and instructions to switch to form backend later.
+
+Footer
+
+Note: “Not a comprehensive list. Verify licensing and availability directly with providers.”
+
+Links: “Update Listing,” “Submit a Center,” “About,” “Contact.”
+
+Data
+
+Create data/centers.json and load it in app.js. Example schema:
+
+[
+  {
+    "id": "bham-sunshine-01",
+    "name": "Sunshine Early Learning Center",
+    "address": "1234 Highland Ave S",
+    "city": "Birmingham",
+    "zip": "35205",
+    "neighborhood": "Highland Park",
+    "phone": "(205) 555-0134",
+    "email": "info@sunshine-elc.com",
+    "website": "https://example.com/sunshine",
+    "type": ["Center-based"],
+    "faithBased": false,
+    "agesServed": ["Infant", "Toddler", "Preschool", "Pre-K"],
+    "programs": ["Full-time", "Part-time", "After-school"],
+    "accreditations": ["AL DHR Licensed", "First Class Pre-K"],
+    "acceptsSubsidy": true,
+    "firstClassPreK": true,
+    "qris": null,
+    "hours": {"open": "07:00", "close": "18:00"},
+    "tuitionRangeMonthlyUSD": [750, 1200],
+    "openingsNow": true,
+    "waitlist": false,
+    "latitude": 33.5007,
+    "longitude": -86.7902,
+    "blurb": "Play-based learning with a focus on social-emotional development.",
+    "photos": ["assets/placeholder1.jpg"]
+  },
+  {
+    "id": "homewood-littleoak-02",
+    "name": "Little Oak Preschool",
+    "address": "2929 18th St S",
+    "city": "Homewood",
+    "zip": "35209",
+    "neighborhood": "Downtown Homewood",
+    "phone": "(205) 555-0172",
+    "email": "hello@littleoak.org",
+    "website": "https://example.com/littleoak",
+    "type": ["Center-based", "Faith-based"],
+    "faithBased": true,
+    "agesServed": ["Toddler", "Preschool", "Pre-K"],
+    "programs": ["Full-time", "Part-time"],
+    "accreditations": ["AL DHR Licensed"],
+    "acceptsSubsidy": false,
+    "firstClassPreK": false,
+    "qris": "3-star",
+    "hours": {"open": "08:00", "close": "17:30"},
+    "tuitionRangeMonthlyUSD": [600, 950],
+    "openingsNow": false,
+    "waitlist": true,
+    "latitude": 33.4799,
+    "longitude": -86.7939,
+    "blurb": "Small classes, nature walks, and art-forward curriculum.",
+    "photos": ["assets/placeholder2.jpg"]
+  },
+  {
+    "id": "hoover-greenmeadow-03",
+    "name": "Green Meadow Childcare",
+    "address": "1801 Riverchase Dr",
+    "city": "Hoover",
+    "zip": "35244",
+    "neighborhood": "Riverchase",
+    "phone": "(205) 555-0111",
+    "email": "director@greenmeadow.cc",
+    "website": "https://example.com/greenmeadow",
+    "type": ["Center-based"],
+    "faithBased": false,
+    "agesServed": ["Infant", "Toddler", "Preschool"],
+    "programs": ["Full-time", "After-school"],
+    "accreditations": ["AL DHR Licensed", "NAEYC"],
+    "acceptsSubsidy": true,
+    "firstClassPreK": false,
+    "qris": "4-star",
+    "hours": {"open": "06:30", "close": "18:30"},
+    "tuitionRangeMonthlyUSD": [800, 1300],
+    "openingsNow": true,
+    "waitlist": false,
+    "latitude": 33.3583,
+    "longitude": -86.8215,
+    "blurb": "STEM-inspired centers and an outdoor play emphasis.",
+    "photos": ["assets/placeholder3.jpg"]
+  }
+]
+
+
+Include 10–15 total sample entries spanning: Birmingham, Homewood, Mountain Brook, Hoover, Vestavia Hills, Trussville, Alabaster, Pelham, Irondale, Gardendale. Vary hours, tuition, accreditations, and openings.
+
+Functionality Requirements
+
+Client-side filtering & sorting: Combine multiple filters at once. Update result count live. Persist filter state in the URL hash so users can share filtered views.
+
+Search: Fuzzy keyword search across name, neighborhood, city, programs.
+
+Map toggle (optional): If included, sync map pins with filters; clicking a pin highlights the card.
+
+Details modal: Load full record; accessible close; Esc key support.
+
+Badges: Show key attributes (e.g., “NAEYC,” “First Class Pre-K,” “Openings Now,” “Accepts Subsidy”).
+
+Hours logic: Allow filtering for earliest open time and latest close time.
+
+Sorting: Name, Tuition (low→high), Early Open, Late Close. If geolocation permission granted, also “Nearest to me.”
+
+No results state: Friendly message with “Clear filters” button.
+
+Performance: Lazy-load images; keep bundle small.
+
+SEO & Metadata
+
+Semantic HTML, descriptive titles and meta descriptions.
+
+Open Graph/Twitter cards ready.
+
+Add schema.org JSON-LD for ChildCare/LocalBusiness on each card rendered (name, address, phone, openingHours, sameAs/website, geo if present).
+
+Accessibility
+
+Keyboard navigable filters and modals, visible focus outlines.
+
+ARIA labels for controls, alt text for images.
+
+Color contrast meets WCAG AA.
+
+README.md
+
+Document:
+
+How to add/edit centers in data/centers.json
+
+How to change filter options and badges
+
+How to swap palette/fonts
+
+How to host on Replit and share
+
+Nice-to-Haves (add if time allows)
+
+“Compare” drawer (select up to 3 centers to compare side-by-side).
+
+“Save favorites” (localStorage).
+
+Print-friendly detail view.
+
+Simple analytics hook (placeholder function).
+
+QA Checklist
+
+Works on mobile (iPhone SE), tablet, desktop.
+
+Filters combine correctly; URL hash persists state.
+
+At least 10 real-looking sample entries spread across metro.
+
+Lighthouse pass for performance & accessibility (no heavy libs).

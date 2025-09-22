@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Birmingham Childcare Directory - Find Quality Childcare Across the Birmingham Metro</title>
+    <meta name="description" content="Find quality childcare across the Birmingham metro—compare programs, locations, costs, and openings.">
+    <meta property="og:title" content="Birmingham Childcare Directory">
+    <meta property="og:description" content="Find quality childcare across the Birmingham metro—compare programs, locations, costs, and openings.">
+    <meta property="og:type" content="website">
+    <meta name="twitter:card" content="summary_large_image">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="styles.css">
+    
+    <!-- Schema.org structured data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      "name": "Birmingham Childcare Directory",
+      "description": "Find quality childcare across the Birmingham metro—compare programs, locations, costs, and openings.",
+      "url": "https://birmingham-childcare.example.com"
+    }
+    </script>
+</head>
+<body>
+    <!-- Hero Section -->
+    <header class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <div class="logo">
+                    <img src="assets/logo.svg" alt="Birmingham Childcare Directory" class="logo-img">
+                </div>
+                <h1 class="hero-title">Birmingham Childcare Directory</h1>
+                <p class="hero-subtitle">Find quality childcare across the Birmingham metro—compare programs, locations, costs, and openings.</p>
+                
+                <div class="hero-search">
+                    <div class="search-container">
+                        <input type="text" id="heroSearch" placeholder="Search by name, neighborhood, or keyword..." class="search-input" aria-label="Search childcare centers">
+                        <button class="search-btn" aria-label="Search">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <circle cx="11" cy="11" r="8"></circle>
+                                <path d="m21 21-4.35-4.35"></path>
+                            </svg>
+                        </button>
+                    </div>
+                    
+                    <div class="quick-filters">
+                        <button class="quick-filter" data-filter="openingsNow" data-value="true">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <circle cx="12" cy="12" r="10"></circle>
+                                <polyline points="12,6 12,12 16,14"></polyline>
+                            </svg>
+                            Openings Now
+                        </button>
+                        <button class="quick-filter" data-filter="acceptsSubsidy" data-value="true">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect>
+                                <line x1="8" y1="21" x2="16" y2="21"></line>
+                                <line x1="12" y1="17" x2="12" y2="21"></line>
+                            </svg>
+                            Accepts Subsidy
+                        </button>
+                        <button class="quick-filter" data-filter="firstClassPreK" data-value="true">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <polygon points="12,2 15.09,8.26 22,9.27 17,14.14 18.18,21.02 12,17.77 5.82,21.02 7,14.14 2,9.27 8.91,8.26"></polygon>
+                            </svg>
+                            First Class Pre-K
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Filters Bar -->
+    <section class="filters-section" id="filters">
+        <div class="container">
+            <div class="filters-header">
+                <h2 class="filters-title">Find Your Perfect Childcare</h2>
+                <div class="results-count">
+                    Showing <span id="resultsCount">0</span> centers
+                </div>
+            </div>
+            
+            <div class="filters-grid">
+                <!-- Location Filter -->
+                <div class="filter-group">
+                    <label class="filter-label">Location</label>
+                    <div class="filter-dropdown">
+                        <button class="dropdown-toggle" data-filter="location" aria-expanded="false">
+                            <span>Any Location</span>
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <polyline points="6,9 12,15 18,9"></polyline>
+                            </svg>
+                        </button>
+                        <div class="dropdown-content">
+                            <label class="checkbox-item">
+                                <input type="checkbox" value="Birmingham" data-filter="location">
+                                <span class="checkmark"></span>
+                                Birmingham
+                            </label>
+                            <label class="checkbox-item">
+                                <input type="checkbox" value="Homewood" data-filter="location">
+                                <span class="checkmark"></span>
+                                Homewood
+                            </label>
+                            <label class="checkbox-item">
+                                <input type="checkbox" value="Mountain Brook" data-filter="location">
+                                <span class="checkmark"></span>
+                                Mountain Brook
+                            </label>
+                            <label class="checkbox-item">
+                                <input type="checkbox" value="Hoover" data-filter="location">
+                                <span class="checkmark"></span>
+                                Hoover
+                            </label>
+                            <label class="checkbox-item">
+                                <input type="checkbox" value="Vestavia Hills" data-filter="location">
+                                <span class="checkmark"></span>
+                                Vestavia Hills
+                            </label>
+                            <label class="checkbox-item">
+                                <input type="checkbox" value="Trussville" data-filter="location">
+                                <span class="checkmark"></span>
+                                Trussville
+                            </label>
+                            <label class="checkbox-item">
+                                <input type="checkbox" value="Alabaster" data-filter="location">
+                                <span class="checkmark"></span>
+                                Alabaster
+                            </label>
+                            <label class="checkbox-item">
+                                <input type="checkbox" value="Pelham" data-filter="location">
+                                <span class="checkmark"></span>
+                                Pelham
+                            </label>
+                            <label class="checkbox-item">
+                                <input type="checkbox" value="Irondale" data-filter="location">
+                                <span class="checkmark"></span>
+                                Irondale
+                            </label>
+                            <label class="checkbox-item">
+                                <input type="checkbox" value="Gardendale" data-filter="location">
+                                <span class="checkmark"></span>
+                                Gardendale
+                            </label>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Age Range Filter -->
+                <div class="filter-group">
+                    <label class="filter-label">Age Range</label>
+                    <div class="filter-dropdown">
+                        <button class="dropdown-toggle" data-filter="ageRange" aria-expanded="false">
+                            <span>Any Age</span>
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <polyline points="6,9 12,15 18,9"></polyline>
+                            </svg>
+                        </button>
+                        <div class="dropdown-content">
+                            <label class="checkbox-item">
+                                <input type="checkbox" value="Infant" data-filter="ageRange">
+                                <span class="checkmark"></span>
+                                Infant (0-12 months)
+                            </label>
+                            <label class="checkbox-item">
+                                <input type="checkbox" value="Toddler" data-filter="ageRange">
+                                <span class="checkmark"></span>
+                                Toddler (1-3 years)
+                            </label>
+                            <label class="checkbox-item">
+                                <input type="checkbox" value="Preschool" data-filter="ageRange">
+                                <span class="checkmark"></span>
+                                Preschool (3-5 years)
+                            </label>
+                            <label class="checkbox-item">
+                                <input type="checkbox" value="Pre-K" data-filter="ageRange">
+                                <span class="checkmark"></span>
+                                Pre-K
+                            </label>
+                            <label class="checkbox-item">
+                                <input type="checkbox" value="After-School" data-filter="ageRange">
+                                <span class="checkmark"></span>
+                                After-School
+                            </label>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Program Type Filter -->
+                <div class="filter-group">
+                    <label class="filter-label">Program Type</label>
+                    <div class="filter-dropdown">
+                        <button class="dropdown-toggle" data-filter="programType" aria-expanded="false">
+                            <span>Any Program</span>
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <polyline points="6,9 12,15 18,9"></polyline>
+                            </svg>
+                        </button>
+                        <div class="dropdown-content">
+                            <label class="checkbox-item">
+                                <input type="checkbox" value="Center-based" data-filter="programType">
+                                <span class="checkmark"></span>
+                                Center-based
+                            </label>
+                            <label class="checkbox-item">
+                                <input type="checkbox" value="In-Home" data-filter="programType">
+                                <span class="checkmark"></span>
+                                In-Home
+                            </label>
+                            <label class="checkbox-item">
+                                <input type="checkbox" value="Faith-based" data-filter="programType">
+                                <span class="checkmark"></span>
+                                Faith-based
+                            </label>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Accreditation Filter -->
+                <div class="filter-group">
+                    <label class="filter-label">Quality & Accreditation</label>
+                    <div class="filter-dropdown">
+                        <button class="dropdown-toggle" data-filter="accreditation" aria-expanded="false">
+                            <span>Any Accreditation</span>
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <polyline points="6,9 12,15 18,9"></polyline>
+                            </svg>
+                        </button>
+                        <div class="dropdown-content">
+                            <label class="checkbox-item">
+                                <input type="checkbox" value="NAEYC" data-filter="accreditation">
+                                <span class="checkmark"></span>
+                                NAEYC Accredited
+                            </label>
+                            <label class="checkbox-item">
+                                <input type="checkbox" value="First Class Pre-K" data-filter="accreditation">
+                                <span class="checkmark"></span>
+                                First Class Pre-K
+                            </label>
+                            <label class="checkbox-item">
+                                <input type="checkbox" value="QRIS" data-filter="accreditation">
+                                <span class="checkmark"></span>
+                                QRIS Rated
+                            </label>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Hours Filter -->
+                <div class="filter-group hours-filter">
+                    <label class="filter-label">Hours</label>
+                    <div class="hours-inputs">
+                        <div class="time-input">
+                            <label for="openTime">Opens by:</label>
+                            <select id="openTime" data-filter="openTime">
+                                <option value="">Any time</option>
+                                <option value="06:00">6:00 AM</option>
+                                <option value="06:30">6:30 AM</option>
+                                <option value="07:00">7:00 AM</option>
+                                <option value="07:30">7:30 AM</option>
+                                <option value="08:00">8:00 AM</option>
+                                <option value="08:30">8:30 AM</option>
+                                <option value="09:00">9:00 AM</option>
+                            </select>
+                        </div>
+                        <div class="time-input">
+                            <label for="closeTime">Closes after:</label>
+                            <select id="closeTime" data-filter="closeTime">
+                                <option value="">Any time</option>
+                                <option value="15:00">3:00 PM</option>
+                                <option value="16:00">4:00 PM</option>
+                                <option value="17:00">5:00 PM</option>
+                                <option value="17:30">5:30 PM</option>
+                                <option value="18:00">6:00 PM</option>
+                                <option value="18:30">6:30 PM</option>
+                                <option value="19:00">7:00 PM</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Sort Options -->
+                <div class="filter-group">
+                    <label class="filter-label">Sort by</label>
+                    <select id="sortBy" class="sort-select">
+                        <option value="name">Name A-Z</option>
+                        <option value="tuition-low">Tuition (Low to High)</option>
+                        <option value="hours-early">Earliest Opening</option>
+                        <option value="hours-late">Latest Closing</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="filter-actions">
+                <button class="clear-filters" id="clearFilters">Clear All Filters</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Results Section -->
+    <main class="results-section">
+        <div class="container">
+            <div class="results-grid" id="resultsGrid">
+                <!-- Results will be populated by JavaScript -->
+            </div>
+            
+            <div class="no-results" id="noResults" style="display: none;">
+                <div class="no-results-content">
+                    <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="11" cy="11" r="8"></circle>
+                        <path d="m21 21-4.35-4.35"></path>
+                    </svg>
+                    <h3>No childcare centers found</h3>
+                    <p>Try adjusting your filters or search terms to find more options.</p>
+                    <button class="clear-filters-btn" onclick="clearAllFilters()">Clear All Filters</button>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Submit a Center Section -->
+    <section class="submit-section" id="submit">
+        <div class="container">
+            <div class="submit-content">
+                <h2>Know of a Great Childcare Center?</h2>
+                <p>Help other families by adding a childcare center to our directory.</p>
+                
+                <form class="submit-form" id="submitForm">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="centerName">Center Name *</label>
+                            <input type="text" id="centerName" name="centerName" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="centerPhone">Phone Number *</label>
+                            <input type="tel" id="centerPhone" name="centerPhone" required>
+                        </div>
+                    </div>
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="centerAddress">Address *</label>
+                            <input type="text" id="centerAddress" name="centerAddress" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="centerCity">City *</label>
+                            <select id="centerCity" name="centerCity" required>
+                                <option value="">Select City</option>
+                                <option value="Birmingham">Birmingham</option>
+                                <option value="Homewood">Homewood</option>
+                                <option value="Mountain Brook">Mountain Brook</option>
+                                <option value="Hoover">Hoover</option>
+                                <option value="Vestavia Hills">Vestavia Hills</option>
+                                <option value="Trussville">Trussville</option>
+                                <option value="Alabaster">Alabaster</option>
+                                <option value="Pelham">Pelham</option>
+                                <option value="Irondale">Irondale</option>
+                                <option value="Gardendale">Gardendale</option>
+                            </select>
+                        </div>
+                    </div>
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="centerEmail">Email</label>
+                            <input type="email" id="centerEmail" name="centerEmail">
+                        </div>
+                        <div class="form-group">
+                            <label for="centerWebsite">Website</label>
+                            <input type="url" id="centerWebsite" name="centerWebsite">
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="centerNotes">Additional Information</label>
+                        <textarea id="centerNotes" name="centerNotes" rows="4" placeholder="Ages served, programs offered, accreditations, tuition range, etc."></textarea>
+                    </div>
+                    
+                    <button type="submit" class="submit-btn">Submit Center</button>
+                    <p class="submit-note">Submissions will be reviewed before being added to the directory.</p>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-info">
+                    <h3>Birmingham Childcare Directory</h3>
+                    <p>Helping families find quality childcare across the Birmingham metro area.</p>
+                    <p class="disclaimer">Not a comprehensive list. Verify licensing and availability directly with providers.</p>
+                </div>
+                <div class="footer-links">
+                    <a href="#submit">Submit a Center</a>
+                    <a href="mailto:hello@example.com">Update Listing</a>
+                    <a href="mailto:hello@example.com">Contact</a>
+                    <a href="mailto:hello@example.com">About</a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Birmingham Childcare Directory. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Detail Modal -->
+    <div class="modal" id="detailModal" role="dialog" aria-labelledby="modalTitle" aria-hidden="true">
+        <div class="modal-overlay" data-close-modal></div>
+        <div class="modal-content">
+            <button class="modal-close" data-close-modal aria-label="Close modal">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <line x1="18" y1="6" x2="6" y2="18"></line>
+                    <line x1="6" y1="6" x2="18" y2="18"></line>
+                </svg>
+            </button>
+            <div class="modal-body" id="modalBody">
+                <!-- Modal content will be populated by JavaScript -->
+            </div>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>

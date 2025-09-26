@@ -257,10 +257,6 @@ h4 { font-size: 1.25rem; }
     background-color: var(--neutral-bg);
     padding: 40px 0;
     border-bottom: 1px solid #E5E7EB;
-    position: sticky;
-    top: 0;
-    z-index: 10;
-    backdrop-filter: blur(10px);
 }
 
 .filters-header {

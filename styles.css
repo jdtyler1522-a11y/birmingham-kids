@@ -282,21 +282,25 @@ h4 { font-size: 1.25rem; }
     display: flex;
     align-items: center;
     gap: 8px;
-    padding: 8px 16px;
-    background-color: #FF4444 !important;
+    padding: 10px 20px;
+    background: linear-gradient(135deg, var(--primary-accent) 0%, var(--secondary-accent) 100%);
     color: var(--white);
-    border: 3px solid #000000 !important;
-    border-radius: var(--radius-md);
+    border: none;
+    border-radius: 25px;
     font-family: var(--font-body);
-    font-weight: 500;
+    font-weight: 600;
     cursor: pointer;
     transition: var(--transition);
-    font-size: 1.2rem !important;
+    font-size: 0.9rem;
+    box-shadow: 0 2px 8px rgba(255, 183, 3, 0.3);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
 }
 
 .filters-toggle:hover {
-    background-color: #1A7C95;
-    transform: translateY(-1px);
+    background: linear-gradient(135deg, var(--secondary-accent) 0%, var(--primary-accent) 100%);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(255, 183, 3, 0.4);
 }
 
 .filters-toggle svg {

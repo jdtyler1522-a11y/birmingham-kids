@@ -1,4 +1,5 @@
-// Birmingham Childcare Directory App
+// Birmingham Childcare Directory App v2025-09-26
+console.info('app.js v2025-09-26 loaded');
 class ChildcareDirectory {
     constructor() {
         this.centers = [];
@@ -20,12 +21,16 @@ class ChildcareDirectory {
     }
 
     async init() {
-        await this.loadData();
-        this.setupEventListeners();
-        this.initializeFiltersPanel();
-        this.parseUrlHash();
-        this.applyFilters();
-        this.render();
+        try {
+            await this.loadData();
+            this.setupEventListeners();
+            this.initializeFiltersPanel();
+            this.parseUrlHash();
+            this.applyFilters();
+            this.render();
+        } catch(e) {
+            console.error('Init failed:', e);
+        }
     }
 
     async loadData() {
@@ -184,7 +189,7 @@ class ChildcareDirectory {
     }
 
     initializeFiltersPanel() {
-        console.log('Initializing filters panel...');
+        console.info('initializeFiltersPanel start v2025-09-26');
         // Set initial state based on screen size and session storage
         const isMobile = window.innerWidth <= 768;
         const savedState = sessionStorage.getItem('filtersCollapsed');

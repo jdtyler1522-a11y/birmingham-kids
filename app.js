@@ -184,6 +184,7 @@ class ChildcareDirectory {
     }
 
     initializeFiltersPanel() {
+        console.log('Initializing filters panel...');
         // Set initial state based on screen size and session storage
         const isMobile = window.innerWidth <= 768;
         const savedState = sessionStorage.getItem('filtersCollapsed');
@@ -197,6 +198,9 @@ class ChildcareDirectory {
 
         const filtersSection = document.getElementById('filters');
         const toggleButton = document.getElementById('toggleFilters');
+        
+        console.log('Toggle button found:', !!toggleButton);
+        console.log('Filters section found:', !!filtersSection);
 
         if (filtersSection && toggleButton) {
             if (isCollapsed) {
@@ -204,11 +208,13 @@ class ChildcareDirectory {
                 toggleButton.setAttribute('aria-expanded', 'false');
                 const textElement = toggleButton.querySelector('.toggle-text');
                 if (textElement) textElement.textContent = 'Show Filters';
+                console.log('Set to collapsed state');
             } else {
                 filtersSection.classList.remove('collapsed');
                 toggleButton.setAttribute('aria-expanded', 'true');
                 const textElement = toggleButton.querySelector('.toggle-text');
                 if (textElement) textElement.textContent = 'Hide Filters';
+                console.log('Set to expanded state');
             }
         }
     }

@@ -283,15 +283,15 @@ h4 { font-size: 1.25rem; }
     align-items: center;
     gap: 8px;
     padding: 8px 16px;
-    background-color: var(--accent-2);
+    background-color: #FF4444 !important;
     color: var(--white);
-    border: none;
+    border: 3px solid #000000 !important;
     border-radius: var(--radius-md);
     font-family: var(--font-body);
     font-weight: 500;
     cursor: pointer;
     transition: var(--transition);
-    font-size: 0.9rem;
+    font-size: 1.2rem !important;
 }
 
 .filters-toggle:hover {

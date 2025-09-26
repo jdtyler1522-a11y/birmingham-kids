@@ -82,13 +82,23 @@
     <section class="filters-section" id="filters">
         <div class="container">
             <div class="filters-header">
-                <h2 class="filters-title">Find Your Perfect Childcare</h2>
+                <div class="filters-title-section">
+                    <h2 class="filters-title">Find Your Perfect Childcare</h2>
+                    <button id="toggleFilters" class="filters-toggle" aria-controls="filtersPanel" aria-expanded="true">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <polygon points="22,3 2,3 10,12.46 10,19 14,21 14,12.46"></polygon>
+                        </svg>
+                        <span class="toggle-text">Hide Filters</span>
+                        <span class="active-count">(0)</span>
+                    </button>
+                </div>
                 <div class="results-count">
                     Showing <span id="resultsCount">0</span> centers
                 </div>
             </div>
             
-            <div class="filters-grid">
+            <div id="filtersPanel" class="filters-panel">
+                <div class="filters-grid">
                 <!-- Location Filter -->
                 <div class="filter-group">
                     <label class="filter-label">Location</label>
@@ -299,8 +309,9 @@
                 </div>
             </div>
 
-            <div class="filter-actions">
-                <button class="clear-filters" id="clearFilters">Clear All Filters</button>
+                <div class="filter-actions">
+                    <button class="clear-filters" id="clearFilters">Clear All Filters</button>
+                </div>
             </div>
         </div>
     </section>

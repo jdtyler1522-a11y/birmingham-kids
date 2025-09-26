@@ -22,6 +22,7 @@ class ChildcareDirectory {
     async init() {
         await this.loadData();
         this.setupEventListeners();
+        this.initializeFiltersPanel();
         this.parseUrlHash();
         this.applyFilters();
         this.render();
@@ -172,6 +173,105 @@ class ChildcareDirectory {
             this.parseUrlHash();
             this.applyFilters();
         });
+
+        // Filters toggle
+        const toggleFilters = document.getElementById('toggleFilters');
+        if (toggleFilters) {
+            toggleFilters.addEventListener('click', () => {
+                this.toggleFiltersPanel();
+            });
+        }
+    }
+
+    initializeFiltersPanel() {
+        // Set initial state based on screen size and session storage
+        const isMobile = window.innerWidth <= 768;
+        const savedState = sessionStorage.getItem('filtersCollapsed');
+        let isCollapsed = false;
+
+        if (savedState !== null) {
+            isCollapsed = savedState === 'true';
+        } else {
+            isCollapsed = isMobile; // Default collapsed on mobile
+        }
+
+        const filtersSection = document.getElementById('filters');
+        const toggleButton = document.getElementById('toggleFilters');
+
+        if (filtersSection && toggleButton) {
+            if (isCollapsed) {
+                filtersSection.classList.add('collapsed');
+                toggleButton.setAttribute('aria-expanded', 'false');
+                const textElement = toggleButton.querySelector('.toggle-text');
+                if (textElement) textElement.textContent = 'Show Filters';
+            } else {
+                filtersSection.classList.remove('collapsed');
+                toggleButton.setAttribute('aria-expanded', 'true');
+                const textElement = toggleButton.querySelector('.toggle-text');
+                if (textElement) textElement.textContent = 'Hide Filters';
+            }
+        }
+    }
+
+    toggleFiltersPanel() {
+        const filtersSection = document.getElementById('filters');
+        const toggleButton = document.getElementById('toggleFilters');
+        const isCurrentlyCollapsed = filtersSection.classList.contains('collapsed');
+
+        if (isCurrentlyCollapsed) {
+            // Expand
+            filtersSection.classList.remove('collapsed');
+            toggleButton.setAttribute('aria-expanded', 'true');
+            toggleButton.querySelector('.toggle-text').textContent = 'Hide Filters';
+            sessionStorage.setItem('filtersCollapsed', 'false');
+        } else {
+            // Collapse
+            filtersSection.classList.add('collapsed');
+            toggleButton.setAttribute('aria-expanded', 'false');
+            toggleButton.querySelector('.toggle-text').textContent = 'Show Filters';
+            sessionStorage.setItem('filtersCollapsed', 'true');
+            
+            // Close any open dropdowns when collapsing
+            this.closeAllDropdowns();
+        }
+
+        this.updateActiveFiltersCount();
+    }
+
+    closeAllDropdowns() {
+        document.querySelectorAll('.dropdown-toggle').forEach(toggle => {
+            toggle.setAttribute('aria-expanded', 'false');
+            toggle.nextElementSibling.classList.remove('show');
+        });
+    }
+
+    updateActiveFiltersCount() {
+        let activeCount = 0;
+
+        // Count active filters
+        if (this.currentFilters.search) activeCount++;
+        if (this.currentFilters.location.length > 0) activeCount++;
+        if (this.currentFilters.ageRange.length > 0) activeCount++;
+        if (this.currentFilters.programType.length > 0) activeCount++;
+        if (this.currentFilters.accreditation.length > 0) activeCount++;
+        if (this.currentFilters.openTime) activeCount++;
+        if (this.currentFilters.closeTime) activeCount++;
+        if (this.currentFilters.openingsNow !== null) activeCount++;
+        if (this.currentFilters.acceptsSubsidy !== null) activeCount++;
+        if (this.currentFilters.firstClassPreK !== null) activeCount++;
+
+        const activeCountElement = document.querySelector('.active-count');
+        if (activeCountElement) {
+            activeCountElement.textContent = `(${activeCount})`;
+            
+            // Update button style based on active filters
+            const toggleButton = document.getElementById('toggleFilters');
+            if (activeCount > 0) {
+                toggleButton.style.backgroundColor = 'var(--accent-3)';
+            } else {
+                toggleButton.style.backgroundColor = 'var(--accent-2)';
+            }
+        }
     }
 
     debounce(func, wait) {
@@ -275,6 +375,7 @@ class ChildcareDirectory {
         this.applySort();
         this.updateResultsCount();
         this.render();
+        this.updateActiveFiltersCount();
     }
 
     applySort() {
@@ -678,6 +779,7 @@ class ChildcareDirectory {
         // Update URL and apply filters
         this.updateUrlHash();
         this.applyFilters();
+        this.updateActiveFiltersCount();
     }
 
     handleSubmitForm(e) {

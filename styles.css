@@ -1135,3 +1135,8 @@ h4 { font-size: 1.25rem; }
     pragma: no-cache;
     expires: 0;
 }
+
+/* Force filters to scroll naturally */
+.filters-section {
+    position: static !important;
+}

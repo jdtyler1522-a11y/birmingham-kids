@@ -1139,4 +1139,7 @@ h4 { font-size: 1.25rem; }
 /* Force filters to scroll naturally */
 .filters-section {
     position: static !important;
+    top: auto !important;
+    z-index: auto !important;
+    transform: none !important;
 }

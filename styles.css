@@ -111,22 +111,11 @@ h4 { font-size: 1.25rem; }
 
 /* Hero Section */
 .hero {
-    background: url('attached_assets/image_1758906526540.png') center/cover no-repeat;
+    background-color: #8ECAE6;
     padding: 80px 0;
     text-align: center;
     position: relative;
     overflow: hidden;
-    min-height: 600px;
-}
-
-.hero::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: rgba(0, 0, 0, 0.35);
 }
 
 .hero-content {
@@ -150,19 +139,17 @@ h4 { font-size: 1.25rem; }
 .hero-title {
     font-size: 3rem;
     font-weight: 700;
-    color: var(--white);
+    color: var(--neutral-text);
     margin-bottom: 16px;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
 }
 
 .hero-subtitle {
     font-size: 1.25rem;
-    color: var(--white);
+    color: var(--dark-gray);
     margin-bottom: 40px;
     max-width: 600px;
     margin-left: auto;
     margin-right: auto;
-    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
 }
 
 /* Hero Search */

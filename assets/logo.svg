@@ -1,4 +1,22 @@
 <svg width="80" height="80" viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
   <rect width="80" height="80" rx="20" fill="#FFB703"/>
-  <text x="40" y="55" font-size="48" text-anchor="middle" dominant-baseline="middle">👶</text>
+  
+  <!-- Baby face -->
+  <circle cx="40" cy="42" r="22" fill="#FFD4A3"/>
+  
+  <!-- Eyes -->
+  <circle cx="32" cy="38" r="3" fill="#2C3E50"/>
+  <circle cx="48" cy="38" r="3" fill="#2C3E50"/>
+  
+  <!-- Cute smile -->
+  <path d="M 30 48 Q 40 54 50 48" stroke="#2C3E50" stroke-width="2" stroke-linecap="round" fill="none"/>
+  
+  <!-- Rosy cheeks -->
+  <circle cx="26" cy="45" r="4" fill="#FFB7C5" opacity="0.5"/>
+  <circle cx="54" cy="45" r="4" fill="#FFB7C5" opacity="0.5"/>
+  
+  <!-- Hair curl on top -->
+  <circle cx="40" cy="22" r="5" fill="#8B4513"/>
+  <circle cx="35" cy="24" r="4" fill="#8B4513"/>
+  <circle cx="45" cy="24" r="4" fill="#8B4513"/>
 </svg>

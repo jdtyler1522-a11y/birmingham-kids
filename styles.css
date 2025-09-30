@@ -126,8 +126,7 @@ h4 { font-size: 1.25rem; }
     left: 0;
     right: 0;
     bottom: 0;
-    background: linear-gradient(135deg, rgba(255, 183, 3, 0.85) 0%, rgba(251, 133, 0, 0.8) 100%);
-    backdrop-filter: blur(1px);
+    background: rgba(0, 0, 0, 0.35);
 }
 
 .hero-content {

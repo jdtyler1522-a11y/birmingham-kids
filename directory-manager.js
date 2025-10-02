@@ -4,7 +4,6 @@
     const hash = window.location.hash;
     const currentDirectory = hash.startsWith('#pediatricians') ? 'pediatricians' : 'childcare';
     window.ACTIVE_DIRECTORY = currentDirectory;
-    console.log('[Directory Manager] Hash:', hash, 'Directory:', currentDirectory);
     
     // Update UI elements based on directory
     function updateUI(directory) {

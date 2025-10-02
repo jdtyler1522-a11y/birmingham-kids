@@ -303,84 +303,96 @@ class ChildcareDirectory {
 
     applyFilters() {
         this.filteredCenters = this.centers.filter(center => {
-            // Search filter
+            // Search filter - works for both directories
             if (this.currentFilters.search) {
                 const searchTerm = this.currentFilters.search.toLowerCase();
-                const searchableText = `${center.name} ${center.city} ${center.neighborhood} ${center.programs.join(' ')} ${center.blurb}`.toLowerCase();
+                let searchableText;
+                
+                if (this.isPediatricianMode) {
+                    // Search pediatrician fields
+                    searchableText = `${center.displayName || center.practiceName} ${center.providerName || ''} ${center.city} ${center.description || ''} ${center.services || ''}`.toLowerCase();
+                } else {
+                    // Search childcare fields
+                    searchableText = `${center.name} ${center.city} ${center.neighborhood} ${center.programs.join(' ')} ${center.blurb}`.toLowerCase();
+                }
+                
                 if (!searchableText.includes(searchTerm)) {
                     return false;
                 }
             }
 
-            // Location filter
+            // Location filter - works for both directories
             if (this.currentFilters.location.length > 0) {
                 if (!this.currentFilters.location.includes(center.city)) {
                     return false;
                 }
             }
 
-            // Age range filter
-            if (this.currentFilters.ageRange.length > 0) {
-                const hasMatchingAge = this.currentFilters.ageRange.some(age => 
-                    center.agesServed.includes(age)
-                );
-                if (!hasMatchingAge) {
-                    return false;
+            // CHILDCARE-ONLY FILTERS
+            if (!this.isPediatricianMode) {
+                // Age range filter
+                if (this.currentFilters.ageRange.length > 0) {
+                    const hasMatchingAge = this.currentFilters.ageRange.some(age => 
+                        center.agesServed && center.agesServed.includes(age)
+                    );
+                    if (!hasMatchingAge) {
+                        return false;
+                    }
                 }
-            }
 
-            // Program type filter
-            if (this.currentFilters.programType.length > 0) {
-                const hasMatchingType = this.currentFilters.programType.some(type => 
-                    center.type.includes(type)
-                );
-                if (!hasMatchingType) {
-                    return false;
+                // Program type filter
+                if (this.currentFilters.programType.length > 0) {
+                    const hasMatchingType = this.currentFilters.programType.some(type => 
+                        center.type && center.type.includes(type)
+                    );
+                    if (!hasMatchingType) {
+                        return false;
+                    }
                 }
-            }
 
-            // Accreditation filter
-            if (this.currentFilters.accreditation.length > 0) {
-                const hasMatchingAccreditation = this.currentFilters.accreditation.some(acc => {
-                    if (acc === 'NAEYC') return center.accreditations.includes('NAEYC');
-                    if (acc === 'First Class Pre-K') return center.firstClassPreK;
-                    if (acc === 'QRIS') return center.qris !== null;
-                    return false;
-                });
-                if (!hasMatchingAccreditation) {
-                    return false;
+                // Accreditation filter
+                if (this.currentFilters.accreditation.length > 0) {
+                    const hasMatchingAccreditation = this.currentFilters.accreditation.some(acc => {
+                        if (acc === 'NAEYC') return center.accreditations && center.accreditations.includes('NAEYC');
+                        if (acc === 'First Class Pre-K') return center.firstClassPreK;
+                        if (acc === 'QRIS') return center.qris !== null;
+                        return false;
+                    });
+                    if (!hasMatchingAccreditation) {
+                        return false;
+                    }
                 }
-            }
 
-            // Hours filters
-            if (this.currentFilters.openTime) {
-                if (center.hours.open > this.currentFilters.openTime) {
-                    return false;
+                // Hours filters
+                if (this.currentFilters.openTime) {
+                    if (center.hours && center.hours.open && center.hours.open > this.currentFilters.openTime) {
+                        return false;
+                    }
                 }
-            }
 
-            if (this.currentFilters.closeTime) {
-                if (center.hours.close < this.currentFilters.closeTime) {
-                    return false;
+                if (this.currentFilters.closeTime) {
+                    if (center.hours && center.hours.close && center.hours.close < this.currentFilters.closeTime) {
+                        return false;
+                    }
                 }
-            }
 
-            // Boolean filters
-            if (this.currentFilters.openingsNow !== null) {
-                if (center.openingsNow !== this.currentFilters.openingsNow) {
-                    return false;
+                // Boolean filters
+                if (this.currentFilters.openingsNow !== null) {
+                    if (center.openingsNow !== this.currentFilters.openingsNow) {
+                        return false;
+                    }
                 }
-            }
 
-            if (this.currentFilters.acceptsSubsidy !== null) {
-                if (center.acceptsSubsidy !== this.currentFilters.acceptsSubsidy) {
-                    return false;
+                if (this.currentFilters.acceptsSubsidy !== null) {
+                    if (center.acceptsSubsidy !== this.currentFilters.acceptsSubsidy) {
+                        return false;
+                    }
                 }
-            }
 
-            if (this.currentFilters.firstClassPreK !== null) {
-                if (center.firstClassPreK !== this.currentFilters.firstClassPreK) {
-                    return false;
+                if (this.currentFilters.firstClassPreK !== null) {
+                    if (center.firstClassPreK !== this.currentFilters.firstClassPreK) {
+                        return false;
+                    }
                 }
             }
 

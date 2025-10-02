@@ -9,22 +9,41 @@
     "phone": "(205) 879-3278",
     "email": null,
     "website": "https://cmskids.org",
-    "type": ["Center-based", "Montessori"],
+    "type": [
+      "Center-based",
+      "Montessori"
+    ],
     "faithBased": false,
-    "agesServed": ["Toddler", "Preschool", "Pre-K"],
-    "programs": ["Full-time"],
-    "accreditations": ["AL DHR Licensed"],
+    "agesServed": [
+      "Toddler",
+      "Preschool",
+      "Pre-K"
+    ],
+    "programs": [
+      "Full-time"
+    ],
+    "accreditations": [
+      "AL DHR Licensed"
+    ],
     "acceptsSubsidy": false,
     "firstClassPreK": false,
     "qris": null,
-    "hours": {"open": "07:00", "close": "17:30"},
-    "tuitionRangeMonthlyUSD": [900, 1400],
+    "hours": {
+      "open": "07:00",
+      "close": "17:30"
+    },
+    "tuitionRangeMonthlyUSD": [
+      900,
+      1400
+    ],
     "openingsNow": true,
     "waitlist": false,
     "latitude": 33.4651,
     "longitude": -86.7947,
     "blurb": "Montessori-based early childhood education with hands-on learning experiences.",
-    "photos": ["assets/placeholder1.jpg"]
+    "photos": [
+      "assets/placeholder1.jpg"
+    ]
   },
   {
     "id": "montessori-kids-universe-homewood-02",
@@ -36,22 +55,42 @@
     "phone": "(205) 848-2714",
     "email": null,
     "website": "https://montessorikidsuniverse.com",
-    "type": ["Center-based", "Montessori"],
+    "type": [
+      "Center-based",
+      "Montessori"
+    ],
     "faithBased": false,
-    "agesServed": ["Infant", "Toddler", "Preschool", "Pre-K"],
-    "programs": ["Full-time"],
-    "accreditations": ["AL DHR Licensed"],
+    "agesServed": [
+      "Infant",
+      "Toddler",
+      "Preschool",
+      "Pre-K"
+    ],
+    "programs": [
+      "Full-time"
+    ],
+    "accreditations": [
+      "AL DHR Licensed"
+    ],
     "acceptsSubsidy": false,
     "firstClassPreK": false,
     "qris": null,
-    "hours": {"open": "06:00", "close": "18:00"},
-    "tuitionRangeMonthlyUSD": [950, 1500],
+    "hours": {
+      "open": "06:00",
+      "close": "18:00"
+    },
+    "tuitionRangeMonthlyUSD": [
+      950,
+      1500
+    ],
     "openingsNow": false,
     "waitlist": true,
     "latitude": 33.4702,
     "longitude": -86.8055,
     "blurb": "Montessori philosophy fostering independence and love of learning.",
-    "photos": ["assets/placeholder2.jpg"]
+    "photos": [
+      "assets/placeholder2.jpg"
+    ]
   },
   {
     "id": "homewood-day-school-03",
@@ -63,22 +102,41 @@
     "phone": "(205) 945-1015",
     "email": null,
     "website": "https://homewooddayschool.org",
-    "type": ["Center-based", "Faith-based"],
+    "type": [
+      "Center-based",
+      "Faith-based"
+    ],
     "faithBased": true,
-    "agesServed": ["Toddler", "Preschool", "Pre-K"],
-    "programs": ["Full-time"],
-    "accreditations": ["AL DHR Licensed"],
+    "agesServed": [
+      "Toddler",
+      "Preschool",
+      "Pre-K"
+    ],
+    "programs": [
+      "Full-time"
+    ],
+    "accreditations": [
+      "AL DHR Licensed"
+    ],
     "acceptsSubsidy": false,
     "firstClassPreK": false,
     "qris": null,
-    "hours": {"open": "07:00", "close": "17:30"},
-    "tuitionRangeMonthlyUSD": [700, 1100],
+    "hours": {
+      "open": "07:00",
+      "close": "17:30"
+    },
+    "tuitionRangeMonthlyUSD": [
+      700,
+      1100
+    ],
     "openingsNow": true,
     "waitlist": false,
     "latitude": 33.4645,
     "longitude": -86.8022,
     "blurb": "Faith-based early learning in a nurturing Christian environment.",
-    "photos": ["assets/placeholder3.jpg"]
+    "photos": [
+      "assets/placeholder3.jpg"
+    ]
   },
   {
     "id": "trinity-child-dev-04",
@@ -90,22 +148,42 @@
     "phone": "(205) 879-1749",
     "email": null,
     "website": "https://trinitybirmingham.com",
-    "type": ["Center-based", "Faith-based"],
+    "type": [
+      "Center-based",
+      "Faith-based"
+    ],
     "faithBased": true,
-    "agesServed": ["Infant", "Toddler", "Preschool", "Pre-K"],
-    "programs": ["Full-time"],
-    "accreditations": ["AL DHR Licensed"],
+    "agesServed": [
+      "Infant",
+      "Toddler",
+      "Preschool",
+      "Pre-K"
+    ],
+    "programs": [
+      "Full-time"
+    ],
+    "accreditations": [
+      "AL DHR Licensed"
+    ],
     "acceptsSubsidy": true,
     "firstClassPreK": false,
     "qris": null,
-    "hours": {"open": "07:00", "close": "18:00"},
-    "tuitionRangeMonthlyUSD": [650, 1050],
+    "hours": {
+      "open": "07:00",
+      "close": "18:00"
+    },
+    "tuitionRangeMonthlyUSD": [
+      650,
+      1050
+    ],
     "openingsNow": true,
     "waitlist": false,
     "latitude": 33.4678,
     "longitude": -86.8012,
     "blurb": "Methodist church-based childcare with a focus on spiritual and academic growth.",
-    "photos": ["assets/placeholder4.jpg"]
+    "photos": [
+      "assets/placeholder4.jpg"
+    ]
   },
   {
     "id": "our-lady-sorrows-05",
@@ -117,22 +195,42 @@
     "phone": "(205) 871-3253",
     "email": null,
     "website": "https://ourladyofsorrows.com",
-    "type": ["Center-based", "Faith-based"],
+    "type": [
+      "Center-based",
+      "Faith-based"
+    ],
     "faithBased": true,
-    "agesServed": ["Infant", "Toddler", "Preschool", "Pre-K"],
-    "programs": ["Full-time"],
-    "accreditations": ["AL DHR Licensed"],
+    "agesServed": [
+      "Infant",
+      "Toddler",
+      "Preschool",
+      "Pre-K"
+    ],
+    "programs": [
+      "Full-time"
+    ],
+    "accreditations": [
+      "AL DHR Licensed"
+    ],
     "acceptsSubsidy": false,
     "firstClassPreK": false,
     "qris": null,
-    "hours": {"open": "06:30", "close": "18:00"},
-    "tuitionRangeMonthlyUSD": [750, 1200],
+    "hours": {
+      "open": "06:30",
+      "close": "18:00"
+    },
+    "tuitionRangeMonthlyUSD": [
+      750,
+      1200
+    ],
     "openingsNow": false,
     "waitlist": true,
     "latitude": 33.4692,
     "longitude": -86.8025,
     "blurb": "Catholic preschool offering faith-based education and care.",
-    "photos": ["assets/placeholder5.jpg"]
+    "photos": [
+      "assets/placeholder5.jpg"
+    ]
   },
   {
     "id": "little-angels-06",
@@ -144,22 +242,41 @@
     "phone": "(205) 942-4704",
     "email": null,
     "website": null,
-    "type": ["Center-based", "Faith-based"],
+    "type": [
+      "Center-based",
+      "Faith-based"
+    ],
     "faithBased": true,
-    "agesServed": ["Toddler", "Preschool", "Pre-K"],
-    "programs": ["Full-time"],
-    "accreditations": ["AL DHR Licensed"],
+    "agesServed": [
+      "Toddler",
+      "Preschool",
+      "Pre-K"
+    ],
+    "programs": [
+      "Full-time"
+    ],
+    "accreditations": [
+      "AL DHR Licensed"
+    ],
     "acceptsSubsidy": true,
     "firstClassPreK": false,
     "qris": null,
-    "hours": {"open": "07:30", "close": "17:30"},
-    "tuitionRangeMonthlyUSD": [600, 950],
+    "hours": {
+      "open": "07:30",
+      "close": "17:30"
+    },
+    "tuitionRangeMonthlyUSD": [
+      600,
+      950
+    ],
     "openingsNow": true,
     "waitlist": false,
     "latitude": 33.4588,
     "longitude": -86.7895,
     "blurb": "Community-focused childcare center with personalized attention.",
-    "photos": ["assets/placeholder6.jpg"]
+    "photos": [
+      "assets/placeholder6.jpg"
+    ]
   },
   {
     "id": "abc-wildwood-07",
@@ -171,22 +288,41 @@
     "phone": "(205) 942-2281",
     "email": null,
     "website": "https://abcchilddevelopment.net",
-    "type": ["Center-based"],
+    "type": [
+      "Center-based"
+    ],
     "faithBased": false,
-    "agesServed": ["Infant", "Toddler", "Preschool", "Pre-K"],
-    "programs": ["Full-time"],
-    "accreditations": ["AL DHR Licensed"],
+    "agesServed": [
+      "Infant",
+      "Toddler",
+      "Preschool",
+      "Pre-K"
+    ],
+    "programs": [
+      "Full-time"
+    ],
+    "accreditations": [
+      "AL DHR Licensed"
+    ],
     "acceptsSubsidy": true,
     "firstClassPreK": false,
     "qris": null,
-    "hours": {"open": "07:00", "close": "17:30"},
-    "tuitionRangeMonthlyUSD": [700, 1150],
+    "hours": {
+      "open": "07:00",
+      "close": "17:30"
+    },
+    "tuitionRangeMonthlyUSD": [
+      700,
+      1150
+    ],
     "openingsNow": true,
     "waitlist": false,
     "latitude": 33.4532,
     "longitude": -86.7852,
     "blurb": "Comprehensive child development programs for all ages.",
-    "photos": ["assets/placeholder7.jpg"]
+    "photos": [
+      "assets/placeholder7.jpg"
+    ]
   },
   {
     "id": "abc-610-columbiana-08",
@@ -198,22 +334,42 @@
     "phone": "(205) 942-7526",
     "email": null,
     "website": null,
-    "type": ["Center-based"],
+    "type": [
+      "Center-based"
+    ],
     "faithBased": false,
-    "agesServed": ["Toddler", "Preschool", "Pre-K", "School-age"],
-    "programs": ["Full-time", "Kindergarten"],
-    "accreditations": ["AL DHR Licensed"],
+    "agesServed": [
+      "Toddler",
+      "Preschool",
+      "Pre-K",
+      "School-age"
+    ],
+    "programs": [
+      "Full-time",
+      "Kindergarten"
+    ],
+    "accreditations": [
+      "AL DHR Licensed"
+    ],
     "acceptsSubsidy": true,
     "firstClassPreK": false,
     "qris": null,
-    "hours": {"open": "07:00", "close": "17:30"},
-    "tuitionRangeMonthlyUSD": [650, 1000],
+    "hours": {
+      "open": "07:00",
+      "close": "17:30"
+    },
+    "tuitionRangeMonthlyUSD": [
+      650,
+      1000
+    ],
     "openingsNow": true,
     "waitlist": false,
     "latitude": 33.4595,
     "longitude": -86.7888,
     "blurb": "Daycare and kindergarten program with a warm, family atmosphere.",
-    "photos": ["assets/placeholder8.jpg"]
+    "photos": [
+      "assets/placeholder8.jpg"
+    ]
   },
   {
     "id": "moxi-childcare-09",
@@ -225,26 +381,46 @@
     "phone": null,
     "email": null,
     "website": "https://moxichildcare.com",
-    "type": ["Center-based", "Drop-in"],
+    "type": [
+      "Center-based",
+      "Drop-in"
+    ],
     "faithBased": false,
-    "agesServed": ["Infant", "Toddler", "Preschool"],
-    "programs": ["Part-time", "Drop-in"],
-    "accreditations": ["AL DHR Licensed"],
+    "agesServed": [
+      "Infant",
+      "Toddler",
+      "Preschool"
+    ],
+    "programs": [
+      "Part-time",
+      "Drop-in"
+    ],
+    "accreditations": [
+      "AL DHR Licensed"
+    ],
     "acceptsSubsidy": false,
     "firstClassPreK": false,
     "qris": null,
-    "hours": {"open": "08:00", "close": "17:00"},
-    "tuitionRangeMonthlyUSD": [400, 800],
+    "hours": {
+      "open": "08:00",
+      "close": "17:00"
+    },
+    "tuitionRangeMonthlyUSD": [
+      400,
+      800
+    ],
     "openingsNow": true,
     "waitlist": false,
     "latitude": 33.4652,
     "longitude": -86.7948,
     "blurb": "Flexible on-demand childcare for busy families.",
-    "photos": ["assets/placeholder9.jpg"]
+    "photos": [
+      "assets/placeholder9.jpg"
+    ]
   },
   {
     "id": "levite-jcc-10",
-    "name": "Levite JCC – Cohn Early Childhood Learning Center",
+    "name": "Levite JCC \u2013 Cohn Early Childhood Learning Center",
     "address": "3960 Montclair Rd",
     "city": "Mountain Brook",
     "zip": "35213",
@@ -252,22 +428,42 @@
     "phone": "(205) 879-0411",
     "email": null,
     "website": "https://bhamjcc.org",
-    "type": ["Center-based"],
+    "type": [
+      "Center-based"
+    ],
     "faithBased": false,
-    "agesServed": ["Infant", "Toddler", "Preschool", "Pre-K"],
-    "programs": ["Full-time"],
-    "accreditations": ["AL DHR Licensed", "NAEYC"],
+    "agesServed": [
+      "Infant",
+      "Toddler",
+      "Preschool",
+      "Pre-K"
+    ],
+    "programs": [
+      "Full-time"
+    ],
+    "accreditations": [
+      "AL DHR Licensed",
+      "NAEYC"
+    ],
     "acceptsSubsidy": false,
     "firstClassPreK": false,
     "qris": "4-star",
-    "hours": {"open": "07:00", "close": "18:00"},
-    "tuitionRangeMonthlyUSD": [1100, 1700],
+    "hours": {
+      "open": "07:00",
+      "close": "18:00"
+    },
+    "tuitionRangeMonthlyUSD": [
+      1100,
+      1700
+    ],
     "openingsNow": false,
     "waitlist": true,
     "latitude": 33.4825,
     "longitude": -86.7489,
     "blurb": "Premier early childhood program at the Jewish Community Center.",
-    "photos": ["assets/placeholder10.jpg"]
+    "photos": [
+      "assets/placeholder10.jpg"
+    ]
   },
   {
     "id": "vestavia-day-school-11",
@@ -279,22 +475,41 @@
     "phone": "(205) 769-0128",
     "email": null,
     "website": "https://vhumc.org",
-    "type": ["Center-based", "Faith-based"],
+    "type": [
+      "Center-based",
+      "Faith-based"
+    ],
     "faithBased": true,
-    "agesServed": ["Toddler", "Preschool", "Pre-K"],
-    "programs": ["Full-time"],
-    "accreditations": ["AL DHR Licensed"],
+    "agesServed": [
+      "Toddler",
+      "Preschool",
+      "Pre-K"
+    ],
+    "programs": [
+      "Full-time"
+    ],
+    "accreditations": [
+      "AL DHR Licensed"
+    ],
     "acceptsSubsidy": false,
     "firstClassPreK": false,
     "qris": null,
-    "hours": {"open": "07:00", "close": "18:00"},
-    "tuitionRangeMonthlyUSD": [750, 1200],
+    "hours": {
+      "open": "07:00",
+      "close": "18:00"
+    },
+    "tuitionRangeMonthlyUSD": [
+      750,
+      1200
+    ],
     "openingsNow": true,
     "waitlist": false,
     "latitude": 33.4392,
     "longitude": -86.7825,
     "blurb": "Methodist church preschool with a nurturing approach.",
-    "photos": ["assets/placeholder11.jpg"]
+    "photos": [
+      "assets/placeholder11.jpg"
+    ]
   },
   {
     "id": "st-mark-early-learning-12",
@@ -306,22 +521,41 @@
     "phone": "(205) 822-1312",
     "email": null,
     "website": "https://saintmarkumc.org",
-    "type": ["Center-based", "Faith-based"],
+    "type": [
+      "Center-based",
+      "Faith-based"
+    ],
     "faithBased": true,
-    "agesServed": ["Toddler", "Preschool", "Pre-K"],
-    "programs": ["Full-time"],
-    "accreditations": ["AL DHR Licensed"],
+    "agesServed": [
+      "Toddler",
+      "Preschool",
+      "Pre-K"
+    ],
+    "programs": [
+      "Full-time"
+    ],
+    "accreditations": [
+      "AL DHR Licensed"
+    ],
     "acceptsSubsidy": false,
     "firstClassPreK": false,
     "qris": null,
-    "hours": {"open": "07:00", "close": "16:30"},
-    "tuitionRangeMonthlyUSD": [700, 1100],
+    "hours": {
+      "open": "07:00",
+      "close": "16:30"
+    },
+    "tuitionRangeMonthlyUSD": [
+      700,
+      1100
+    ],
     "openingsNow": true,
     "waitlist": false,
     "latitude": 33.4355,
     "longitude": -86.7642,
     "blurb": "Faith-based early learning in a supportive community.",
-    "photos": ["assets/placeholder12.jpg"]
+    "photos": [
+      "assets/placeholder12.jpg"
+    ]
   },
   {
     "id": "vestavia-baptist-cdc-13",
@@ -333,22 +567,42 @@
     "phone": "(205) 979-5920",
     "email": null,
     "website": "https://vhbc.com",
-    "type": ["Center-based", "Faith-based"],
+    "type": [
+      "Center-based",
+      "Faith-based"
+    ],
     "faithBased": true,
-    "agesServed": ["Infant", "Toddler", "Preschool", "Pre-K"],
-    "programs": ["Full-time"],
-    "accreditations": ["AL DHR Licensed"],
+    "agesServed": [
+      "Infant",
+      "Toddler",
+      "Preschool",
+      "Pre-K"
+    ],
+    "programs": [
+      "Full-time"
+    ],
+    "accreditations": [
+      "AL DHR Licensed"
+    ],
     "acceptsSubsidy": false,
     "firstClassPreK": false,
     "qris": null,
-    "hours": {"open": "07:00", "close": "17:30"},
-    "tuitionRangeMonthlyUSD": [650, 1050],
+    "hours": {
+      "open": "07:00",
+      "close": "17:30"
+    },
+    "tuitionRangeMonthlyUSD": [
+      650,
+      1050
+    ],
     "openingsNow": true,
     "waitlist": false,
     "latitude": 33.4488,
     "longitude": -86.7845,
     "blurb": "Baptist church childcare with a Christ-centered approach.",
-    "photos": ["assets/placeholder13.jpg"]
+    "photos": [
+      "assets/placeholder13.jpg"
+    ]
   },
   {
     "id": "ascension-episcopal-14",
@@ -360,22 +614,41 @@
     "phone": "(205) 822-3460",
     "email": null,
     "website": null,
-    "type": ["Center-based", "Faith-based"],
+    "type": [
+      "Center-based",
+      "Faith-based"
+    ],
     "faithBased": true,
-    "agesServed": ["Toddler", "Preschool", "Pre-K"],
-    "programs": ["Full-time"],
-    "accreditations": ["AL DHR Licensed"],
+    "agesServed": [
+      "Toddler",
+      "Preschool",
+      "Pre-K"
+    ],
+    "programs": [
+      "Full-time"
+    ],
+    "accreditations": [
+      "AL DHR Licensed"
+    ],
     "acceptsSubsidy": false,
     "firstClassPreK": false,
     "qris": null,
-    "hours": {"open": "08:00", "close": "17:00"},
-    "tuitionRangeMonthlyUSD": [800, 1250],
+    "hours": {
+      "open": "08:00",
+      "close": "17:00"
+    },
+    "tuitionRangeMonthlyUSD": [
+      800,
+      1250
+    ],
     "openingsNow": false,
     "waitlist": true,
     "latitude": 33.4425,
     "longitude": -86.7712,
     "blurb": "Episcopal day school with a focus on spiritual and academic excellence.",
-    "photos": ["assets/placeholder14.jpg"]
+    "photos": [
+      "assets/placeholder14.jpg"
+    ]
   },
   {
     "id": "gracekids-liberty-park-15",
@@ -387,22 +660,42 @@
     "phone": null,
     "email": null,
     "website": null,
-    "type": ["Center-based", "Faith-based"],
+    "type": [
+      "Center-based",
+      "Faith-based"
+    ],
     "faithBased": true,
-    "agesServed": ["Infant", "Toddler", "Preschool", "Pre-K"],
-    "programs": ["Full-time"],
-    "accreditations": ["AL DHR Licensed"],
+    "agesServed": [
+      "Infant",
+      "Toddler",
+      "Preschool",
+      "Pre-K"
+    ],
+    "programs": [
+      "Full-time"
+    ],
+    "accreditations": [
+      "AL DHR Licensed"
+    ],
     "acceptsSubsidy": true,
     "firstClassPreK": false,
     "qris": null,
-    "hours": {"open": "06:30", "close": "18:00"},
-    "tuitionRangeMonthlyUSD": [700, 1150],
+    "hours": {
+      "open": "06:30",
+      "close": "18:00"
+    },
+    "tuitionRangeMonthlyUSD": [
+      700,
+      1150
+    ],
     "openingsNow": true,
     "waitlist": false,
     "latitude": 33.3822,
     "longitude": -86.7255,
     "blurb": "Faith-based childcare in the growing Liberty Park community.",
-    "photos": ["assets/placeholder15.jpg"]
+    "photos": [
+      "assets/placeholder15.jpg"
+    ]
   },
   {
     "id": "primrose-liberty-park-16",
@@ -414,26 +707,46 @@
     "phone": "(205) 969-8202",
     "email": null,
     "website": "https://primroseschools.com",
-    "type": ["Center-based"],
+    "type": [
+      "Center-based"
+    ],
     "faithBased": false,
-    "agesServed": ["Infant", "Toddler", "Preschool", "Pre-K"],
-    "programs": ["Full-time"],
-    "accreditations": ["AL DHR Licensed", "Primrose Certified"],
+    "agesServed": [
+      "Infant",
+      "Toddler",
+      "Preschool",
+      "Pre-K"
+    ],
+    "programs": [
+      "Full-time"
+    ],
+    "accreditations": [
+      "AL DHR Licensed",
+      "Primrose Certified"
+    ],
     "acceptsSubsidy": false,
     "firstClassPreK": false,
     "qris": null,
-    "hours": {"open": "06:30", "close": "18:30"},
-    "tuitionRangeMonthlyUSD": [1100, 1650],
+    "hours": {
+      "open": "06:30",
+      "close": "18:30"
+    },
+    "tuitionRangeMonthlyUSD": [
+      1100,
+      1650
+    ],
     "openingsNow": true,
     "waitlist": false,
     "latitude": 33.3835,
     "longitude": -86.7242,
     "blurb": "Balanced Learning approach combining play and purposeful learning.",
-    "photos": ["assets/placeholder1.jpg"]
+    "photos": [
+      "assets/placeholder1.jpg"
+    ]
   },
   {
     "id": "ardent-trace-crossings-17",
-    "name": "Ardent Preschool & Daycare – Trace Crossings",
+    "name": "Ardent Preschool & Daycare \u2013 Trace Crossings",
     "address": "5390 Magnolia Trace",
     "city": "Hoover",
     "zip": "35244",
@@ -441,26 +754,45 @@
     "phone": "(205) 733-5437",
     "email": null,
     "website": "https://ardentpreschool.com",
-    "type": ["Center-based"],
+    "type": [
+      "Center-based"
+    ],
     "faithBased": false,
-    "agesServed": ["Infant", "Toddler", "Preschool", "Pre-K"],
-    "programs": ["Full-time"],
-    "accreditations": ["AL DHR Licensed"],
+    "agesServed": [
+      "Infant",
+      "Toddler",
+      "Preschool",
+      "Pre-K"
+    ],
+    "programs": [
+      "Full-time"
+    ],
+    "accreditations": [
+      "AL DHR Licensed"
+    ],
     "acceptsSubsidy": false,
     "firstClassPreK": false,
     "qris": null,
-    "hours": {"open": "06:30", "close": "18:00"},
-    "tuitionRangeMonthlyUSD": [950, 1450],
+    "hours": {
+      "open": "06:30",
+      "close": "18:00"
+    },
+    "tuitionRangeMonthlyUSD": [
+      950,
+      1450
+    ],
     "openingsNow": true,
     "waitlist": false,
     "latitude": 33.3489,
     "longitude": -86.7125,
     "blurb": "High-quality early education with a focus on school readiness.",
-    "photos": ["assets/placeholder2.jpg"]
+    "photos": [
+      "assets/placeholder2.jpg"
+    ]
   },
   {
     "id": "ardent-greystone-18",
-    "name": "Ardent Preschool & Daycare – Greystone",
+    "name": "Ardent Preschool & Daycare \u2013 Greystone",
     "address": "6801 Tattersall Way",
     "city": "Hoover",
     "zip": "35242",
@@ -468,26 +800,45 @@
     "phone": "(205) 396-1250",
     "email": null,
     "website": "https://ardentpreschool.com",
-    "type": ["Center-based"],
+    "type": [
+      "Center-based"
+    ],
     "faithBased": false,
-    "agesServed": ["Infant", "Toddler", "Preschool", "Pre-K"],
-    "programs": ["Full-time"],
-    "accreditations": ["AL DHR Licensed"],
+    "agesServed": [
+      "Infant",
+      "Toddler",
+      "Preschool",
+      "Pre-K"
+    ],
+    "programs": [
+      "Full-time"
+    ],
+    "accreditations": [
+      "AL DHR Licensed"
+    ],
     "acceptsSubsidy": false,
     "firstClassPreK": false,
     "qris": null,
-    "hours": {"open": "06:30", "close": "18:00"},
-    "tuitionRangeMonthlyUSD": [950, 1450],
+    "hours": {
+      "open": "06:30",
+      "close": "18:00"
+    },
+    "tuitionRangeMonthlyUSD": [
+      950,
+      1450
+    ],
     "openingsNow": false,
     "waitlist": true,
     "latitude": 33.3755,
     "longitude": -86.6885,
     "blurb": "Premier childcare in the Greystone community.",
-    "photos": ["assets/placeholder3.jpg"]
+    "photos": [
+      "assets/placeholder3.jpg"
+    ]
   },
   {
     "id": "ardent-patchwork-farms-19",
-    "name": "Ardent Preschool & Daycare – Patchwork Farms",
+    "name": "Ardent Preschool & Daycare \u2013 Patchwork Farms",
     "address": "3030 Healthy Way",
     "city": "Vestavia Hills",
     "zip": "35243",
@@ -495,26 +846,45 @@
     "phone": "(205) 834-9190",
     "email": null,
     "website": "https://ardentpreschool.com",
-    "type": ["Center-based"],
+    "type": [
+      "Center-based"
+    ],
     "faithBased": false,
-    "agesServed": ["Infant", "Toddler", "Preschool", "Pre-K"],
-    "programs": ["Full-time"],
-    "accreditations": ["AL DHR Licensed"],
+    "agesServed": [
+      "Infant",
+      "Toddler",
+      "Preschool",
+      "Pre-K"
+    ],
+    "programs": [
+      "Full-time"
+    ],
+    "accreditations": [
+      "AL DHR Licensed"
+    ],
     "acceptsSubsidy": false,
     "firstClassPreK": false,
     "qris": null,
-    "hours": {"open": "06:30", "close": "18:00"},
-    "tuitionRangeMonthlyUSD": [950, 1450],
+    "hours": {
+      "open": "06:30",
+      "close": "18:00"
+    },
+    "tuitionRangeMonthlyUSD": [
+      950,
+      1450
+    ],
     "openingsNow": true,
     "waitlist": false,
     "latitude": 33.4122,
     "longitude": -86.7355,
     "blurb": "Quality early education with experienced, caring teachers.",
-    "photos": ["assets/placeholder4.jpg"]
+    "photos": [
+      "assets/placeholder4.jpg"
+    ]
   },
   {
     "id": "ardent-valleydale-20",
-    "name": "Ardent Preschool & Daycare – Valleydale",
+    "name": "Ardent Preschool & Daycare \u2013 Valleydale",
     "address": "25 Southlake Lane",
     "city": "Hoover",
     "zip": "35244",
@@ -522,22 +892,41 @@
     "phone": "(205) 444-5437",
     "email": null,
     "website": "https://ardentpreschool.com",
-    "type": ["Center-based"],
+    "type": [
+      "Center-based"
+    ],
     "faithBased": false,
-    "agesServed": ["Infant", "Toddler", "Preschool", "Pre-K"],
-    "programs": ["Full-time"],
-    "accreditations": ["AL DHR Licensed"],
+    "agesServed": [
+      "Infant",
+      "Toddler",
+      "Preschool",
+      "Pre-K"
+    ],
+    "programs": [
+      "Full-time"
+    ],
+    "accreditations": [
+      "AL DHR Licensed"
+    ],
     "acceptsSubsidy": false,
     "firstClassPreK": false,
     "qris": null,
-    "hours": {"open": "06:30", "close": "18:00"},
-    "tuitionRangeMonthlyUSD": [950, 1450],
+    "hours": {
+      "open": "06:30",
+      "close": "18:00"
+    },
+    "tuitionRangeMonthlyUSD": [
+      950,
+      1450
+    ],
     "openingsNow": true,
     "waitlist": false,
     "latitude": 33.3622,
     "longitude": -86.7888,
     "blurb": "Convenient Valleydale location with excellent programs.",
-    "photos": ["assets/placeholder5.jpg"]
+    "photos": [
+      "assets/placeholder5.jpg"
+    ]
   },
   {
     "id": "heritage-ross-bridge-21",
@@ -549,22 +938,40 @@
     "phone": "(205) 547-2313",
     "email": null,
     "website": null,
-    "type": ["Center-based"],
+    "type": [
+      "Center-based"
+    ],
     "faithBased": false,
-    "agesServed": ["Toddler", "Preschool", "Pre-K"],
-    "programs": ["Full-time"],
-    "accreditations": ["AL DHR Licensed"],
+    "agesServed": [
+      "Toddler",
+      "Preschool",
+      "Pre-K"
+    ],
+    "programs": [
+      "Full-time"
+    ],
+    "accreditations": [
+      "AL DHR Licensed"
+    ],
     "acceptsSubsidy": false,
     "firstClassPreK": false,
     "qris": null,
-    "hours": {"open": "06:30", "close": "18:00"},
-    "tuitionRangeMonthlyUSD": [850, 1350],
+    "hours": {
+      "open": "06:30",
+      "close": "18:00"
+    },
+    "tuitionRangeMonthlyUSD": [
+      850,
+      1350
+    ],
     "openingsNow": true,
     "waitlist": false,
     "latitude": 33.3888,
     "longitude": -86.8625,
     "blurb": "Preschool in the beautiful Ross Bridge community.",
-    "photos": ["assets/placeholder6.jpg"]
+    "photos": [
+      "assets/placeholder6.jpg"
+    ]
   },
   {
     "id": "childrens-lighthouse-hoover-22",
@@ -576,22 +983,41 @@
     "phone": "(205) 987-5701",
     "email": null,
     "website": "https://childrenslighthouse.com",
-    "type": ["Center-based"],
+    "type": [
+      "Center-based"
+    ],
     "faithBased": false,
-    "agesServed": ["Infant", "Toddler", "Preschool", "Pre-K"],
-    "programs": ["Full-time"],
-    "accreditations": ["AL DHR Licensed"],
+    "agesServed": [
+      "Infant",
+      "Toddler",
+      "Preschool",
+      "Pre-K"
+    ],
+    "programs": [
+      "Full-time"
+    ],
+    "accreditations": [
+      "AL DHR Licensed"
+    ],
     "acceptsSubsidy": true,
     "firstClassPreK": false,
     "qris": null,
-    "hours": {"open": "06:30", "close": "18:30"},
-    "tuitionRangeMonthlyUSD": [800, 1300],
+    "hours": {
+      "open": "06:30",
+      "close": "18:30"
+    },
+    "tuitionRangeMonthlyUSD": [
+      800,
+      1300
+    ],
     "openingsNow": true,
     "waitlist": false,
     "latitude": 33.3595,
     "longitude": -86.7722,
     "blurb": "Lighthouse curriculum with character development focus.",
-    "photos": ["assets/placeholder7.jpg"]
+    "photos": [
+      "assets/placeholder7.jpg"
+    ]
   },
   {
     "id": "hoover-kindercare-23",
@@ -603,22 +1029,41 @@
     "phone": "(205) 822-0018",
     "email": null,
     "website": "https://kindercare.com",
-    "type": ["Center-based"],
+    "type": [
+      "Center-based"
+    ],
     "faithBased": false,
-    "agesServed": ["Infant", "Toddler", "Preschool", "Pre-K"],
-    "programs": ["Full-time"],
-    "accreditations": ["AL DHR Licensed"],
+    "agesServed": [
+      "Infant",
+      "Toddler",
+      "Preschool",
+      "Pre-K"
+    ],
+    "programs": [
+      "Full-time"
+    ],
+    "accreditations": [
+      "AL DHR Licensed"
+    ],
     "acceptsSubsidy": true,
     "firstClassPreK": false,
     "qris": null,
-    "hours": {"open": "06:30", "close": "18:00"},
-    "tuitionRangeMonthlyUSD": [900, 1400],
+    "hours": {
+      "open": "06:30",
+      "close": "18:00"
+    },
+    "tuitionRangeMonthlyUSD": [
+      900,
+      1400
+    ],
     "openingsNow": true,
     "waitlist": false,
     "latitude": 33.4122,
     "longitude": -86.7892,
     "blurb": "National KinderCare chain with research-based curriculum.",
-    "photos": ["assets/placeholder8.jpg"]
+    "photos": [
+      "assets/placeholder8.jpg"
+    ]
   },
   {
     "id": "little-apostles-holy-apostles-24",
@@ -630,22 +1075,40 @@
     "phone": "(205) 988-8000",
     "email": null,
     "website": "https://holyapostleshoover.org",
-    "type": ["Center-based", "Faith-based"],
+    "type": [
+      "Center-based",
+      "Faith-based"
+    ],
     "faithBased": true,
-    "agesServed": ["Infant", "Toddler"],
-    "programs": ["Full-time"],
-    "accreditations": ["AL DHR Licensed"],
+    "agesServed": [
+      "Infant",
+      "Toddler"
+    ],
+    "programs": [
+      "Full-time"
+    ],
+    "accreditations": [
+      "AL DHR Licensed"
+    ],
     "acceptsSubsidy": false,
     "firstClassPreK": false,
     "qris": null,
-    "hours": {"open": "07:00", "close": "18:00"},
-    "tuitionRangeMonthlyUSD": [850, 1250],
+    "hours": {
+      "open": "07:00",
+      "close": "18:00"
+    },
+    "tuitionRangeMonthlyUSD": [
+      850,
+      1250
+    ],
     "openingsNow": false,
     "waitlist": true,
     "latitude": 33.3655,
     "longitude": -86.7822,
     "blurb": "Specialized infant care at Episcopal church.",
-    "photos": ["assets/placeholder9.jpg"]
+    "photos": [
+      "assets/placeholder9.jpg"
+    ]
   },
   {
     "id": "prince-of-peace-preschool-25",
@@ -657,22 +1120,41 @@
     "phone": "(205) 824-7886",
     "email": null,
     "website": "https://popcatholic.org",
-    "type": ["Center-based", "Faith-based"],
+    "type": [
+      "Center-based",
+      "Faith-based"
+    ],
     "faithBased": true,
-    "agesServed": ["Toddler", "Preschool", "Pre-K"],
-    "programs": ["Full-time"],
-    "accreditations": ["AL DHR Licensed"],
+    "agesServed": [
+      "Toddler",
+      "Preschool",
+      "Pre-K"
+    ],
+    "programs": [
+      "Full-time"
+    ],
+    "accreditations": [
+      "AL DHR Licensed"
+    ],
     "acceptsSubsidy": false,
     "firstClassPreK": false,
     "qris": null,
-    "hours": {"open": "07:00", "close": "18:00"},
-    "tuitionRangeMonthlyUSD": [700, 1100],
+    "hours": {
+      "open": "07:00",
+      "close": "18:00"
+    },
+    "tuitionRangeMonthlyUSD": [
+      700,
+      1100
+    ],
     "openingsNow": true,
     "waitlist": false,
     "latitude": 33.3988,
     "longitude": -86.8455,
     "blurb": "Catholic preschool with faith-based curriculum.",
-    "photos": ["assets/placeholder10.jpg"]
+    "photos": [
+      "assets/placeholder10.jpg"
+    ]
   },
   {
     "id": "riverchase-day-school-26",
@@ -684,22 +1166,42 @@
     "phone": "(205) 987-4030",
     "email": null,
     "website": "https://riverchasedayschool.com",
-    "type": ["Center-based", "Faith-based"],
+    "type": [
+      "Center-based",
+      "Faith-based"
+    ],
     "faithBased": true,
-    "agesServed": ["Toddler", "Preschool", "Pre-K"],
-    "programs": ["Part-time", "Full-time"],
-    "accreditations": ["AL DHR Licensed"],
+    "agesServed": [
+      "Toddler",
+      "Preschool",
+      "Pre-K"
+    ],
+    "programs": [
+      "Part-time",
+      "Full-time"
+    ],
+    "accreditations": [
+      "AL DHR Licensed"
+    ],
     "acceptsSubsidy": false,
     "firstClassPreK": false,
     "qris": null,
-    "hours": {"open": "09:00", "close": "13:00"},
-    "tuitionRangeMonthlyUSD": [450, 800],
+    "hours": {
+      "open": "09:00",
+      "close": "13:00"
+    },
+    "tuitionRangeMonthlyUSD": [
+      450,
+      800
+    ],
     "openingsNow": true,
     "waitlist": false,
     "latitude": 33.3722,
     "longitude": -86.7955,
     "blurb": "Part-time preschool program with extended care options.",
-    "photos": ["assets/placeholder11.jpg"]
+    "photos": [
+      "assets/placeholder11.jpg"
+    ]
   },
   {
     "id": "shades-crest-baptist-27",
@@ -711,22 +1213,42 @@
     "phone": "(205) 822-1360",
     "email": null,
     "website": null,
-    "type": ["Center-based", "Faith-based"],
+    "type": [
+      "Center-based",
+      "Faith-based"
+    ],
     "faithBased": true,
-    "agesServed": ["Infant", "Toddler", "Preschool", "Pre-K"],
-    "programs": ["Full-time"],
-    "accreditations": ["AL DHR Licensed"],
+    "agesServed": [
+      "Infant",
+      "Toddler",
+      "Preschool",
+      "Pre-K"
+    ],
+    "programs": [
+      "Full-time"
+    ],
+    "accreditations": [
+      "AL DHR Licensed"
+    ],
     "acceptsSubsidy": true,
     "firstClassPreK": false,
     "qris": null,
-    "hours": {"open": "07:00", "close": "18:00"},
-    "tuitionRangeMonthlyUSD": [650, 1000],
+    "hours": {
+      "open": "07:00",
+      "close": "18:00"
+    },
+    "tuitionRangeMonthlyUSD": [
+      650,
+      1000
+    ],
     "openingsNow": true,
     "waitlist": false,
     "latitude": 33.4088,
     "longitude": -86.8122,
     "blurb": "Baptist church daycare with family-oriented care.",
-    "photos": ["assets/placeholder12.jpg"]
+    "photos": [
+      "assets/placeholder12.jpg"
+    ]
   },
   {
     "id": "sugar-n-spice-28",
@@ -738,22 +1260,42 @@
     "phone": "(205) 822-8581",
     "email": null,
     "website": "https://sugarnspice.llc",
-    "type": ["Center-based"],
+    "type": [
+      "Center-based"
+    ],
     "faithBased": false,
-    "agesServed": ["Toddler", "Preschool", "Pre-K", "School-age"],
-    "programs": ["Full-time", "Kindergarten"],
-    "accreditations": ["AL DHR Licensed"],
+    "agesServed": [
+      "Toddler",
+      "Preschool",
+      "Pre-K",
+      "School-age"
+    ],
+    "programs": [
+      "Full-time",
+      "Kindergarten"
+    ],
+    "accreditations": [
+      "AL DHR Licensed"
+    ],
     "acceptsSubsidy": true,
     "firstClassPreK": false,
     "qris": null,
-    "hours": {"open": "06:30", "close": "18:00"},
-    "tuitionRangeMonthlyUSD": [700, 1100],
+    "hours": {
+      "open": "06:30",
+      "close": "18:00"
+    },
+    "tuitionRangeMonthlyUSD": [
+      700,
+      1100
+    ],
     "openingsNow": true,
     "waitlist": false,
     "latitude": 33.4055,
     "longitude": -86.8188,
     "blurb": "Over 40 years of family daycare and kindergarten experience.",
-    "photos": ["assets/placeholder13.jpg"]
+    "photos": [
+      "assets/placeholder13.jpg"
+    ]
   },
   {
     "id": "st-peter-apostle-29",
@@ -765,22 +1307,40 @@
     "phone": "(205) 822-9461",
     "email": null,
     "website": "https://stpeterapostle.com",
-    "type": ["Center-based", "Faith-based"],
+    "type": [
+      "Center-based",
+      "Faith-based"
+    ],
     "faithBased": true,
-    "agesServed": ["Preschool", "Pre-K"],
-    "programs": ["Part-time"],
-    "accreditations": ["AL DHR Licensed"],
+    "agesServed": [
+      "Preschool",
+      "Pre-K"
+    ],
+    "programs": [
+      "Part-time"
+    ],
+    "accreditations": [
+      "AL DHR Licensed"
+    ],
     "acceptsSubsidy": false,
     "firstClassPreK": false,
     "qris": null,
-    "hours": {"open": "08:00", "close": "15:00"},
-    "tuitionRangeMonthlyUSD": [600, 900],
+    "hours": {
+      "open": "08:00",
+      "close": "15:00"
+    },
+    "tuitionRangeMonthlyUSD": [
+      600,
+      900
+    ],
     "openingsNow": true,
     "waitlist": false,
     "latitude": 33.4422,
     "longitude": -86.7688,
     "blurb": "Catholic preschool with faith-based education.",
-    "photos": ["assets/placeholder14.jpg"]
+    "photos": [
+      "assets/placeholder14.jpg"
+    ]
   },
   {
     "id": "montessori-kids-universe-bluff-park-30",
@@ -792,22 +1352,41 @@
     "phone": "(205) 502-7007",
     "email": null,
     "website": null,
-    "type": ["Center-based", "Montessori"],
+    "type": [
+      "Center-based",
+      "Montessori"
+    ],
     "faithBased": false,
-    "agesServed": ["Toddler", "Preschool", "Pre-K"],
-    "programs": ["Full-time"],
-    "accreditations": ["AL DHR Licensed"],
+    "agesServed": [
+      "Toddler",
+      "Preschool",
+      "Pre-K"
+    ],
+    "programs": [
+      "Full-time"
+    ],
+    "accreditations": [
+      "AL DHR Licensed"
+    ],
     "acceptsSubsidy": false,
     "firstClassPreK": false,
     "qris": null,
-    "hours": {"open": "07:00", "close": "18:00"},
-    "tuitionRangeMonthlyUSD": [900, 1400],
+    "hours": {
+      "open": "07:00",
+      "close": "18:00"
+    },
+    "tuitionRangeMonthlyUSD": [
+      900,
+      1400
+    ],
     "openingsNow": true,
     "waitlist": false,
     "latitude": 33.3855,
     "longitude": -86.8322,
     "blurb": "Montessori education in the Bluff Park area.",
-    "photos": ["assets/placeholder15.jpg"]
+    "photos": [
+      "assets/placeholder15.jpg"
+    ]
   },
   {
     "id": "mini-marvels-too-31",
@@ -819,21 +1398,995 @@
     "phone": "(205) 730-1810",
     "email": null,
     "website": "https://firstimpressionscec.com",
-    "type": ["Center-based"],
+    "type": [
+      "Center-based"
+    ],
     "faithBased": false,
-    "agesServed": ["Infant", "Toddler", "Preschool", "Pre-K"],
-    "programs": ["Full-time"],
-    "accreditations": ["AL DHR Licensed"],
+    "agesServed": [
+      "Infant",
+      "Toddler",
+      "Preschool",
+      "Pre-K"
+    ],
+    "programs": [
+      "Full-time"
+    ],
+    "accreditations": [
+      "AL DHR Licensed"
+    ],
     "acceptsSubsidy": true,
     "firstClassPreK": false,
     "qris": null,
-    "hours": {"open": "06:00", "close": "18:00"},
-    "tuitionRangeMonthlyUSD": [750, 1200],
+    "hours": {
+      "open": "06:00",
+      "close": "18:00"
+    },
+    "tuitionRangeMonthlyUSD": [
+      750,
+      1200
+    ],
     "openingsNow": true,
     "waitlist": false,
     "latitude": 33.4355,
     "longitude": -86.7925,
     "blurb": "Child enrichment center with comprehensive programs.",
-    "photos": ["assets/placeholder1.jpg"]
+    "photos": [
+      "assets/placeholder1.jpg"
+    ]
+  },
+  {
+    "id": "ami-first-class-pre-k-2-agape-ministries-32",
+    "name": "Ami First Class Pre-K #2 (Agape Ministries)",
+    "address": "2713 Ensley 5 Points West Ave",
+    "city": "Birmingham",
+    "zip": "35218",
+    "neighborhood": "Birmingham",
+    "phone": "(205) 326-0564",
+    "email": null,
+    "website": null,
+    "type": [
+      "Center-based",
+      "Faith-based"
+    ],
+    "faithBased": true,
+    "agesServed": [
+      "Toddler",
+      "Preschool",
+      "Pre-K",
+      "School-age"
+    ],
+    "programs": [
+      "Full-time"
+    ],
+    "accreditations": [
+      "AL DHR Licensed"
+    ],
+    "acceptsSubsidy": false,
+    "firstClassPreK": true,
+    "qris": null,
+    "hours": {
+      "open": "07:00",
+      "close": "18:00"
+    },
+    "tuitionRangeMonthlyUSD": [
+      600,
+      1000
+    ],
+    "openingsNow": true,
+    "waitlist": false,
+    "latitude": 33.5186,
+    "longitude": -86.8104,
+    "blurb": "Licensed child care center offering day preschool program",
+    "photos": [
+      "assets/placeholder1.jpg"
+    ]
+  },
+  {
+    "id": "shades-crest-baptist-church-early-learning-academy-33",
+    "name": "Shades Crest Baptist Church Early Learning Academy",
+    "address": "452 Park Ave",
+    "city": "Birmingham",
+    "zip": "35226",
+    "neighborhood": "Birmingham",
+    "phone": "(205) 824-9050",
+    "email": null,
+    "website": "https://shadescrest.org",
+    "type": [
+      "Center-based",
+      "Faith-based"
+    ],
+    "faithBased": true,
+    "agesServed": [
+      "Infant",
+      "Pre-K"
+    ],
+    "programs": [
+      "Part-time"
+    ],
+    "accreditations": [
+      "AL DHR Licensed"
+    ],
+    "acceptsSubsidy": false,
+    "firstClassPreK": false,
+    "qris": null,
+    "hours": {
+      "open": "09:00",
+      "close": "13:00"
+    },
+    "tuitionRangeMonthlyUSD": [
+      600,
+      1000
+    ],
+    "openingsNow": true,
+    "waitlist": false,
+    "latitude": 33.5186,
+    "longitude": -86.8104,
+    "blurb": "Part-day church preschool program (Weekday Early Education)",
+    "photos": [
+      "assets/placeholder2.jpg"
+    ]
+  },
+  {
+    "id": "canterbury-united-methodist-church-day-school-34",
+    "name": "Canterbury United Methodist Church Day School",
+    "address": "350 Overbrook Rd",
+    "city": "Birmingham",
+    "zip": "35213",
+    "neighborhood": "Birmingham",
+    "phone": "(205) 874-1541",
+    "email": null,
+    "website": "https://canterburyumc.org",
+    "type": [
+      "Center-based",
+      "Faith-based"
+    ],
+    "faithBased": true,
+    "agesServed": [
+      "Toddler",
+      "Pre-K"
+    ],
+    "programs": [
+      "Part-time"
+    ],
+    "accreditations": [
+      "AL DHR Licensed"
+    ],
+    "acceptsSubsidy": false,
+    "firstClassPreK": false,
+    "qris": null,
+    "hours": {
+      "open": "09:00",
+      "close": "13:00"
+    },
+    "tuitionRangeMonthlyUSD": [
+      600,
+      1000
+    ],
+    "openingsNow": true,
+    "waitlist": false,
+    "latitude": 33.5186,
+    "longitude": -86.8104,
+    "blurb": "Half-day church day school (preschool) program",
+    "photos": [
+      "assets/placeholder3.jpg"
+    ]
+  },
+  {
+    "id": "uab-child-development-center-kindercare-35",
+    "name": "UAB Child Development Center (KinderCare)",
+    "address": "1113 15th St S",
+    "city": "Birmingham",
+    "zip": "35205",
+    "neighborhood": "Birmingham",
+    "phone": "(205) 934-7353",
+    "email": null,
+    "website": "https://kindercare.com",
+    "type": [
+      "Center-based"
+    ],
+    "faithBased": false,
+    "agesServed": [
+      "Infant",
+      "Pre-K"
+    ],
+    "programs": [
+      "Full-time"
+    ],
+    "accreditations": [
+      "AL DHR Licensed",
+      "NAEYC"
+    ],
+    "acceptsSubsidy": false,
+    "firstClassPreK": false,
+    "qris": null,
+    "hours": {
+      "open": "06:30",
+      "close": "18:00"
+    },
+    "tuitionRangeMonthlyUSD": [
+      700,
+      1100
+    ],
+    "openingsNow": true,
+    "waitlist": false,
+    "latitude": 33.5186,
+    "longitude": -86.8104,
+    "blurb": "UAB staff child care center operated by KinderCare",
+    "photos": [
+      "assets/placeholder4.jpg"
+    ]
+  },
+  {
+    "id": "the-learning-express-childcare-center-36",
+    "name": "The Learning Express Childcare Center",
+    "address": "9084 Parkway East",
+    "city": "Birmingham",
+    "zip": "35206",
+    "neighborhood": "Birmingham",
+    "phone": "(205) 538-7008",
+    "email": null,
+    "website": null,
+    "type": [
+      "Center-based"
+    ],
+    "faithBased": false,
+    "agesServed": [
+      "Infant",
+      "Toddler",
+      "School-age"
+    ],
+    "programs": [
+      "Full-time"
+    ],
+    "accreditations": [
+      "AL DHR Licensed"
+    ],
+    "acceptsSubsidy": false,
+    "firstClassPreK": false,
+    "qris": null,
+    "hours": {
+      "open": "05:30",
+      "close": "19:00"
+    },
+    "tuitionRangeMonthlyUSD": [
+      700,
+      1100
+    ],
+    "openingsNow": true,
+    "waitlist": false,
+    "latitude": 33.5186,
+    "longitude": -86.8104,
+    "blurb": "Full-day child care & after-school program",
+    "photos": [
+      "assets/placeholder5.jpg"
+    ]
+  },
+  {
+    "id": "bestow-schools-early-learning-center-37",
+    "name": "Bestow Schools Early Learning Center",
+    "address": "228 2nd Ave N",
+    "city": "Birmingham",
+    "zip": "35204",
+    "neighborhood": "Birmingham",
+    "phone": "(205) 326-0564",
+    "email": null,
+    "website": "https://bestowschools.org",
+    "type": [
+      "Center-based",
+      "Faith-based"
+    ],
+    "faithBased": true,
+    "agesServed": [
+      "Infant",
+      "Pre-K"
+    ],
+    "programs": [
+      "Full-time"
+    ],
+    "accreditations": [
+      "AL DHR Licensed"
+    ],
+    "acceptsSubsidy": false,
+    "firstClassPreK": false,
+    "qris": null,
+    "hours": {
+      "open": "07:00",
+      "close": "17:30"
+    },
+    "tuitionRangeMonthlyUSD": [
+      600,
+      1000
+    ],
+    "openingsNow": true,
+    "waitlist": false,
+    "latitude": 33.5186,
+    "longitude": -86.8104,
+    "blurb": "Christian early learning center and preschool",
+    "photos": [
+      "assets/placeholder6.jpg"
+    ]
+  },
+  {
+    "id": "wee-care-academy-downtown-38",
+    "name": "Wee Care Academy (Downtown)",
+    "address": "1815 4th Ave N",
+    "city": "Birmingham",
+    "zip": "35203",
+    "neighborhood": "Birmingham",
+    "phone": "(205) 328-2154",
+    "email": null,
+    "website": null,
+    "type": [
+      "Center-based"
+    ],
+    "faithBased": false,
+    "agesServed": [
+      "Infant",
+      "Pre-K",
+      "School-age"
+    ],
+    "programs": [
+      "Full-time"
+    ],
+    "accreditations": [
+      "AL DHR Licensed"
+    ],
+    "acceptsSubsidy": false,
+    "firstClassPreK": false,
+    "qris": null,
+    "hours": {
+      "open": "06:30",
+      "close": "17:30"
+    },
+    "tuitionRangeMonthlyUSD": [
+      700,
+      1100
+    ],
+    "openingsNow": true,
+    "waitlist": false,
+    "latitude": 33.5186,
+    "longitude": -86.8104,
+    "blurb": "Established daycare center in downtown area",
+    "photos": [
+      "assets/placeholder7.jpg"
+    ]
+  },
+  {
+    "id": "kiddie-world-ministry-of-god-39",
+    "name": "Kiddie World Ministry Of God",
+    "address": "1538 Huffman Rd",
+    "city": "Birmingham",
+    "zip": "35215",
+    "neighborhood": "Birmingham",
+    "phone": null,
+    "email": null,
+    "website": null,
+    "type": [
+      "Center-based",
+      "Faith-based"
+    ],
+    "faithBased": true,
+    "agesServed": [
+      "Infant",
+      "Preschool",
+      "School-age"
+    ],
+    "programs": [
+      "Full-time"
+    ],
+    "accreditations": [
+      "AL DHR Licensed"
+    ],
+    "acceptsSubsidy": false,
+    "firstClassPreK": false,
+    "qris": null,
+    "hours": {
+      "open": "05:30",
+      "close": "18:30"
+    },
+    "tuitionRangeMonthlyUSD": [
+      600,
+      1000
+    ],
+    "openingsNow": true,
+    "waitlist": false,
+    "latitude": 33.5186,
+    "longitude": -86.8104,
+    "blurb": "Church-affiliated child care and learning center",
+    "photos": [
+      "assets/placeholder8.jpg"
+    ]
+  },
+  {
+    "id": "touched-by-an-angel-learning-center-2-40",
+    "name": "Touched By An Angel Learning Center #2",
+    "address": "7020 1st Ave N",
+    "city": "Birmingham",
+    "zip": "35206",
+    "neighborhood": "Birmingham",
+    "phone": null,
+    "email": null,
+    "website": null,
+    "type": [
+      "Center-based"
+    ],
+    "faithBased": false,
+    "agesServed": [
+      "Infant",
+      "Toddler",
+      "Preschool",
+      "Pre-K"
+    ],
+    "programs": [
+      "Full-time"
+    ],
+    "accreditations": [
+      "AL DHR Licensed"
+    ],
+    "acceptsSubsidy": false,
+    "firstClassPreK": false,
+    "qris": null,
+    "hours": {
+      "open": "07:00",
+      "close": "18:00"
+    },
+    "tuitionRangeMonthlyUSD": [
+      700,
+      1100
+    ],
+    "openingsNow": true,
+    "waitlist": false,
+    "latitude": 33.5186,
+    "longitude": -86.8104,
+    "blurb": "Childcare center (second location)",
+    "photos": [
+      "assets/placeholder9.jpg"
+    ]
+  },
+  {
+    "id": "gifted-anointed-childcare-2-41",
+    "name": "Gifted & Anointed Childcare #2",
+    "address": "2500 1st Pl NW",
+    "city": "Birmingham",
+    "zip": "35215",
+    "neighborhood": "Birmingham",
+    "phone": "(205) 502-7422",
+    "email": null,
+    "website": null,
+    "type": [
+      "Center-based",
+      "Faith-based"
+    ],
+    "faithBased": true,
+    "agesServed": [
+      "Toddler",
+      "School-age"
+    ],
+    "programs": [
+      "Full-time"
+    ],
+    "accreditations": [
+      "AL DHR Licensed"
+    ],
+    "acceptsSubsidy": false,
+    "firstClassPreK": false,
+    "qris": null,
+    "hours": {
+      "open": "07:00",
+      "close": "18:00"
+    },
+    "tuitionRangeMonthlyUSD": [
+      600,
+      1000
+    ],
+    "openingsNow": true,
+    "waitlist": false,
+    "latitude": 33.5186,
+    "longitude": -86.8104,
+    "blurb": "Second site of church-affiliated daycare",
+    "photos": [
+      "assets/placeholder10.jpg"
+    ]
+  },
+  {
+    "id": "40-childcare-learning-center-42",
+    "name": "40 Childcare Learning Center",
+    "address": "213 84th St S",
+    "city": "Birmingham",
+    "zip": "35206",
+    "neighborhood": "Birmingham",
+    "phone": "(205) 202-3438",
+    "email": null,
+    "website": null,
+    "type": [
+      "Center-based"
+    ],
+    "faithBased": false,
+    "agesServed": [
+      "Pre-K",
+      "School-age"
+    ],
+    "programs": [
+      "Full-time"
+    ],
+    "accreditations": [
+      "AL DHR Licensed"
+    ],
+    "acceptsSubsidy": false,
+    "firstClassPreK": false,
+    "qris": null,
+    "hours": {
+      "open": "07:00",
+      "close": "18:00"
+    },
+    "tuitionRangeMonthlyUSD": [
+      700,
+      1100
+    ],
+    "openingsNow": true,
+    "waitlist": false,
+    "latitude": 33.5186,
+    "longitude": -86.8104,
+    "blurb": "Daycare and youth learning center",
+    "photos": [
+      "assets/placeholder11.jpg"
+    ]
+  },
+  {
+    "id": "uab-early-learning-center-kindercare-43",
+    "name": "UAB Early Learning Center (KinderCare)",
+    "address": "1100 10th Ave S",
+    "city": "Birmingham",
+    "zip": "35205",
+    "neighborhood": "Birmingham",
+    "phone": "(205) 934-7353",
+    "email": null,
+    "website": "https://kindercare.com",
+    "type": [
+      "Center-based"
+    ],
+    "faithBased": false,
+    "agesServed": [
+      "Infant",
+      "Pre-K"
+    ],
+    "programs": [
+      "Full-time"
+    ],
+    "accreditations": [
+      "AL DHR Licensed",
+      "NAEYC"
+    ],
+    "acceptsSubsidy": false,
+    "firstClassPreK": false,
+    "qris": null,
+    "hours": {
+      "open": "06:30",
+      "close": "18:00"
+    },
+    "tuitionRangeMonthlyUSD": [
+      700,
+      1100
+    ],
+    "openingsNow": true,
+    "waitlist": false,
+    "latitude": 33.5186,
+    "longitude": -86.8104,
+    "blurb": "Early childhood education center by KinderCare (UAB)",
+    "photos": [
+      "assets/placeholder12.jpg"
+    ]
+  },
+  {
+    "id": "peppermint-patty-faithful-few-church-44",
+    "name": "Peppermint Patty / Faithful Few Church",
+    "address": "1328 Forestdale Blvd",
+    "city": "Birmingham",
+    "zip": "35214",
+    "neighborhood": "Birmingham",
+    "phone": "(205) 791-3550",
+    "email": null,
+    "website": null,
+    "type": [
+      "Center-based",
+      "Faith-based"
+    ],
+    "faithBased": true,
+    "agesServed": [
+      "Infant",
+      "Toddler",
+      "School-age"
+    ],
+    "programs": [
+      "Full-time"
+    ],
+    "accreditations": [
+      "AL DHR Licensed"
+    ],
+    "acceptsSubsidy": false,
+    "firstClassPreK": false,
+    "qris": null,
+    "hours": {
+      "open": "06:00",
+      "close": "19:00"
+    },
+    "tuitionRangeMonthlyUSD": [
+      600,
+      1000
+    ],
+    "openingsNow": true,
+    "waitlist": false,
+    "latitude": 33.5186,
+    "longitude": -86.8104,
+    "blurb": "Church-affiliated daycare and learning center",
+    "photos": [
+      "assets/placeholder13.jpg"
+    ]
+  },
+  {
+    "id": "greater-emmanuel-temple-cdc-45",
+    "name": "Greater Emmanuel Temple C.D.C.",
+    "address": "7901 2nd Ave S",
+    "city": "Birmingham",
+    "zip": "35206",
+    "neighborhood": "Birmingham",
+    "phone": "(205) 833-9716",
+    "email": null,
+    "website": "https://gethc.org",
+    "type": [
+      "Center-based",
+      "Faith-based"
+    ],
+    "faithBased": true,
+    "agesServed": [
+      "Infant",
+      "Toddler",
+      "Preschool",
+      "Pre-K"
+    ],
+    "programs": [
+      "Full-time"
+    ],
+    "accreditations": [
+      "AL DHR Licensed"
+    ],
+    "acceptsSubsidy": false,
+    "firstClassPreK": false,
+    "qris": null,
+    "hours": {
+      "open": "07:00",
+      "close": "18:00"
+    },
+    "tuitionRangeMonthlyUSD": [
+      600,
+      1000
+    ],
+    "openingsNow": true,
+    "waitlist": false,
+    "latitude": 33.5186,
+    "longitude": -86.8104,
+    "blurb": "Church child development center program",
+    "photos": [
+      "assets/placeholder14.jpg"
+    ]
+  },
+  {
+    "id": "st-stephens-preschool-46",
+    "name": "St. Stephen's Preschool",
+    "address": "3775 Crosshaven Dr",
+    "city": "Birmingham",
+    "zip": "35223",
+    "neighborhood": "Birmingham",
+    "phone": "(205) 967-8786",
+    "email": null,
+    "website": "https://ssepreschool.org",
+    "type": [
+      "Center-based"
+    ],
+    "faithBased": false,
+    "agesServed": [
+      "Infant",
+      "Pre-K"
+    ],
+    "programs": [
+      "Part-time"
+    ],
+    "accreditations": [
+      "AL DHR Licensed"
+    ],
+    "acceptsSubsidy": false,
+    "firstClassPreK": false,
+    "qris": null,
+    "hours": {
+      "open": "09:00",
+      "close": "13:00"
+    },
+    "tuitionRangeMonthlyUSD": [
+      700,
+      1100
+    ],
+    "openingsNow": true,
+    "waitlist": false,
+    "latitude": 33.5186,
+    "longitude": -86.8104,
+    "blurb": "Half-day Episcopal church preschool program",
+    "photos": [
+      "assets/placeholder15.jpg"
+    ]
+  },
+  {
+    "id": "mountain-chapel-preschool-47",
+    "name": "Mountain Chapel Preschool",
+    "address": "2541 Rocky Ridge Rd",
+    "city": "Birmingham",
+    "zip": "35243",
+    "neighborhood": "Birmingham",
+    "phone": "(205) 822-0049",
+    "email": null,
+    "website": null,
+    "type": [
+      "Center-based"
+    ],
+    "faithBased": false,
+    "agesServed": [
+      "Toddler",
+      "Pre-K"
+    ],
+    "programs": [
+      "Part-time"
+    ],
+    "accreditations": [
+      "AL DHR Licensed"
+    ],
+    "acceptsSubsidy": false,
+    "firstClassPreK": false,
+    "qris": null,
+    "hours": {
+      "open": "09:00",
+      "close": "13:00"
+    },
+    "tuitionRangeMonthlyUSD": [
+      700,
+      1100
+    ],
+    "openingsNow": true,
+    "waitlist": false,
+    "latitude": 33.5186,
+    "longitude": -86.8104,
+    "blurb": "Church-run part-day preschool (Mountain Chapel UMC)",
+    "photos": [
+      "assets/placeholder1.jpg"
+    ]
+  },
+  {
+    "id": "journey-mountain-brook-community-church-48",
+    "name": "Journey @ Mountain Brook Community Church",
+    "address": "3001 Hwy 280 E",
+    "city": "Birmingham",
+    "zip": "35243",
+    "neighborhood": "Birmingham",
+    "phone": null,
+    "email": null,
+    "website": null,
+    "type": [
+      "Center-based",
+      "Faith-based"
+    ],
+    "faithBased": true,
+    "agesServed": [
+      "Infant",
+      "Toddler",
+      "Preschool",
+      "Pre-K"
+    ],
+    "programs": [
+      "Full-time"
+    ],
+    "accreditations": [
+      "AL DHR Licensed"
+    ],
+    "acceptsSubsidy": false,
+    "firstClassPreK": false,
+    "qris": null,
+    "hours": {
+      "open": "07:00",
+      "close": "18:00"
+    },
+    "tuitionRangeMonthlyUSD": [
+      600,
+      1000
+    ],
+    "openingsNow": true,
+    "waitlist": false,
+    "latitude": 33.5186,
+    "longitude": -86.8104,
+    "blurb": "Weekday child program at MBCC",
+    "photos": [
+      "assets/placeholder2.jpg"
+    ]
+  },
+  {
+    "id": "tracys-treasure-daycare-49",
+    "name": "Tracy's Treasure Daycare",
+    "address": "816 Florentine Dr",
+    "city": "Birmingham",
+    "zip": "35215",
+    "neighborhood": "Birmingham",
+    "phone": "(205) 538-7977",
+    "email": null,
+    "website": "https://tracysdaycare.com",
+    "type": [
+      "Center-based"
+    ],
+    "faithBased": false,
+    "agesServed": [
+      "Infant",
+      "Toddler",
+      "School-age"
+    ],
+    "programs": [
+      "Full-time"
+    ],
+    "accreditations": [
+      "AL DHR Licensed"
+    ],
+    "acceptsSubsidy": false,
+    "firstClassPreK": false,
+    "qris": null,
+    "hours": {
+      "open": "04:00",
+      "close": "18:00"
+    },
+    "tuitionRangeMonthlyUSD": [
+      700,
+      1100
+    ],
+    "openingsNow": true,
+    "waitlist": false,
+    "latitude": 33.5186,
+    "longitude": -86.8104,
+    "blurb": "Licensed daycare (multiple locations in Birmingham)",
+    "photos": [
+      "assets/placeholder3.jpg"
+    ]
+  },
+  {
+    "id": "greater-shiloh-child-development-center-50",
+    "name": "Greater Shiloh Child Development Center",
+    "address": "2135 Jefferson Ave SW",
+    "city": "Birmingham",
+    "zip": "35211",
+    "neighborhood": "Birmingham",
+    "phone": "(205) 925-9750",
+    "email": null,
+    "website": "https://greatershiloh.org",
+    "type": [
+      "Center-based",
+      "Faith-based"
+    ],
+    "faithBased": true,
+    "agesServed": [
+      "Infant",
+      "Toddler",
+      "Preschool",
+      "Pre-K"
+    ],
+    "programs": [
+      "Full-time"
+    ],
+    "accreditations": [
+      "AL DHR Licensed"
+    ],
+    "acceptsSubsidy": false,
+    "firstClassPreK": false,
+    "qris": null,
+    "hours": {
+      "open": "07:00",
+      "close": "18:00"
+    },
+    "tuitionRangeMonthlyUSD": [
+      600,
+      1000
+    ],
+    "openingsNow": true,
+    "waitlist": false,
+    "latitude": 33.5186,
+    "longitude": -86.8104,
+    "blurb": "Church-affiliated childcare program",
+    "photos": [
+      "assets/placeholder4.jpg"
+    ]
+  },
+  {
+    "id": "life-church-learning-center-51",
+    "name": "Life Church Learning Center",
+    "address": "5567 Chalkville Mountain Rd",
+    "city": "Birmingham",
+    "zip": "35235",
+    "neighborhood": "Birmingham",
+    "phone": "(205) 853-7900",
+    "email": null,
+    "website": null,
+    "type": [
+      "Center-based",
+      "Faith-based"
+    ],
+    "faithBased": true,
+    "agesServed": [
+      "Infant",
+      "Toddler",
+      "Preschool",
+      "Pre-K"
+    ],
+    "programs": [
+      "Full-time"
+    ],
+    "accreditations": [
+      "AL DHR Licensed"
+    ],
+    "acceptsSubsidy": false,
+    "firstClassPreK": false,
+    "qris": null,
+    "hours": {
+      "open": "07:00",
+      "close": "18:00"
+    },
+    "tuitionRangeMonthlyUSD": [
+      600,
+      1000
+    ],
+    "openingsNow": true,
+    "waitlist": false,
+    "latitude": 33.5186,
+    "longitude": -86.8104,
+    "blurb": "Child care ministry of LifeChurch (Trussville area)",
+    "photos": [
+      "assets/placeholder5.jpg"
+    ]
+  },
+  {
+    "id": "our-future-childcare-center-52",
+    "name": "Our Future Childcare Center",
+    "address": "1698 Tuscaloosa Ave SW",
+    "city": "Birmingham",
+    "zip": "35211",
+    "neighborhood": "Birmingham",
+    "phone": "(205) 208-0326",
+    "email": null,
+    "website": "https://ourfuturechildcarecenter.com",
+    "type": [
+      "Center-based"
+    ],
+    "faithBased": false,
+    "agesServed": [
+      "Infant",
+      "Toddler",
+      "School-age"
+    ],
+    "programs": [
+      "Full-time"
+    ],
+    "accreditations": [
+      "AL DHR Licensed"
+    ],
+    "acceptsSubsidy": false,
+    "firstClassPreK": false,
+    "qris": null,
+    "hours": {
+      "open": "06:00",
+      "close": "18:00"
+    },
+    "tuitionRangeMonthlyUSD": [
+      700,
+      1100
+    ],
+    "openingsNow": true,
+    "waitlist": false,
+    "latitude": 33.5186,
+    "longitude": -86.8104,
+    "blurb": "Daycare and early learning center in West End",
+    "photos": [
+      "assets/placeholder6.jpg"
+    ]
   }
 ]

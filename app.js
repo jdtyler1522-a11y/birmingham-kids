@@ -1,4 +1,12 @@
 // Birmingham Childcare Directory App
+
+// Detect directory mode IMMEDIATELY
+if (!window.ACTIVE_DIRECTORY) {
+    const hash = window.location.hash;
+    window.ACTIVE_DIRECTORY = hash.startsWith('#pediatricians') ? 'pediatricians' : 'childcare';
+    console.log('[App.js - Early Detection] Hash:', hash, 'Directory:', window.ACTIVE_DIRECTORY);
+}
+
 class ChildcareDirectory {
     constructor() {
         this.centers = [];
@@ -36,6 +44,7 @@ class ChildcareDirectory {
         try {
             // Check which directory is active
             const isPediatricians = window.ACTIVE_DIRECTORY === 'pediatricians';
+            console.log('[App.js] window.ACTIVE_DIRECTORY:', window.ACTIVE_DIRECTORY, 'isPediatricians:', isPediatricians);
             const dataFile = isPediatricians ? 'data/pediatricians.json?v=2025-10-02' : 'data/centers.json?v=2025-10-02';
             const label = isPediatricians ? 'pediatrician providers' : 'childcare centers';
             

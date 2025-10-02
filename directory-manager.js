@@ -1,17 +1,10 @@
 // Simple Directory Manager - Just handles UI switching
 (function() {
-    let currentDirectory = 'childcare';
-    
-    // Check URL hash on load
-    function checkHash() {
-        const hash = window.location.hash;
-        if (hash.startsWith('#pediatricians')) {
-            currentDirectory = 'pediatricians';
-        } else {
-            currentDirectory = 'childcare';
-        }
-        return currentDirectory;
-    }
+    // Set directory IMMEDIATELY (before DOM ready) so app.js can use it
+    const hash = window.location.hash;
+    const currentDirectory = hash.startsWith('#pediatricians') ? 'pediatricians' : 'childcare';
+    window.ACTIVE_DIRECTORY = currentDirectory;
+    console.log('[Directory Manager] Hash:', hash, 'Directory:', currentDirectory);
     
     // Update UI elements based on directory
     function updateUI(directory) {
@@ -59,18 +52,16 @@
         });
     }
     
-    // Initialize
-    function init() {
-        currentDirectory = checkHash();
-        window.ACTIVE_DIRECTORY = currentDirectory;
+    // Initialize UI after DOM is ready
+    function initUI() {
         updateUI(currentDirectory);
         setupNav();
     }
     
-    // Run on DOM ready
+    // Run UI setup on DOM ready
     if (document.readyState === 'loading') {
-        document.addEventListener('DOMContentLoaded', init);
+        document.addEventListener('DOMContentLoaded', initUI);
     } else {
-        init();
+        initUI();
     }
 })();

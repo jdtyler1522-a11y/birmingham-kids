@@ -34,12 +34,18 @@ class ChildcareDirectory {
 
     async loadData() {
         try {
-            const response = await fetch('data/centers.json?v=2025-10-02');
+            // Check which directory is active
+            const isPediatricians = window.ACTIVE_DIRECTORY === 'pediatricians';
+            const dataFile = isPediatricians ? 'data/pediatricians.json?v=2025-10-02' : 'data/centers.json?v=2025-10-02';
+            const label = isPediatricians ? 'pediatrician providers' : 'childcare centers';
+            
+            const response = await fetch(dataFile);
             this.centers = await response.json();
-            console.log(`Loaded ${this.centers.length} childcare centers`);
+            this.isPediatricianMode = isPediatricians;
+            console.log(`Loaded ${this.centers.length} ${label}`);
         } catch (error) {
-            console.error('Error loading centers data:', error);
-            this.showError('Failed to load childcare center data. Please refresh the page.');
+            console.error('Error loading data:', error);
+            this.showError('Failed to load data. Please refresh the page.');
         }
     }
 
@@ -460,6 +466,11 @@ class ChildcareDirectory {
     }
 
     createCenterCard(center) {
+        // If in pediatrician mode, use pediatrician card template
+        if (this.isPediatricianMode) {
+            return this.createPediatricianCard(center);
+        }
+        
         const badges = this.generateBadges(center);
         const tuitionRange = center.tuitionRangeMonthlyUSD.length === 2 
             ? `$${center.tuitionRangeMonthlyUSD[0]}-$${center.tuitionRangeMonthlyUSD[1]}/mo`
@@ -554,6 +565,9 @@ class ChildcareDirectory {
     }
 
     formatHours(hours) {
+        if (!hours) return 'Call for hours';
+        if (typeof hours === 'string') return hours;
+        
         const formatTime = (time) => {
             const [hour, minute] = time.split(':').map(Number);
             const period = hour >= 12 ? 'PM' : 'AM';
@@ -561,7 +575,75 @@ class ChildcareDirectory {
             return `${displayHour}:${minute.toString().padStart(2, '0')} ${period}`;
         };
 
-        return `${formatTime(hours.open)} - ${formatTime(hours.close)}`;
+        if (hours.open && hours.close) {
+            return `${formatTime(hours.open)} - ${formatTime(hours.close)}`;
+        }
+        return 'Call for hours';
+    }
+
+    createPediatricianCard(provider) {
+        const insurances = provider.insuranceAccepted?.slice(0, 3).join(', ') || 'Call for insurance info';
+        const displayName = provider.displayName || provider.practiceName;
+        const fullName = provider.providerName ? `${provider.providerName} - ${provider.practiceName}` : provider.practiceName;
+        
+        return `
+            <article class="center-card fade-in" data-center-id="${provider.id}">
+                <div class="card-header">
+                    <h3 class="center-name">${displayName}</h3>
+                    ${provider.providerName ? `<div class="provider-practice">${provider.practiceName}</div>` : ''}
+                    <div class="center-location">${provider.city}, AL ${provider.zip}</div>
+                </div>
+                
+                <p class="center-blurb">${provider.description || 'Pediatric care for Birmingham families.'}</p>
+                
+                <div class="badges">
+                    ${provider.acceptingNewPatients ? '<span class="badge badge-openings">Accepting New Patients</span>' : ''}
+                    ${provider.certifications?.includes('FAAP') ? '<span class="badge badge-naeyc">Board Certified</span>' : ''}
+                </div>
+                
+                <div class="quick-facts">
+                    <div class="fact">
+                        <svg class="fact-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <circle cx="12" cy="12" r="10"></circle>
+                            <polyline points="12,6 12,12 16,14"></polyline>
+                        </svg>
+                        <span class="fact-value">${this.formatHours(provider.hours)}</span>
+                    </div>
+                    <div class="fact">
+                        <svg class="fact-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect>
+                            <line x1="8" y1="21" x2="16" y2="21"></line>
+                            <line x1="12" y1="17" x2="12" y2="21"></line>
+                        </svg>
+                        <span class="fact-value">${insurances}</span>
+                    </div>
+                    <div class="fact">
+                        <svg class="fact-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                            <circle cx="9" cy="7" r="4"></circle>
+                            <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+                            <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+                        </svg>
+                        <span class="fact-value">${provider.ageRange || 'Newborn to 21'}</span>
+                    </div>
+                    ${provider.phone ? `
+                    <div class="fact">
+                        <svg class="fact-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+                        </svg>
+                        <span class="fact-value">${provider.phone}</span>
+                    </div>
+                    ` : ''}
+                </div>
+                
+                <div class="card-actions">
+                    <button class="card-btn card-btn-primary" onclick="app.openModal('${provider.id}')">View Details</button>
+                    ${provider.phone ? `<a href="tel:${provider.phone}" class="card-btn card-btn-secondary">Call</a>` : ''}
+                    ${provider.website ? `<a href="${provider.website}" target="_blank" rel="noopener" class="card-btn card-btn-secondary">Website</a>` : ''}
+                    <a href="https://maps.google.com/?q=${encodeURIComponent(provider.address + ', ' + provider.city + ', AL')}" target="_blank" rel="noopener" class="card-btn card-btn-secondary">Directions</a>
+                </div>
+            </article>
+        `;
     }
 
     setupCardEventListeners() {

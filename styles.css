@@ -135,6 +135,49 @@ h4 { font-size: 1.25rem; }
     box-shadow: var(--shadow-md);
 }
 
+/* Directory Navigation */
+.directory-nav {
+    display: flex;
+    gap: 12px;
+    justify-content: center;
+    margin: 24px auto 32px;
+    flex-wrap: wrap;
+}
+
+.directory-tab {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 12px 24px;
+    border: 3px solid rgba(255, 255, 255, 0.5);
+    border-radius: var(--radius-lg);
+    background-color: rgba(255, 255, 255, 0.3);
+    color: var(--neutral-text);
+    font-family: var(--font-body);
+    font-weight: 600;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: var(--transition);
+    backdrop-filter: blur(5px);
+}
+
+.directory-tab:hover {
+    background-color: rgba(255, 255, 255, 0.5);
+    border-color: rgba(255, 255, 255, 0.8);
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-md);
+}
+
+.directory-tab.active {
+    background-color: var(--white);
+    border-color: var(--white);
+    box-shadow: var(--shadow-md);
+}
+
+.directory-tab svg {
+    flex-shrink: 0;
+}
+
 .hero-title {
     font-size: 3rem;
     font-weight: 700;
@@ -1213,4 +1256,11 @@ h4 { font-size: 1.25rem; }
         width: 100%;
         justify-content: space-between;
     }
+}
+/* Pediatrician Card Styles */
+.provider-practice {
+    font-size: 0.9rem;
+    color: var(--medium-gray);
+    margin-top: 4px;
+    font-weight: 500;
 }

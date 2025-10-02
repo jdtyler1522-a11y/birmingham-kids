@@ -34,7 +34,7 @@ class ChildcareDirectory {
 
     async loadData() {
         try {
-            const response = await fetch('data/centers.json');
+            const response = await fetch('data/centers.json?v=2025-10-02');
             this.centers = await response.json();
             console.log(`Loaded ${this.centers.length} childcare centers`);
         } catch (error) {

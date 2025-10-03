@@ -2,11 +2,18 @@
 
 The Birmingham Childcare Directory is a bright, playful, mobile-first tri-directory web application designed to help parents find quality childcare options, pediatrician providers, and pediatric dentists across the Birmingham, Alabama metro area. Built entirely with vanilla HTML, CSS, and JavaScript, this single-page application provides three comprehensive directories: (1) **278 verified childcare centers** with advanced filtering and collapsible filter interface, (2) **77 pediatrician providers** with specialty and insurance-based filtering, and (3) **55 pediatric dentists** with location and rating information. The application emphasizes user experience with a modern, friendly aesthetic inspired by kids' libraries and features a sunny color palette (#FFB703 primary yellow, #8ECAE6 sky blue, #219EBC teal accents) with rounded components and playful iconography. The logo features the iconic Vulcan statue silhouette, representing Birmingham's proud heritage.
 
-**Status**: Fully functional and deployed with real verified data. All three directories are running successfully with tab-based navigation, search, filtering, modal details, and form submission functionality.
+**New Landing Page**: The site now opens with a beautiful landing page featuring a gradient background (sky blue to yellow), the Vulcan statue logo, and three selection cards for parents to choose their directory. Each card has distinct color-coding and hover effects, making it easy and intuitive to navigate the site.
+
+**Status**: Fully functional and deployed with real verified data. All three directories are running successfully with tab-based navigation, search, filtering, modal details, form submission functionality, favorite/star features, and landing page navigation.
 
 # Recent Changes
 
 ## October 3, 2025
+- **Created new landing page**: Added a beautiful gradient landing page with directory selection cards featuring the Vulcan logo, hero text ("Your Family's Journey to Quality Care Starts Here"), and three clickable directory cards (Childcare, Pediatricians, Dentists)
+- **Added navigation system**: Implemented JavaScript navigation to show/hide the landing page when switching between landing and directory views; added "Home" button in directory navigation tabs to return to landing page
+- **Enhanced visual hierarchy**: Landing cards feature color-coded top borders (yellow/orange for childcare, blue/teal for pediatricians, orange for dentists), icon styling, and smooth hover animations with lift effect
+- **Mobile-responsive landing page**: Added media queries for mobile devices with adjusted typography, logo sizing, and single-column card layout
+- **Updated cache versions**: Set styles.css to v2025-10-03-landing, app.js to v2025-10-03-landing for cache busting
 - **Added favorite/star functionality**: Visitors can now mark listings as favorites by clicking star icons in the top-right corner of each card; favorites persist in localStorage separately for each directory
 - **Expanded dentist directory**: Added 36 additional pediatric dentists from new CSV data (now 55 total unique dentists, deduplicated)
 - **Added third directory - Pediatric Dentists**: Created new dentist directory with verified pediatric dental practices extracted from CSV data

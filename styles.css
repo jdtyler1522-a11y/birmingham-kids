@@ -618,41 +618,48 @@ h4 { font-size: 1.25rem; }
 /* Favorite Button */
 .favorite-btn {
     position: absolute;
-    top: 20px;
-    right: 20px;
+    top: 16px;
+    right: 16px;
     background: none;
     border: none;
     cursor: pointer;
-    padding: 4px;
+    padding: 6px;
     z-index: 10;
-    transition: var(--transition);
+    transition: all 0.3s ease;
     display: flex;
     align-items: center;
     justify-content: center;
+    border-radius: 50%;
 }
 
 .favorite-btn:hover {
-    transform: scale(1.15);
+    transform: scale(1.2);
+    background-color: rgba(255, 183, 3, 0.1);
 }
 
 .favorite-btn .star-icon {
     stroke: var(--primary);
     fill: none;
     transition: all 0.3s ease;
+    filter: drop-shadow(0 1px 2px rgba(255, 183, 3, 0.2));
 }
 
 .favorite-btn:hover .star-icon {
     stroke: var(--accent-1);
+    filter: drop-shadow(0 2px 4px rgba(255, 183, 3, 0.35));
 }
 
 .favorite-btn.favorited .star-icon {
     fill: var(--primary);
     stroke: var(--primary);
+    filter: drop-shadow(0 2px 4px rgba(255, 183, 3, 0.4));
 }
 
 .favorite-btn.favorited:hover .star-icon {
     fill: var(--accent-1);
     stroke: var(--accent-1);
+    filter: drop-shadow(0 2px 6px rgba(255, 183, 3, 0.5));
+    transform: rotate(72deg);
 }
 
 .card-header {

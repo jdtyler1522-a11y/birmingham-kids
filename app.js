@@ -546,8 +546,8 @@ class ChildcareDirectory {
         return `
             <article class="center-card fade-in" data-center-id="${center.id}">
                 <button class="favorite-btn" data-id="${center.id}" aria-label="Add to favorites">
-                    <svg class="star-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <polygon points="12,2 15.09,8.26 22,9.27 17,14.14 18.18,21.02 12,17.77 5.82,21.02 7,14.14 2,9.27 8.91,8.26" />
+                    <svg class="star-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M12 2.5 L14.4 9.1 L21.5 10 L16.8 14.6 L18 21.5 L12 18.3 L6 21.5 L7.2 14.6 L2.5 10 L9.6 9.1 Z" />
                     </svg>
                 </button>
                 <div class="card-header">
@@ -661,8 +661,8 @@ class ChildcareDirectory {
         return `
             <article class="center-card fade-in" data-center-id="${provider.id}">
                 <button class="favorite-btn" data-id="${provider.id}" aria-label="Add to favorites">
-                    <svg class="star-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <polygon points="12,2 15.09,8.26 22,9.27 17,14.14 18.18,21.02 12,17.77 5.82,21.02 7,14.14 2,9.27 8.91,8.26" />
+                    <svg class="star-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M12 2.5 L14.4 9.1 L21.5 10 L16.8 14.6 L18 21.5 L12 18.3 L6 21.5 L7.2 14.6 L2.5 10 L9.6 9.1 Z" />
                     </svg>
                 </button>
                 <div class="card-header">
@@ -730,8 +730,8 @@ class ChildcareDirectory {
         return `
             <article class="center-card fade-in" data-center-id="${dentist.id}">
                 <button class="favorite-btn" data-id="${dentist.id}" aria-label="Add to favorites">
-                    <svg class="star-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <polygon points="12,2 15.09,8.26 22,9.27 17,14.14 18.18,21.02 12,17.77 5.82,21.02 7,14.14 2,9.27 8.91,8.26" />
+                    <svg class="star-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M12 2.5 L14.4 9.1 L21.5 10 L16.8 14.6 L18 21.5 L12 18.3 L6 21.5 L7.2 14.6 L2.5 10 L9.6 9.1 Z" />
                     </svg>
                 </button>
                 <div class="card-header">

@@ -1,14 +1,28 @@
 # Overview
 
-The Birmingham Childcare Directory is a bright, playful, mobile-first tri-directory web application designed to help parents find quality childcare options, pediatrician providers, and pediatric dentists across the Birmingham, Alabama metro area. Built entirely with vanilla HTML, CSS, and JavaScript, this single-page application provides three comprehensive directories: (1) **278 verified childcare centers** with advanced filtering and collapsible filter interface, (2) **77 pediatrician providers** with specialty and insurance-based filtering, and (3) **55 pediatric dentists** with location and rating information. The application emphasizes user experience with a modern, friendly aesthetic inspired by kids' libraries and features a sunny color palette (#FFB703 primary yellow, #8ECAE6 sky blue, #219EBC teal accents) with rounded components and playful iconography. The logo features the iconic Vulcan statue silhouette, representing Birmingham's proud heritage.
+Birmingham Kids is a bright, playful, mobile-first tri-directory web application designed to help parents find quality childcare options, pediatrician providers, and pediatric dentists across the Birmingham, Alabama metro area. The application features a modern Node.js/Express backend with user authentication and a vanilla JavaScript frontend. It provides three comprehensive directories: (1) **278 verified childcare centers** with advanced filtering and collapsible filter interface, (2) **77 pediatrician providers** with specialty and insurance-based filtering, and (3) **55 pediatric dentists** with location and rating information. The application emphasizes user experience with a modern, friendly aesthetic inspired by kids' libraries and features a sunny color palette (#FFB703 primary yellow, #8ECAE6 sky blue, #219EBC teal accents) with rounded components and playful iconography. The logo features the iconic Vulcan statue silhouette, representing Birmingham's proud heritage.
 
-**New Landing Page**: The site now opens with a beautiful landing page featuring a gradient background (sky blue to yellow), the Vulcan statue logo, and three selection cards for parents to choose their directory. Each card has distinct color-coding and hover effects, making it easy and intuitive to navigate the site.
+**Landing Page**: The site opens with a beautiful landing page featuring a happy child photo with decorative blobs, hero text "Raising Kids in Birmingham Just Got Easier", and three directory selection cards.
 
-**Status**: Fully functional and deployed with real verified data. All three directories are running successfully with tab-based navigation, search, filtering, modal details, form submission functionality, favorite/star features, and landing page navigation.
+**User Authentication**: Users can sign in with Replit Auth to save favorite listings across devices. Favorites are stored in a PostgreSQL database and synchronized across all sessions.
+
+**Status**: Fully functional with real verified data. All three directories are running successfully with tab-based navigation, search, filtering, modal details, form submission functionality, authenticated favorites system, and landing page navigation.
 
 # Recent Changes
 
-## October 3, 2025
+## October 3, 2025 - Authentication System
+- **Migrated to Node.js/Express backend**: Replaced Python simple HTTP server with Node.js/Express for production-ready server
+- **Implemented Replit Auth**: Full user authentication system with secure session management using Replit's built-in auth
+- **Created PostgreSQL database**: Set up database with three tables (users, sessions, favorites) for storing user accounts and favorites
+- **Database-backed favorites**: Favorites now persist in the database and sync across all devices when user is logged in
+- **Added login/logout UI**: Professional navigation bar with "Sign In" button and user dropdown menu
+- **Security hardening**: Implemented SameSite cookies, removed wide-open CORS, added duplicate favorites handling
+- **Rebranded to "Birmingham Kids"**: Updated all references from "Birmingham Family Resources" to "Birmingham Kids"
+- **Updated landing page**: New hero copy "Raising Kids in Birmingham Just Got Easier" with Magic City reference
+- **Added professional navigation**: Sticky navigation bar with Home, Childcare, Pediatricians, and Dentists links
+- **Cache version update**: Set to v=2025-10-03-auth for all assets
+
+## Earlier October 3, 2025
 - **Created new landing page**: Added a beautiful gradient landing page with directory selection cards featuring the Vulcan logo, hero text ("Your Family's Journey to Quality Care Starts Here"), and three clickable directory cards (Childcare, Pediatricians, Dentists)
 - **Added navigation system**: Implemented JavaScript navigation to show/hide the landing page when switching between landing and directory views; added "Home" button in directory navigation tabs to return to landing page
 - **Enhanced visual hierarchy**: Landing cards feature color-coded top borders (yellow/orange for childcare, blue/teal for pediatricians, orange for dentists), icon styling, and smooth hover animations with lift effect
@@ -38,10 +52,21 @@ Preferred communication style: Simple, everyday language.
 
 # System Architecture
 
+## Backend Architecture
+The application uses a Node.js/Express backend with TypeScript:
+
+- **Express Server**: Production-ready Node.js server running on port 5000 with static file serving
+- **Replit Auth Integration**: Secure authentication using Replit's OpenID Connect (OIDC) provider
+- **PostgreSQL Database**: Neon-backed PostgreSQL database with Drizzle ORM for type-safe database operations
+- **Session Management**: Secure session storage in PostgreSQL using connect-pg-simple with SameSite cookies
+- **API Routes**: RESTful API endpoints for authentication (`/api/login`, `/api/logout`) and favorites (`/api/favorites`)
+- **Security**: SameSite=lax cookies, httpOnly, secure flags, same-origin request enforcement
+
 ## Frontend Architecture
 The application follows a tri-directory single-page application (SPA) architecture built with vanilla web technologies:
 
 - **Single HTML File**: All UI sections contained within `index.html`, using tab-based navigation to switch between Childcare, Pediatricians, and Dentists directories
+- **Authentication Manager**: `auth.js` handles user authentication state, login/logout, and favorites synchronization
 - **Directory Manager**: `directory-manager.js` handles switching between childcare, pediatrician, and dentist data/UI dynamically
 - **Component-Based CSS**: Modular CSS architecture with CSS custom properties (variables) for consistent theming and responsive design
 - **Class-Based JavaScript**: Core functionality in `ChildcareDirectory` class that manages state, filtering, and rendering for all three directories
@@ -52,9 +77,10 @@ The application follows a tri-directory single-page application (SPA) architectu
   - `data/centers.json` - 278 childcare centers with locations, programs, accreditations, operational details
   - `data/pediatricians.json` - 77 pediatrician providers with specialties, insurance acceptance, locations
   - `data/dentists.json` - 55 pediatric dentists with specialties, ratings, reviews, contact information
+- **Database-Backed Favorites**: User favorites stored in PostgreSQL with userId, directory, and listingId
 - **Client-Side Filtering**: All filtering and search operations performed in-browser using JavaScript array methods and fuzzy search algorithms
 - **URL State Management**: Filter states and search parameters encoded in URL hash for shareable filtered views
-- **Directory Detection**: Early detection logic in app.js (lines 4-8) sets `window.ACTIVE_DIRECTORY` before class initialization to ensure correct data file loads
+- **Directory Detection**: Early detection logic in app.js sets `window.ACTIVE_DIRECTORY` before class initialization to ensure correct data file loads
 
 ## Data Structure Differences
 The application handles structural differences between childcare and pediatrician data:
@@ -82,20 +108,29 @@ The application handles structural differences between childcare and pediatricia
 - **Lazy Loading**: Efficient rendering of filtered results with minimal DOM manipulation
 - **Cache Busting**: Version parameters on JavaScript files to prevent stale browser caching
 
-## Known Technical Limitations
-- **Python Simple HTTP Server**: Returns 404 for direct hash URL access (/#pediatricians); users must load main page first then click tab
-- **Browser Caching**: Aggressive caching requires cache-busting version parameters and user hard refresh (Ctrl+Shift+R / Cmd+Shift+R) to see updates
+## Database Schema
+- **users**: Stores user accounts with id, email, firstName, lastName, profileImageUrl
+- **sessions**: Stores Express sessions for Replit Auth (managed by connect-pg-simple)
+- **favorites**: Stores user favorites with userId, directory, listingId (foreign key to users table)
 
 # External Dependencies
 
 ## Third-Party Services
+- **Replit Auth**: OpenID Connect authentication provider for secure user login
 - **Google Fonts**: Typography service providing Poppins and Inter font families with preconnect optimization for performance
 - **Schema.org**: Structured data markup for SEO optimization and search engine visibility
 
-## Development Dependencies
-- **No Build Process**: Pure vanilla implementation requiring no compilation, bundling, or preprocessing steps
-- **Static File Hosting**: Designed for deployment on any static web hosting service (Netlify, Vercel, GitHub Pages, etc.)
-- **Python Simple HTTP Server**: Currently used for development (python -m http.server 5000)
+## Backend Dependencies
+- **Node.js & TypeScript**: Runtime and type system for backend development
+- **Express**: Web framework for API routes and static file serving
+- **Drizzle ORM**: Type-safe database operations with PostgreSQL
+- **Passport.js**: Authentication middleware for Replit Auth
+- **tsx**: TypeScript execution for development server
+
+## Development Workflow
+- **Development Server**: `npm run dev` starts the Express server with tsx (TypeScript execution)
+- **Database Migrations**: `npm run db:push` to sync schema changes to database (use `--force` for data-loss warnings)
+- **Database Studio**: `npm run db:studio` to open Drizzle Studio for database inspection
 
 ## Data Sources
 - **Local JSON Datasets**: 

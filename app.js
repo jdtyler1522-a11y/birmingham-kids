@@ -55,7 +55,7 @@ class ChildcareDirectory {
                 dataFile = 'data/pediatricians.json?v=2025-10-03-expanded';
                 label = 'pediatrician providers';
             } else if (directory === 'dentists') {
-                dataFile = 'data/dentists.json?v=2025-10-03-new';
+                dataFile = 'data/dentists.json?v=2025-10-03-expanded';
                 label = 'pediatric dentists';
             } else {
                 dataFile = 'data/centers.json?v=2025-10-02-new';

@@ -1,13 +1,14 @@
 # Overview
 
-The Birmingham Childcare Directory is a bright, playful, mobile-first tri-directory web application designed to help parents find quality childcare options, pediatrician providers, and pediatric dentists across the Birmingham, Alabama metro area. Built entirely with vanilla HTML, CSS, and JavaScript, this single-page application provides three comprehensive directories: (1) **278 verified childcare centers** with advanced filtering and collapsible filter interface, (2) **77 pediatrician providers** with specialty and insurance-based filtering, and (3) **19 pediatric dentists** with location and rating information. The application emphasizes user experience with a modern, friendly aesthetic inspired by kids' libraries and features a sunny color palette (#FFB703 primary yellow, #8ECAE6 sky blue, #219EBC teal accents) with rounded components and playful iconography. The logo features the iconic Vulcan statue silhouette, representing Birmingham's proud heritage.
+The Birmingham Childcare Directory is a bright, playful, mobile-first tri-directory web application designed to help parents find quality childcare options, pediatrician providers, and pediatric dentists across the Birmingham, Alabama metro area. Built entirely with vanilla HTML, CSS, and JavaScript, this single-page application provides three comprehensive directories: (1) **278 verified childcare centers** with advanced filtering and collapsible filter interface, (2) **77 pediatrician providers** with specialty and insurance-based filtering, and (3) **58 pediatric dentists** with location and rating information. The application emphasizes user experience with a modern, friendly aesthetic inspired by kids' libraries and features a sunny color palette (#FFB703 primary yellow, #8ECAE6 sky blue, #219EBC teal accents) with rounded components and playful iconography. The logo features the iconic Vulcan statue silhouette, representing Birmingham's proud heritage.
 
 **Status**: Fully functional and deployed with real verified data. All three directories are running successfully with tab-based navigation, search, filtering, modal details, and form submission functionality.
 
 # Recent Changes
 
 ## October 3, 2025
-- **Added third directory - Pediatric Dentists**: Created new dentist directory with 19 verified pediatric dental practices extracted from CSV data
+- **Expanded dentist directory**: Added 39 additional pediatric dentists from new CSV data (now 58 total dentists, up from 19)
+- **Added third directory - Pediatric Dentists**: Created new dentist directory with verified pediatric dental practices extracted from CSV data
 - **Updated to tri-directory architecture**: Added tooth icon tab for dentists, updated directory-manager.js and app.js to handle three directories (childcare, pediatricians, dentists)
 - **Created dentist card template**: Added createDentistCard() function with specialty badges, ratings, reviews, and contact information
 - **Fixed filter visibility**: Hidden childcare-only quick filters (Openings Now, Accepts Subsidy, First Class Pre-K) when in pediatrician or dentist mode
@@ -42,7 +43,7 @@ The application follows a tri-directory single-page application (SPA) architectu
 - **Three JSON Data Stores**: 
   - `data/centers.json` - 278 childcare centers with locations, programs, accreditations, operational details
   - `data/pediatricians.json` - 77 pediatrician providers with specialties, insurance acceptance, locations
-  - `data/dentists.json` - 19 pediatric dentists with specialties, ratings, reviews, contact information
+  - `data/dentists.json` - 58 pediatric dentists with specialties, ratings, reviews, contact information
 - **Client-Side Filtering**: All filtering and search operations performed in-browser using JavaScript array methods and fuzzy search algorithms
 - **URL State Management**: Filter states and search parameters encoded in URL hash for shareable filtered views
 - **Directory Detection**: Early detection logic in app.js (lines 4-8) sets `window.ACTIVE_DIRECTORY` before class initialization to ensure correct data file loads
@@ -92,7 +93,7 @@ The application handles structural differences between childcare and pediatricia
 - **Local JSON Datasets**: 
   - Self-contained childcare database stored in `data/centers.json` (278 centers)
   - Self-contained pediatrician database stored in `data/pediatricians.json` (77 providers)
-  - Self-contained pediatric dentist database stored in `data/dentists.json` (19 dentists)
+  - Self-contained pediatric dentist database stored in `data/dentists.json` (58 dentists)
 - **Manual Data Management**: Content updates performed through direct JSON file editing or automated Python scripts
 - **Static Asset Storage**: Local image assets stored in `assets/` directory for logos and photos
 

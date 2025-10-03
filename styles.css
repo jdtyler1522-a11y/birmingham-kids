@@ -109,6 +109,177 @@ h4 { font-size: 1.25rem; }
     box-shadow: var(--shadow-md);
 }
 
+/* Landing Page */
+.landing-page {
+    min-height: 100vh;
+    background: linear-gradient(135deg, #8ECAE6 0%, #B8DBE8 50%, #FFB703 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 40px 20px;
+    text-align: center;
+}
+
+.landing-container {
+    max-width: 1200px;
+    width: 100%;
+    margin: 0 auto;
+}
+
+.landing-hero {
+    margin-bottom: 60px;
+}
+
+.landing-logo {
+    margin-bottom: 30px;
+}
+
+.landing-logo-img {
+    width: 120px;
+    height: auto;
+    filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.15));
+}
+
+.landing-title {
+    font-size: 3.5rem;
+    font-weight: 700;
+    color: var(--neutral-text);
+    margin-bottom: 20px;
+    line-height: 1.2;
+}
+
+.landing-subtitle {
+    font-size: 1.5rem;
+    color: var(--dark-gray);
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.landing-subtitle strong {
+    color: var(--neutral-text);
+}
+
+/* Directory Cards */
+.directory-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 32px;
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+.directory-card {
+    background: var(--white);
+    border-radius: var(--radius-lg);
+    padding: 48px 32px;
+    box-shadow: var(--shadow-lg);
+    transition: var(--transition);
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+}
+
+.directory-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 6px;
+    transition: var(--transition);
+}
+
+.childcare-card::before {
+    background: linear-gradient(90deg, var(--primary), var(--accent-3));
+}
+
+.pediatricians-card::before {
+    background: linear-gradient(90deg, var(--accent-2), var(--accent-1));
+}
+
+.dentists-card::before {
+    background: linear-gradient(90deg, #FB8500, var(--primary));
+}
+
+.directory-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 16px 48px rgba(0, 0, 0, 0.2);
+}
+
+.card-icon {
+    margin-bottom: 24px;
+}
+
+.card-icon svg {
+    color: var(--primary);
+    filter: drop-shadow(0 2px 4px rgba(255, 183, 3, 0.3));
+}
+
+.pediatricians-card .card-icon svg {
+    color: var(--accent-2);
+    filter: drop-shadow(0 2px 4px rgba(33, 158, 188, 0.3));
+}
+
+.dentists-card .card-icon svg {
+    color: var(--accent-3);
+    filter: drop-shadow(0 2px 4px rgba(251, 133, 0, 0.3));
+}
+
+.card-title {
+    font-size: 1.75rem;
+    font-weight: 600;
+    color: var(--neutral-text);
+    margin-bottom: 12px;
+}
+
+.card-description {
+    font-size: 1rem;
+    color: var(--dark-gray);
+    margin-bottom: 24px;
+    line-height: 1.6;
+}
+
+.card-button {
+    padding: 16px 32px;
+    border: none;
+    border-radius: var(--radius-lg);
+    font-family: var(--font-body);
+    font-weight: 600;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: var(--transition);
+    width: 100%;
+}
+
+.childcare-card .card-button {
+    background-color: var(--primary);
+    color: var(--neutral-text);
+}
+
+.pediatricians-card .card-button {
+    background-color: var(--accent-2);
+    color: var(--white);
+}
+
+.dentists-card .card-button {
+    background-color: var(--accent-3);
+    color: var(--white);
+}
+
+.card-button:hover {
+    transform: scale(1.05);
+    box-shadow: var(--shadow-md);
+}
+
+/* Directory Content - Hidden by default */
+.directory-content {
+    display: none;
+}
+
+.directory-content.active {
+    display: block;
+}
+
 /* Hero Section */
 .hero {
     background-color: #8ECAE6;
@@ -1302,6 +1473,28 @@ h4 { font-size: 1.25rem; }
     .filters-title-section {
         width: 100%;
         justify-content: space-between;
+    }
+    
+    /* Landing Page Mobile */
+    .landing-title {
+        font-size: 2rem;
+    }
+    
+    .landing-subtitle {
+        font-size: 1.1rem;
+    }
+    
+    .landing-logo-img {
+        width: 80px;
+    }
+    
+    .directory-cards {
+        grid-template-columns: 1fr;
+        gap: 24px;
+    }
+    
+    .directory-card {
+        padding: 32px 24px;
     }
 }
 /* Pediatrician Card Styles */

@@ -15,7 +15,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
     
-    <link rel="stylesheet" href="styles.css?v=2025-10-03-landing-v3">
+    <link rel="stylesheet" href="styles.css?v=2025-10-03-navbar">
     
     <!-- Schema.org structured data -->
     <script type="application/ld+json">
@@ -29,6 +29,22 @@
     </script>
 </head>
 <body>
+    <!-- Navigation Bar -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <img src="attached_assets/ChatGPT Image Sep 30, 2025, 05_35_27 PM_1759271740445.png" alt="Birmingham Family Resources" class="nav-logo-img">
+                <span class="nav-brand">Birmingham Family Resources</span>
+            </div>
+            <div class="nav-links">
+                <a href="#" class="nav-link active" id="navHome">Home</a>
+                <a href="#" class="nav-link" data-navigate="childcare">Childcare</a>
+                <a href="#" class="nav-link" data-navigate="pediatricians">Pediatricians</a>
+                <a href="#" class="nav-link" data-navigate="dentists">Dentists</a>
+            </div>
+        </div>
+    </nav>
+
     <!-- Landing Page -->
     <section class="landing-page" id="landingPage">
         <div class="landing-container">
@@ -540,11 +556,42 @@
             const directoryContent = document.getElementById('directoryContent');
             const directoryCards = document.querySelectorAll('.directory-card');
             const homeButton = document.getElementById('homeButton');
+            const navbar = document.getElementById('navbar');
+            const navHome = document.getElementById('navHome');
+            const navLinks = document.querySelectorAll('.nav-link[data-navigate]');
+            
+            // Function to show landing page
+            function showLanding() {
+                landingPage.style.display = 'flex';
+                directoryContent.classList.remove('active');
+                navbar.style.display = 'block';
+                
+                // Update nav links
+                document.querySelectorAll('.nav-link').forEach(link => link.classList.remove('active'));
+                navHome.classList.add('active');
+                
+                history.pushState("", document.title, window.location.pathname + window.location.search);
+                window.scrollTo(0, 0);
+            }
+            
+            // Function to show directory
+            function showDirectory(directory) {
+                landingPage.style.display = 'none';
+                directoryContent.classList.add('active');
+                navbar.style.display = 'block';
+                
+                // Update nav links
+                document.querySelectorAll('.nav-link').forEach(link => link.classList.remove('active'));
+                const activeLink = document.querySelector(`.nav-link[data-navigate="${directory}"]`);
+                if (activeLink) activeLink.classList.add('active');
+                
+                window.location.hash = directory;
+                window.scrollTo(0, 0);
+            }
             
             // Check if there's a hash in URL
             const hash = window.location.hash;
             if (hash && (hash.includes('childcare') || hash.includes('pediatricians') || hash.includes('dentists'))) {
-                // If there's a directory hash, show directory content
                 landingPage.style.display = 'none';
                 directoryContent.classList.add('active');
             }
@@ -553,35 +600,30 @@
             directoryCards.forEach(card => {
                 card.addEventListener('click', function() {
                     const directory = this.getAttribute('data-navigate');
-                    
-                    // Hide landing page
-                    landingPage.style.display = 'none';
-                    
-                    // Show directory content
-                    directoryContent.classList.add('active');
-                    
-                    // Set the hash to trigger directory manager
-                    window.location.hash = directory;
-                    
-                    // Scroll to top
-                    window.scrollTo(0, 0);
+                    showDirectory(directory);
                 });
             });
             
-            // Handle home button click
+            // Handle nav link clicks
+            navLinks.forEach(link => {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const directory = this.getAttribute('data-navigate');
+                    showDirectory(directory);
+                });
+            });
+            
+            // Handle home button clicks
             if (homeButton) {
                 homeButton.addEventListener('click', function() {
-                    // Show landing page
-                    landingPage.style.display = 'flex';
-                    
-                    // Hide directory content
-                    directoryContent.classList.remove('active');
-                    
-                    // Clear hash
-                    history.pushState("", document.title, window.location.pathname + window.location.search);
-                    
-                    // Scroll to top
-                    window.scrollTo(0, 0);
+                    showLanding();
+                });
+            }
+            
+            if (navHome) {
+                navHome.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    showLanding();
                 });
             }
         });

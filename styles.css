@@ -532,7 +532,7 @@ h4 { font-size: 1.25rem; }
 
 /* Hero Section */
 .hero {
-    background-color: #8ECAE6;
+    background: linear-gradient(135deg, #E8F6FB 0%, #F0F9FF 100%);
     padding: 80px 0;
     text-align: center;
     position: relative;

@@ -1,17 +1,21 @@
 # Overview
 
-The Birmingham Childcare Directory is a bright, playful, mobile-first dual-directory web application designed to help parents find quality childcare options and pediatrician providers across the Birmingham, Alabama metro area. Built entirely with vanilla HTML, CSS, and JavaScript, this single-page application provides two comprehensive directories: (1) **278 verified childcare centers** with advanced filtering and collapsible filter interface, and (2) **77 pediatrician providers** with specialty and insurance-based filtering. The application emphasizes user experience with a modern, friendly aesthetic inspired by kids' libraries and features a sunny color palette (#FFB703 primary yellow, #8ECAE6 sky blue, #219EBC teal accents) with rounded components and playful iconography. The logo features the iconic Vulcan statue silhouette, representing Birmingham's proud heritage.
+The Birmingham Childcare Directory is a bright, playful, mobile-first tri-directory web application designed to help parents find quality childcare options, pediatrician providers, and pediatric dentists across the Birmingham, Alabama metro area. Built entirely with vanilla HTML, CSS, and JavaScript, this single-page application provides three comprehensive directories: (1) **278 verified childcare centers** with advanced filtering and collapsible filter interface, (2) **77 pediatrician providers** with specialty and insurance-based filtering, and (3) **19 pediatric dentists** with location and rating information. The application emphasizes user experience with a modern, friendly aesthetic inspired by kids' libraries and features a sunny color palette (#FFB703 primary yellow, #8ECAE6 sky blue, #219EBC teal accents) with rounded components and playful iconography. The logo features the iconic Vulcan statue silhouette, representing Birmingham's proud heritage.
 
-**Status**: Fully functional and deployed with real verified data. Both directories are running successfully with tab-based navigation, search, filtering, modal details, and form submission functionality.
+**Status**: Fully functional and deployed with real verified data. All three directories are running successfully with tab-based navigation, search, filtering, modal details, and form submission functionality.
 
 # Recent Changes
 
 ## October 3, 2025
+- **Added third directory - Pediatric Dentists**: Created new dentist directory with 19 verified pediatric dental practices extracted from CSV data
+- **Updated to tri-directory architecture**: Added tooth icon tab for dentists, updated directory-manager.js and app.js to handle three directories (childcare, pediatricians, dentists)
+- **Created dentist card template**: Added createDentistCard() function with specialty badges, ratings, reviews, and contact information
+- **Fixed filter visibility**: Hidden childcare-only quick filters (Openings Now, Accepts Subsidy, First Class Pre-K) when in pediatrician or dentist mode
 - **Significantly expanded pediatrician directory**: Added 36 new providers including individual doctors and specialty practices (now 77 total providers, up from 41)
 - **Fixed pediatrician rendering bugs**: Added null safety checks throughout app.js to prevent crashes when DOM elements don't exist in pediatrician mode
 - **Fixed sorting compatibility**: Updated `applySort()` method to handle both childcare data structures (name, hours.open/close) and pediatrician structures (displayName, string hours)
 - **Improved toggle methods**: Added null checks in `toggleFiltersPanel()` and `updateActiveFiltersCount()` to prevent null reference errors
-- **Cache busting**: Updated cache version to v=2025-10-03-v4 for app.js and v=2025-10-03-expanded for pediatricians.json
+- **Cache busting**: Updated cache version to v=2025-10-03-dentists-v2 for app.js and v=2025-10-03-dentists for directory-manager.js
 
 ## Previous Updates
 - Expanded childcare directory from 52 to 278 verified Birmingham metro centers
@@ -26,18 +30,19 @@ Preferred communication style: Simple, everyday language.
 # System Architecture
 
 ## Frontend Architecture
-The application follows a dual-directory single-page application (SPA) architecture built with vanilla web technologies:
+The application follows a tri-directory single-page application (SPA) architecture built with vanilla web technologies:
 
-- **Single HTML File**: All UI sections contained within `index.html`, using tab-based navigation to switch between Childcare and Pediatricians directories
-- **Directory Manager**: `directory-manager.js` handles switching between childcare and pediatrician data/UI dynamically
+- **Single HTML File**: All UI sections contained within `index.html`, using tab-based navigation to switch between Childcare, Pediatricians, and Dentists directories
+- **Directory Manager**: `directory-manager.js` handles switching between childcare, pediatrician, and dentist data/UI dynamically
 - **Component-Based CSS**: Modular CSS architecture with CSS custom properties (variables) for consistent theming and responsive design
-- **Class-Based JavaScript**: Core functionality in `ChildcareDirectory` class that manages state, filtering, and rendering for both directories
+- **Class-Based JavaScript**: Core functionality in `ChildcareDirectory` class that manages state, filtering, and rendering for all three directories
 - **Mobile-First Responsive Design**: Progressive enhancement starting with mobile layouts and enhancing for larger screens
 
 ## Data Management
-- **Dual JSON Data Stores**: 
+- **Three JSON Data Stores**: 
   - `data/centers.json` - 278 childcare centers with locations, programs, accreditations, operational details
   - `data/pediatricians.json` - 77 pediatrician providers with specialties, insurance acceptance, locations
+  - `data/dentists.json` - 19 pediatric dentists with specialties, ratings, reviews, contact information
 - **Client-Side Filtering**: All filtering and search operations performed in-browser using JavaScript array methods and fuzzy search algorithms
 - **URL State Management**: Filter states and search parameters encoded in URL hash for shareable filtered views
 - **Directory Detection**: Early detection logic in app.js (lines 4-8) sets `window.ACTIVE_DIRECTORY` before class initialization to ensure correct data file loads
@@ -53,11 +58,12 @@ The application handles structural differences between childcare and pediatricia
 - **Typography**: Google Fonts integration with Poppins for headings and Inter for body text
 - **Accessibility**: WCAG AA compliance with semantic HTML, ARIA labels, keyboard navigation, and sufficient color contrast
 - **Interactive Elements**: Modal windows for detailed information, pill-style filter buttons, and responsive card layouts
-- **Tab Navigation**: Icon-based tabs (home icon for Childcare, heartbeat icon for Pediatricians)
+- **Tab Navigation**: Icon-based tabs (home icon for Childcare, heartbeat icon for Pediatricians, tooth icon for Dentists)
 
 ## Search and Filtering System
 - **Childcare Filters**: Location, age range, program type, accreditation, hours, subsidy acceptance, First Class Pre-K
 - **Pediatrician Filters**: Location, specialty, insurance acceptance
+- **Dentist Filters**: Location-based search with specialty and rating display
 - **Fuzzy Search**: Search across center/provider names, neighborhoods, and relevant details with debounced input handling
 - **Real-Time Updates**: Immediate filter application with URL synchronization for bookmarkable results
 - **Sort Functionality**: Directory-aware sorting handling different data structures
@@ -86,6 +92,7 @@ The application handles structural differences between childcare and pediatricia
 - **Local JSON Datasets**: 
   - Self-contained childcare database stored in `data/centers.json` (278 centers)
   - Self-contained pediatrician database stored in `data/pediatricians.json` (77 providers)
+  - Self-contained pediatric dentist database stored in `data/dentists.json` (19 dentists)
 - **Manual Data Management**: Content updates performed through direct JSON file editing or automated Python scripts
 - **Static Asset Storage**: Local image assets stored in `assets/` directory for logos and photos
 

@@ -3,7 +3,13 @@
 // Detect directory mode IMMEDIATELY
 if (!window.ACTIVE_DIRECTORY) {
     const hash = window.location.hash;
-    window.ACTIVE_DIRECTORY = hash.startsWith('#pediatricians') ? 'pediatricians' : 'childcare';
+    if (hash.startsWith('#pediatricians')) {
+        window.ACTIVE_DIRECTORY = 'pediatricians';
+    } else if (hash.startsWith('#dentists')) {
+        window.ACTIVE_DIRECTORY = 'dentists';
+    } else {
+        window.ACTIVE_DIRECTORY = 'childcare';
+    }
 }
 
 class ChildcareDirectory {
@@ -42,13 +48,24 @@ class ChildcareDirectory {
     async loadData() {
         try {
             // Check which directory is active
-            const isPediatricians = window.ACTIVE_DIRECTORY === 'pediatricians';
-            const dataFile = isPediatricians ? 'data/pediatricians.json?v=2025-10-03-expanded' : 'data/centers.json?v=2025-10-02-new';
-            const label = isPediatricians ? 'pediatrician providers' : 'childcare centers';
+            const directory = window.ACTIVE_DIRECTORY;
+            let dataFile, label;
+            
+            if (directory === 'pediatricians') {
+                dataFile = 'data/pediatricians.json?v=2025-10-03-expanded';
+                label = 'pediatrician providers';
+            } else if (directory === 'dentists') {
+                dataFile = 'data/dentists.json?v=2025-10-03-new';
+                label = 'pediatric dentists';
+            } else {
+                dataFile = 'data/centers.json?v=2025-10-02-new';
+                label = 'childcare centers';
+            }
             
             const response = await fetch(dataFile);
             this.centers = await response.json();
-            this.isPediatricianMode = isPediatricians;
+            this.isPediatricianMode = (directory === 'pediatricians');
+            this.isDentistMode = (directory === 'dentists');
             console.log(`Loaded ${this.centers.length} ${label}`);
         } catch (error) {
             console.error('Error loading data:', error);
@@ -201,6 +218,14 @@ class ChildcareDirectory {
     }
 
     initializeFiltersPanel() {
+        // Hide childcare-only quick filters for pediatricians and dentists
+        if (this.isPediatricianMode || this.isDentistMode) {
+            const quickFilters = document.querySelector('.quick-filters');
+            if (quickFilters) {
+                quickFilters.style.display = 'none';
+            }
+        }
+        
         // Set initial state based on screen size and session storage
         const isMobile = window.innerWidth <= 768;
         const savedState = sessionStorage.getItem('filtersCollapsed');
@@ -322,9 +347,9 @@ class ChildcareDirectory {
                 const searchTerm = this.currentFilters.search.toLowerCase();
                 let searchableText;
                 
-                if (this.isPediatricianMode) {
-                    // Search pediatrician fields
-                    searchableText = `${center.displayName || center.practiceName} ${center.providerName || ''} ${center.city} ${center.description || ''} ${center.services || ''}`.toLowerCase();
+                if (this.isPediatricianMode || this.isDentistMode) {
+                    // Search pediatrician/dentist fields
+                    searchableText = `${center.displayName || center.practiceName} ${center.providerName || ''} ${center.city} ${center.specialty || ''} ${center.description || ''} ${center.services || ''}`.toLowerCase();
                 } else {
                     // Search childcare fields
                     searchableText = `${center.name} ${center.city} ${center.neighborhood} ${center.programs.join(' ')} ${center.blurb}`.toLowerCase();
@@ -343,7 +368,7 @@ class ChildcareDirectory {
             }
 
             // CHILDCARE-ONLY FILTERS
-            if (!this.isPediatricianMode) {
+            if (!this.isPediatricianMode && !this.isDentistMode) {
                 // Age range filter
                 if (this.currentFilters.ageRange.length > 0) {
                     const hasMatchingAge = this.currentFilters.ageRange.some(age => 
@@ -506,6 +531,10 @@ class ChildcareDirectory {
         // If in pediatrician mode, use pediatrician card template
         if (this.isPediatricianMode) {
             return this.createPediatricianCard(center);
+        }
+        // If in dentist mode, use dentist card template
+        if (this.isDentistMode) {
+            return this.createDentistCard(center);
         }
         
         const badges = this.generateBadges(center);
@@ -678,6 +707,52 @@ class ChildcareDirectory {
                     ${provider.phone ? `<a href="tel:${provider.phone}" class="card-btn card-btn-secondary">Call</a>` : ''}
                     ${provider.website ? `<a href="${provider.website}" target="_blank" rel="noopener" class="card-btn card-btn-secondary">Website</a>` : ''}
                     <a href="https://maps.google.com/?q=${encodeURIComponent(provider.address + ', ' + provider.city + ', AL')}" target="_blank" rel="noopener" class="card-btn card-btn-secondary">Directions</a>
+                </div>
+            </article>
+        `;
+    }
+
+    createDentistCard(dentist) {
+        const displayRating = dentist.rating ? `⭐ ${dentist.rating}` : '';
+        const reviewsText = dentist.reviewsCount ? `(${dentist.reviewsCount} reviews)` : '';
+        
+        return `
+            <article class="center-card fade-in" data-center-id="${dentist.id}">
+                <div class="card-header">
+                    <h3 class="center-name">${dentist.displayName}</h3>
+                    <div class="center-location">${dentist.city}, AL ${dentist.zip || ''}</div>
+                    ${displayRating ? `<div class="provider-practice">${displayRating} ${reviewsText}</div>` : ''}
+                </div>
+                
+                <p class="center-blurb">${dentist.description || 'Pediatric dental care for Birmingham families.'}</p>
+                
+                <div class="badges">
+                    ${dentist.specialty ? `<span class="badge badge-naeyc">${dentist.specialty}</span>` : ''}
+                </div>
+                
+                <div class="quick-facts">
+                    <div class="fact">
+                        <svg class="fact-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <circle cx="12" cy="12" r="10"></circle>
+                            <polyline points="12,6 12,12 16,14"></polyline>
+                        </svg>
+                        <span class="fact-value">${this.formatHours(dentist.hours)}</span>
+                    </div>
+                    ${dentist.phone ? `
+                    <div class="fact">
+                        <svg class="fact-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+                        </svg>
+                        <span class="fact-value">${dentist.phone}</span>
+                    </div>
+                    ` : ''}
+                </div>
+                
+                <div class="card-actions">
+                    <button class="card-btn card-btn-primary" onclick="app.openModal('${dentist.id}')">View Details</button>
+                    ${dentist.phone ? `<a href="tel:${dentist.phone}" class="card-btn card-btn-secondary">Call</a>` : ''}
+                    ${dentist.website ? `<a href="${dentist.website}" target="_blank" rel="noopener" class="card-btn card-btn-secondary">Website</a>` : ''}
+                    <a href="https://maps.google.com/?q=${encodeURIComponent(dentist.address)}" target="_blank" rel="noopener" class="card-btn card-btn-secondary">Directions</a>
                 </div>
             </article>
         `;

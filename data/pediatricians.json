@@ -937,5 +937,28 @@
     "reviews": "Google ~4.5\u2605",
     "latitude": 33.5186,
     "longitude": -86.8104
+  },
+  {
+    "id": "hoover-pediatrics",
+    "providerName": null,
+    "practiceName": "Hoover Pediatrics",
+    "displayName": "Hoover Pediatrics",
+    "address": "",
+    "city": "Hoover",
+    "zip": "",
+    "neighborhood": "Hoover",
+    "phone": "(205) 536-6007",
+    "website": "",
+    "hours": "Call for hours",
+    "insuranceAccepted": [],
+    "services": "Pediatric care",
+    "certifications": "Board-Certified Pediatricians",
+    "ageRange": "Newborn to 21",
+    "acceptingNewPatients": true,
+    "features": "",
+    "description": "Pediatric clinic serving families in the Hoover area.",
+    "reviews": "Google 4.9\u2605 (153)",
+    "latitude": null,
+    "longitude": null
   }
 ]

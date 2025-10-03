@@ -43,7 +43,7 @@ class ChildcareDirectory {
         try {
             // Check which directory is active
             const isPediatricians = window.ACTIVE_DIRECTORY === 'pediatricians';
-            const dataFile = isPediatricians ? 'data/pediatricians.json?v=2025-10-02' : 'data/centers.json?v=2025-10-02-new';
+            const dataFile = isPediatricians ? 'data/pediatricians.json?v=2025-10-02-new' : 'data/centers.json?v=2025-10-02-new';
             const label = isPediatricians ? 'pediatrician providers' : 'childcare centers';
             
             const response = await fetch(dataFile);

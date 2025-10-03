@@ -615,6 +615,46 @@ h4 { font-size: 1.25rem; }
     border-color: var(--accent-2);
 }
 
+/* Favorite Button */
+.favorite-btn {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 4px;
+    z-index: 10;
+    transition: var(--transition);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.favorite-btn:hover {
+    transform: scale(1.15);
+}
+
+.favorite-btn .star-icon {
+    stroke: var(--primary);
+    fill: none;
+    transition: all 0.3s ease;
+}
+
+.favorite-btn:hover .star-icon {
+    stroke: var(--accent-1);
+}
+
+.favorite-btn.favorited .star-icon {
+    fill: var(--primary);
+    stroke: var(--primary);
+}
+
+.favorite-btn.favorited:hover .star-icon {
+    fill: var(--accent-1);
+    stroke: var(--accent-1);
+}
+
 .card-header {
     margin-bottom: 16px;
 }

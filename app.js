@@ -29,6 +29,7 @@ class ChildcareDirectory {
             firstClassPreK: null
         };
         this.currentSort = 'name';
+        this.favorites = this.loadFavorites();
         this.init();
     }
 
@@ -544,6 +545,11 @@ class ChildcareDirectory {
 
         return `
             <article class="center-card fade-in" data-center-id="${center.id}">
+                <button class="favorite-btn" data-id="${center.id}" aria-label="Add to favorites">
+                    <svg class="star-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <polygon points="12,2 15.09,8.26 22,9.27 17,14.14 18.18,21.02 12,17.77 5.82,21.02 7,14.14 2,9.27 8.91,8.26" />
+                    </svg>
+                </button>
                 <div class="card-header">
                     <h3 class="center-name">${center.name}</h3>
                     <div class="center-location">${center.neighborhood}, ${center.city}</div>
@@ -654,6 +660,11 @@ class ChildcareDirectory {
         
         return `
             <article class="center-card fade-in" data-center-id="${provider.id}">
+                <button class="favorite-btn" data-id="${provider.id}" aria-label="Add to favorites">
+                    <svg class="star-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <polygon points="12,2 15.09,8.26 22,9.27 17,14.14 18.18,21.02 12,17.77 5.82,21.02 7,14.14 2,9.27 8.91,8.26" />
+                    </svg>
+                </button>
                 <div class="card-header">
                     <h3 class="center-name">${displayName}</h3>
                     ${provider.providerName ? `<div class="provider-practice">${provider.practiceName}</div>` : ''}
@@ -718,6 +729,11 @@ class ChildcareDirectory {
         
         return `
             <article class="center-card fade-in" data-center-id="${dentist.id}">
+                <button class="favorite-btn" data-id="${dentist.id}" aria-label="Add to favorites">
+                    <svg class="star-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <polygon points="12,2 15.09,8.26 22,9.27 17,14.14 18.18,21.02 12,17.77 5.82,21.02 7,14.14 2,9.27 8.91,8.26" />
+                    </svg>
+                </button>
                 <div class="card-header">
                     <h3 class="center-name">${dentist.displayName}</h3>
                     <div class="center-location">${dentist.city}, AL ${dentist.zip || ''}</div>
@@ -759,8 +775,76 @@ class ChildcareDirectory {
     }
 
     setupCardEventListeners() {
-        // Event delegation is already handled by onclick attributes in the template
-        // This method is here for any additional card-specific event handling
+        // Handle favorite button clicks with event delegation
+        const resultsGrid = document.getElementById('resultsGrid');
+        if (!resultsGrid) return;
+
+        // Remove old listener if exists
+        const oldHandler = resultsGrid._favoriteHandler;
+        if (oldHandler) {
+            resultsGrid.removeEventListener('click', oldHandler);
+        }
+
+        // Add new listener
+        const newHandler = (e) => {
+            const favoriteBtn = e.target.closest('.favorite-btn');
+            if (favoriteBtn) {
+                e.preventDefault();
+                e.stopPropagation();
+                const id = favoriteBtn.getAttribute('data-id');
+                this.toggleFavorite(id);
+            }
+        };
+        
+        resultsGrid.addEventListener('click', newHandler);
+        resultsGrid._favoriteHandler = newHandler;
+
+        // Apply favorited state to cards
+        this.applyFavoritedState();
+    }
+
+    loadFavorites() {
+        try {
+            const directory = window.ACTIVE_DIRECTORY || 'childcare';
+            const saved = localStorage.getItem(`birmingham_favorites_${directory}`);
+            return saved ? new Set(JSON.parse(saved)) : new Set();
+        } catch (e) {
+            console.error('Error loading favorites:', e);
+            return new Set();
+        }
+    }
+
+    saveFavorites() {
+        try {
+            const directory = window.ACTIVE_DIRECTORY || 'childcare';
+            localStorage.setItem(`birmingham_favorites_${directory}`, JSON.stringify([...this.favorites]));
+        } catch (e) {
+            console.error('Error saving favorites:', e);
+        }
+    }
+
+    toggleFavorite(id) {
+        if (this.favorites.has(id)) {
+            this.favorites.delete(id);
+        } else {
+            this.favorites.add(id);
+        }
+        this.saveFavorites();
+        this.applyFavoritedState();
+    }
+
+    applyFavoritedState() {
+        // Apply favorited class to all favorite buttons
+        document.querySelectorAll('.favorite-btn').forEach(btn => {
+            const id = btn.getAttribute('data-id');
+            if (this.favorites.has(id)) {
+                btn.classList.add('favorited');
+                btn.setAttribute('aria-label', 'Remove from favorites');
+            } else {
+                btn.classList.remove('favorited');
+                btn.setAttribute('aria-label', 'Add to favorites');
+            }
+        });
     }
 
     openModal(centerId) {

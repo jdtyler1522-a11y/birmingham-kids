@@ -142,13 +142,6 @@
                 </div>
                 
                 <nav class="directory-nav">
-                    <button class="directory-tab home-tab" id="homeButton">
-                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
-                            <polyline points="9 22 9 12 15 12 15 22"></polyline>
-                        </svg>
-                        Home
-                    </button>
                     <button class="directory-tab active" data-directory="childcare">
                         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                             <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
@@ -582,7 +575,6 @@
             const landingPage = document.getElementById('landingPage');
             const directoryContent = document.getElementById('directoryContent');
             const directoryCards = document.querySelectorAll('.directory-card');
-            const homeButton = document.getElementById('homeButton');
             const navbar = document.getElementById('navbar');
             const navHome = document.getElementById('navHome');
             const navLinks = document.querySelectorAll('.nav-link[data-navigate]');
@@ -640,13 +632,7 @@
                 });
             });
             
-            // Handle home button clicks
-            if (homeButton) {
-                homeButton.addEventListener('click', function() {
-                    showLanding();
-                });
-            }
-            
+            // Handle navbar home link clicks
             if (navHome) {
                 navHome.addEventListener('click', function(e) {
                     e.preventDefault();

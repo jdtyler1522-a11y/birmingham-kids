@@ -2,7 +2,12 @@
 (function() {
     // Set directory IMMEDIATELY (before DOM ready) so app.js can use it
     const hash = window.location.hash;
-    const currentDirectory = hash.startsWith('#pediatricians') ? 'pediatricians' : 'childcare';
+    let currentDirectory = 'childcare';
+    if (hash.startsWith('#pediatricians')) {
+        currentDirectory = 'pediatricians';
+    } else if (hash.startsWith('#dentists')) {
+        currentDirectory = 'dentists';
+    }
     window.ACTIVE_DIRECTORY = currentDirectory;
     
     // Update UI elements based on directory
@@ -21,6 +26,13 @@
                 searchPlaceholder: 'Search by doctor name, practice, or specialty...',
                 filtersTitle: 'Find Your Pediatrician',
                 resultsLabel: 'providers'
+            },
+            dentists: {
+                title: 'Birmingham Pediatric Dentist Directory',
+                subtitle: 'Find trusted pediatric dental care across the Birmingham metro—compare practices, specialties, and patient reviews.',
+                searchPlaceholder: 'Search by dentist name, practice, or location...',
+                filtersTitle: 'Find Your Pediatric Dentist',
+                resultsLabel: 'dentists'
             }
         }[directory];
         

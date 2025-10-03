@@ -112,12 +112,11 @@ h4 { font-size: 1.25rem; }
 /* Landing Page */
 .landing-page {
     min-height: 100vh;
-    background: linear-gradient(135deg, #8ECAE6 0%, #B8DBE8 50%, #FFB703 100%);
+    background: linear-gradient(135deg, #E8F4F8 0%, #F5F9FB 50%, #FFF9E6 100%);
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 40px 20px;
-    text-align: center;
+    padding: 60px 20px;
     position: relative;
     overflow: hidden;
 }
@@ -131,39 +130,83 @@ h4 { font-size: 1.25rem; }
 }
 
 .landing-hero {
-    margin-bottom: 60px;
-    position: relative;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    align-items: center;
+    margin-bottom: 80px;
+}
+
+.hero-left {
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .hero-image-wrapper {
+    position: relative;
+    width: 400px;
+    height: 400px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.decorative-blob {
     position: absolute;
-    top: -80px;
-    right: 50%;
-    transform: translateX(calc(50% + 400px));
+    border-radius: 50%;
     z-index: 1;
-    opacity: 0.25;
-    pointer-events: none;
+}
+
+.blob-1 {
+    width: 300px;
+    height: 300px;
+    background: var(--accent-1);
+    top: 50px;
+    left: -30px;
+    opacity: 0.5;
+}
+
+.blob-2 {
+    width: 200px;
+    height: 200px;
+    background: var(--primary);
+    bottom: 40px;
+    right: -20px;
+    opacity: 0.6;
+}
+
+.blob-3 {
+    width: 150px;
+    height: 150px;
+    background: var(--accent-3);
+    top: -20px;
+    right: 80px;
+    opacity: 0.5;
 }
 
 .hero-child-image {
-    width: 300px;
-    height: 300px;
+    width: 350px;
+    height: 350px;
     object-fit: cover;
     border-radius: 50%;
-    border: 8px solid rgba(255, 255, 255, 0.5);
-    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.15);
+    position: relative;
+    z-index: 2;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15);
+}
+
+.hero-right {
+    text-align: left;
 }
 
 .landing-logo {
     margin-bottom: 30px;
-    position: relative;
-    z-index: 2;
 }
 
 .landing-logo-img {
-    width: 120px;
+    width: 100px;
     height: auto;
-    filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.15));
+    filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.1));
 }
 
 .landing-title {
@@ -175,10 +218,9 @@ h4 { font-size: 1.25rem; }
 }
 
 .landing-subtitle {
-    font-size: 1.5rem;
+    font-size: 1.3rem;
     color: var(--dark-gray);
-    max-width: 800px;
-    margin: 0 auto;
+    line-height: 1.6;
 }
 
 .landing-subtitle strong {
@@ -1502,6 +1544,47 @@ h4 { font-size: 1.25rem; }
     }
     
     /* Landing Page Mobile */
+    .landing-hero {
+        grid-template-columns: 1fr;
+        gap: 40px;
+        margin-bottom: 60px;
+    }
+    
+    .hero-left {
+        order: 2;
+    }
+    
+    .hero-right {
+        order: 1;
+        text-align: center;
+    }
+    
+    .hero-image-wrapper {
+        width: 280px;
+        height: 280px;
+        margin: 0 auto;
+    }
+    
+    .hero-child-image {
+        width: 250px;
+        height: 250px;
+    }
+    
+    .blob-1 {
+        width: 200px;
+        height: 200px;
+    }
+    
+    .blob-2 {
+        width: 140px;
+        height: 140px;
+    }
+    
+    .blob-3 {
+        width: 100px;
+        height: 100px;
+    }
+    
     .landing-title {
         font-size: 2rem;
     }
@@ -1510,8 +1593,12 @@ h4 { font-size: 1.25rem; }
         font-size: 1.1rem;
     }
     
+    .landing-logo {
+        text-align: center;
+    }
+    
     .landing-logo-img {
-        width: 80px;
+        width: 70px;
     }
     
     .directory-cards {
@@ -1521,10 +1608,6 @@ h4 { font-size: 1.25rem; }
     
     .directory-card {
         padding: 32px 24px;
-    }
-    
-    .hero-image-wrapper {
-        display: none;
     }
 }
 /* Pediatrician Card Styles */

@@ -1,21 +1,21 @@
 # Overview
 
-The Birmingham Childcare Directory is a bright, playful, mobile-first dual-directory web application designed to help parents find quality childcare options and pediatrician providers across the Birmingham, Alabama metro area. Built entirely with vanilla HTML, CSS, and JavaScript, this single-page application provides two comprehensive directories: (1) **278 verified childcare centers** with advanced filtering and collapsible filter interface, and (2) **41 pediatrician providers** with specialty and insurance-based filtering. The application emphasizes user experience with a modern, friendly aesthetic inspired by kids' libraries and features a sunny color palette (#FFB703 primary yellow, #8ECAE6 sky blue, #219EBC teal accents) with rounded components and playful iconography. The logo features the iconic Vulcan statue silhouette, representing Birmingham's proud heritage.
+The Birmingham Childcare Directory is a bright, playful, mobile-first dual-directory web application designed to help parents find quality childcare options and pediatrician providers across the Birmingham, Alabama metro area. Built entirely with vanilla HTML, CSS, and JavaScript, this single-page application provides two comprehensive directories: (1) **278 verified childcare centers** with advanced filtering and collapsible filter interface, and (2) **77 pediatrician providers** with specialty and insurance-based filtering. The application emphasizes user experience with a modern, friendly aesthetic inspired by kids' libraries and features a sunny color palette (#FFB703 primary yellow, #8ECAE6 sky blue, #219EBC teal accents) with rounded components and playful iconography. The logo features the iconic Vulcan statue silhouette, representing Birmingham's proud heritage.
 
 **Status**: Fully functional and deployed with real verified data. Both directories are running successfully with tab-based navigation, search, filtering, modal details, and form submission functionality.
 
 # Recent Changes
 
 ## October 3, 2025
-- **Expanded pediatrician directory**: Added 4 new providers - UAB Sparks Pediatrics, Morgan Pediatrics, Magnolia Pediatrics, and Willow Pediatric Wellness (now 41 total providers)
+- **Significantly expanded pediatrician directory**: Added 36 new providers including individual doctors and specialty practices (now 77 total providers, up from 41)
 - **Fixed pediatrician rendering bugs**: Added null safety checks throughout app.js to prevent crashes when DOM elements don't exist in pediatrician mode
 - **Fixed sorting compatibility**: Updated `applySort()` method to handle both childcare data structures (name, hours.open/close) and pediatrician structures (displayName, string hours)
 - **Improved toggle methods**: Added null checks in `toggleFiltersPanel()` and `updateActiveFiltersCount()` to prevent null reference errors
-- **Cache busting**: Updated cache version to v=2025-10-03-v2 for app.js and v=2025-10-03-updated for pediatricians.json
+- **Cache busting**: Updated cache version to v=2025-10-03-v4 for app.js and v=2025-10-03-expanded for pediatricians.json
 
 ## Previous Updates
 - Expanded childcare directory from 52 to 278 verified Birmingham metro centers
-- Expanded pediatrician directory from 36 to 41 providers
+- Expanded pediatrician directory from 36 to 77 providers (including individual doctors and specialty practices)
 - Implemented early directory detection in app.js to avoid script loading race conditions
 - Automated duplicate detection and data processing with Python scripts
 
@@ -37,7 +37,7 @@ The application follows a dual-directory single-page application (SPA) architect
 ## Data Management
 - **Dual JSON Data Stores**: 
   - `data/centers.json` - 278 childcare centers with locations, programs, accreditations, operational details
-  - `data/pediatricians.json` - 41 pediatrician providers with specialties, insurance acceptance, locations
+  - `data/pediatricians.json` - 77 pediatrician providers with specialties, insurance acceptance, locations
 - **Client-Side Filtering**: All filtering and search operations performed in-browser using JavaScript array methods and fuzzy search algorithms
 - **URL State Management**: Filter states and search parameters encoded in URL hash for shareable filtered views
 - **Directory Detection**: Early detection logic in app.js (lines 4-8) sets `window.ACTIVE_DIRECTORY` before class initialization to ensure correct data file loads
@@ -85,7 +85,7 @@ The application handles structural differences between childcare and pediatricia
 ## Data Sources
 - **Local JSON Datasets**: 
   - Self-contained childcare database stored in `data/centers.json` (278 centers)
-  - Self-contained pediatrician database stored in `data/pediatricians.json` (41 providers)
+  - Self-contained pediatrician database stored in `data/pediatricians.json` (77 providers)
 - **Manual Data Management**: Content updates performed through direct JSON file editing or automated Python scripts
 - **Static Asset Storage**: Local image assets stored in `assets/` directory for logos and photos
 

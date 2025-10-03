@@ -7,6 +7,7 @@ The Birmingham Childcare Directory is a bright, playful, mobile-first tri-direct
 # Recent Changes
 
 ## October 3, 2025
+- **Added favorite/star functionality**: Visitors can now mark listings as favorites by clicking star icons in the top-right corner of each card; favorites persist in localStorage separately for each directory
 - **Expanded dentist directory**: Added 36 additional pediatric dentists from new CSV data (now 55 total unique dentists, deduplicated)
 - **Added third directory - Pediatric Dentists**: Created new dentist directory with verified pediatric dental practices extracted from CSV data
 - **Updated to tri-directory architecture**: Added tooth icon tab for dentists, updated directory-manager.js and app.js to handle three directories (childcare, pediatricians, dentists)

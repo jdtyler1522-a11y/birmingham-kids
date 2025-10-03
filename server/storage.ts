@@ -44,11 +44,26 @@ export class DatabaseStorage implements IStorage {
   }
 
   // Favorites operations
-  async addFavorite(favoriteData: InsertFavorite): Promise<Favorite> {
+  async addFavorite(favoriteData: InsertFavorite): Promise<Favorite | null> {
+    const existing = await db
+      .select()
+      .from(favorites)
+      .where(
+        and(
+          eq(favorites.userId, favoriteData.userId),
+          eq(favorites.directory, favoriteData.directory),
+          eq(favorites.listingId, favoriteData.listingId)
+        )
+      )
+      .limit(1);
+    
+    if (existing.length > 0) {
+      return existing[0];
+    }
+
     const [favorite] = await db
       .insert(favorites)
       .values(favoriteData)
-      .onConflictDoNothing()
       .returning();
     return favorite;
   }

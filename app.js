@@ -30,6 +30,12 @@ class ChildcareDirectory {
         };
         this.currentSort = 'name';
         this.favorites = this.loadFavorites();
+        
+        window.addEventListener('favoritesLoaded', () => {
+            this.favorites = this.loadFavorites();
+            this.applyFavoritedState();
+        });
+        
         this.init();
     }
 
@@ -804,32 +810,48 @@ class ChildcareDirectory {
     }
 
     loadFavorites() {
-        try {
+        const favorites = new Set();
+        
+        if (window.authManager && window.authManager.isAuthenticated()) {
             const directory = window.ACTIVE_DIRECTORY || 'childcare';
-            const saved = localStorage.getItem(`birmingham_favorites_${directory}`);
-            return saved ? new Set(JSON.parse(saved)) : new Set();
-        } catch (e) {
-            console.error('Error loading favorites:', e);
-            return new Set();
+            window.authManager.favorites.forEach((fav, key) => {
+                if (key.startsWith(`${directory}:`)) {
+                    favorites.add(fav.listingId);
+                }
+            });
         }
+        
+        return favorites;
     }
 
     saveFavorites() {
-        try {
-            const directory = window.ACTIVE_DIRECTORY || 'childcare';
-            localStorage.setItem(`birmingham_favorites_${directory}`, JSON.stringify([...this.favorites]));
-        } catch (e) {
-            console.error('Error saving favorites:', e);
-        }
     }
 
-    toggleFavorite(id) {
+    async toggleFavorite(id) {
+        const directory = window.ACTIVE_DIRECTORY || 'childcare';
+        
         if (this.favorites.has(id)) {
-            this.favorites.delete(id);
+            if (window.authManager && window.authManager.isAuthenticated()) {
+                const success = await window.authManager.removeFavorite(directory, id);
+                if (success) {
+                    this.favorites.delete(id);
+                }
+            } else {
+                this.favorites.delete(id);
+            }
         } else {
-            this.favorites.add(id);
+            if (window.authManager) {
+                const success = await window.authManager.addFavorite(directory, id);
+                if (success) {
+                    this.favorites.add(id);
+                }
+            } else {
+                if (confirm('Please sign in to save favorites. Would you like to sign in now?')) {
+                    window.location.href = '/api/login';
+                }
+            }
         }
-        this.saveFavorites();
+        
         this.applyFavoritedState();
     }
 

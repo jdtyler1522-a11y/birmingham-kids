@@ -1,8 +1,22 @@
 # Overview
 
-The Birmingham Childcare Directory is a bright, playful, mobile-first web application designed to help parents find quality childcare options across the Birmingham, Alabama metro area. Built entirely with vanilla HTML, CSS, and JavaScript, this single-page application provides a comprehensive directory of 31 real childcare centers from across Birmingham, Homewood, Vestavia Hills, Mountain Brook, and Hoover with advanced filtering, smart search capabilities, collapsible filter interface, and accessible design. The application emphasizes user experience with a modern, friendly aesthetic inspired by kids' libraries and features a sunny color palette (#FFB703 primary yellow, #8ECAE6 sky blue, #219EBC teal accents) with rounded components and playful iconography. The logo features the iconic Vulcan statue silhouette, representing Birmingham's proud heritage.
+The Birmingham Childcare Directory is a bright, playful, mobile-first dual-directory web application designed to help parents find quality childcare options and pediatrician providers across the Birmingham, Alabama metro area. Built entirely with vanilla HTML, CSS, and JavaScript, this single-page application provides two comprehensive directories: (1) **278 verified childcare centers** with advanced filtering and collapsible filter interface, and (2) **37 pediatrician providers** with specialty and insurance-based filtering. The application emphasizes user experience with a modern, friendly aesthetic inspired by kids' libraries and features a sunny color palette (#FFB703 primary yellow, #8ECAE6 sky blue, #219EBC teal accents) with rounded components and playful iconography. The logo features the iconic Vulcan statue silhouette, representing Birmingham's proud heritage.
 
-**Status**: Fully functional and deployed with real data. The website is running successfully with 31 verified Birmingham-area childcare centers and all features implemented including search, filtering, collapsible filters, modal details, and form submission functionality.
+**Status**: Fully functional and deployed with real verified data. Both directories are running successfully with tab-based navigation, search, filtering, modal details, and form submission functionality.
+
+# Recent Changes
+
+## October 3, 2025
+- **Fixed pediatrician rendering bugs**: Added null safety checks throughout app.js to prevent crashes when DOM elements don't exist in pediatrician mode
+- **Fixed sorting compatibility**: Updated `applySort()` method to handle both childcare data structures (name, hours.open/close) and pediatrician structures (displayName, string hours)
+- **Improved toggle methods**: Added null checks in `toggleFiltersPanel()` and `updateActiveFiltersCount()` to prevent null reference errors
+- **Cache busting**: Updated cache version to v=2025-10-03-v2 for reliable deployment
+
+## Previous Updates
+- Expanded childcare directory from 52 to 278 verified Birmingham metro centers
+- Expanded pediatrician directory from 36 to 37 providers (added Hoover Pediatrics)
+- Implemented early directory detection in app.js to avoid script loading race conditions
+- Automated duplicate detection and data processing with Python scripts
 
 # User Preferences
 
@@ -11,34 +25,50 @@ Preferred communication style: Simple, everyday language.
 # System Architecture
 
 ## Frontend Architecture
-The application follows a single-page application (SPA) architecture built with vanilla web technologies:
+The application follows a dual-directory single-page application (SPA) architecture built with vanilla web technologies:
 
-- **Single HTML File**: All UI sections are contained within `index.html`, using anchor-based navigation for different sections
+- **Single HTML File**: All UI sections contained within `index.html`, using tab-based navigation to switch between Childcare and Pediatricians directories
+- **Directory Manager**: `directory-manager.js` handles switching between childcare and pediatrician data/UI dynamically
 - **Component-Based CSS**: Modular CSS architecture with CSS custom properties (variables) for consistent theming and responsive design
-- **Class-Based JavaScript**: Core functionality encapsulated in a `ChildcareDirectory` class that manages state, filtering, and rendering
-- **Mobile-First Responsive Design**: Progressive enhancement approach starting with mobile layouts and enhancing for larger screens
+- **Class-Based JavaScript**: Core functionality in `ChildcareDirectory` class that manages state, filtering, and rendering for both directories
+- **Mobile-First Responsive Design**: Progressive enhancement starting with mobile layouts and enhancing for larger screens
 
 ## Data Management
-- **Static JSON Data Store**: Childcare center data stored in `data/centers.json` with a well-defined schema including location, programs, accreditations, and operational details
+- **Dual JSON Data Stores**: 
+  - `data/centers.json` - 278 childcare centers with locations, programs, accreditations, operational details
+  - `data/pediatricians.json` - 37 pediatrician providers with specialties, insurance acceptance, locations
 - **Client-Side Filtering**: All filtering and search operations performed in-browser using JavaScript array methods and fuzzy search algorithms
 - **URL State Management**: Filter states and search parameters encoded in URL hash for shareable filtered views
+- **Directory Detection**: Early detection logic in app.js (lines 4-8) sets `window.ACTIVE_DIRECTORY` before class initialization to ensure correct data file loads
+
+## Data Structure Differences
+The application handles structural differences between childcare and pediatrician data:
+- **Name fields**: Childcare uses `name`, pediatricians use `displayName`
+- **Hours format**: Childcare hours is object `{open, close}`, pediatrician hours is string
+- **Null safety**: All methods include checks for DOM elements that may not exist in one directory vs the other
 
 ## User Interface Design
-- **Design System**: Consistent color palette using CSS custom properties with sunny yellow primary (#FFB703), sky blue and teal accents
+- **Design System**: Consistent color palette using CSS custom properties with sunny yellow primary (#FFB703), sky blue (#8ECAE6) and teal (#219EBC) accents
 - **Typography**: Google Fonts integration with Poppins for headings and Inter for body text
 - **Accessibility**: WCAG AA compliance with semantic HTML, ARIA labels, keyboard navigation, and sufficient color contrast
-- **Interactive Elements**: Modal windows for detailed center information, pill-style filter buttons, and responsive card layouts
+- **Interactive Elements**: Modal windows for detailed information, pill-style filter buttons, and responsive card layouts
+- **Tab Navigation**: Icon-based tabs (home icon for Childcare, heartbeat icon for Pediatricians)
 
 ## Search and Filtering System
-- **Multi-Criteria Filtering**: Support for location, age range, program type, accreditation, hours, and subsidy acceptance
-- **Fuzzy Search**: Search across center names, neighborhoods, and program descriptions with debounced input handling
+- **Childcare Filters**: Location, age range, program type, accreditation, hours, subsidy acceptance, First Class Pre-K
+- **Pediatrician Filters**: Location, specialty, insurance acceptance
+- **Fuzzy Search**: Search across center/provider names, neighborhoods, and relevant details with debounced input handling
 - **Real-Time Updates**: Immediate filter application with URL synchronization for bookmarkable results
-- **Sort Functionality**: Multiple sorting options including alphabetical and distance-based ordering
+- **Sort Functionality**: Directory-aware sorting handling different data structures
 
 ## Performance Optimizations
 - **Debounced Search**: Input debouncing to prevent excessive filtering operations during typing
 - **Lazy Loading**: Efficient rendering of filtered results with minimal DOM manipulation
-- **Responsive Images**: Placeholder images optimized for different screen sizes
+- **Cache Busting**: Version parameters on JavaScript files to prevent stale browser caching
+
+## Known Technical Limitations
+- **Python Simple HTTP Server**: Returns 404 for direct hash URL access (/#pediatricians); users must load main page first then click tab
+- **Browser Caching**: Aggressive caching requires cache-busting version parameters and user hard refresh (Ctrl+Shift+R / Cmd+Shift+R) to see updates
 
 # External Dependencies
 
@@ -49,11 +79,14 @@ The application follows a single-page application (SPA) architecture built with 
 ## Development Dependencies
 - **No Build Process**: Pure vanilla implementation requiring no compilation, bundling, or preprocessing steps
 - **Static File Hosting**: Designed for deployment on any static web hosting service (Netlify, Vercel, GitHub Pages, etc.)
+- **Python Simple HTTP Server**: Currently used for development (python -m http.server 5000)
 
 ## Data Sources
-- **Local JSON Dataset**: Self-contained childcare center database stored in `data/centers.json`
-- **Manual Data Management**: Content updates performed through direct JSON file editing
-- **Static Asset Storage**: Local image assets stored in `assets/` directory for center photos and logos
+- **Local JSON Datasets**: 
+  - Self-contained childcare database stored in `data/centers.json` (278 centers)
+  - Self-contained pediatrician database stored in `data/pediatricians.json` (37 providers)
+- **Manual Data Management**: Content updates performed through direct JSON file editing or automated Python scripts
+- **Static Asset Storage**: Local image assets stored in `assets/` directory for logos and photos
 
 ## Browser Requirements
 - **Modern Browser Support**: ES6+ JavaScript features requiring modern browser compatibility

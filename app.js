@@ -238,19 +238,24 @@ class ChildcareDirectory {
     toggleFiltersPanel() {
         const filtersSection = document.getElementById('filters');
         const toggleButton = document.getElementById('toggleFilters');
+        
+        if (!filtersSection || !toggleButton) return;
+        
         const isCurrentlyCollapsed = filtersSection.classList.contains('collapsed');
 
         if (isCurrentlyCollapsed) {
             // Expand
             filtersSection.classList.remove('collapsed');
             toggleButton.setAttribute('aria-expanded', 'true');
-            toggleButton.querySelector('.toggle-text').textContent = 'Hide Filters';
+            const textElement = toggleButton.querySelector('.toggle-text');
+            if (textElement) textElement.textContent = 'Hide Filters';
             sessionStorage.setItem('filtersCollapsed', 'false');
         } else {
             // Collapse
             filtersSection.classList.add('collapsed');
             toggleButton.setAttribute('aria-expanded', 'false');
-            toggleButton.querySelector('.toggle-text').textContent = 'Show Filters';
+            const textElement = toggleButton.querySelector('.toggle-text');
+            if (textElement) textElement.textContent = 'Show Filters';
             sessionStorage.setItem('filtersCollapsed', 'true');
             
             // Close any open dropdowns when collapsing
@@ -288,10 +293,12 @@ class ChildcareDirectory {
             
             // Update button style based on active filters
             const toggleButton = document.getElementById('toggleFilters');
-            if (activeCount > 0) {
-                toggleButton.style.backgroundColor = 'var(--accent-3)';
-            } else {
-                toggleButton.style.backgroundColor = 'var(--accent-2)';
+            if (toggleButton) {
+                if (activeCount > 0) {
+                    toggleButton.style.backgroundColor = 'var(--accent-3)';
+                } else {
+                    toggleButton.style.backgroundColor = 'var(--accent-2)';
+                }
             }
         }
     }
@@ -416,13 +423,24 @@ class ChildcareDirectory {
         this.filteredCenters.sort((a, b) => {
             switch (this.currentSort) {
                 case 'name':
-                    return a.name.localeCompare(b.name);
+                    // Handle both childcare (name) and pediatrician (displayName) fields
+                    const nameA = (a.name || a.displayName || '').toLowerCase();
+                    const nameB = (b.name || b.displayName || '').toLowerCase();
+                    return nameA.localeCompare(nameB);
                 case 'tuition-low':
-                    return (a.tuitionRangeMonthlyUSD[0] || 0) - (b.tuitionRangeMonthlyUSD[0] || 0);
+                    return (a.tuitionRangeMonthlyUSD?.[0] || 0) - (b.tuitionRangeMonthlyUSD?.[0] || 0);
                 case 'hours-early':
-                    return a.hours.open.localeCompare(b.hours.open);
+                    // Only sort by hours if they have the childcare hours format
+                    if (a.hours?.open && b.hours?.open) {
+                        return a.hours.open.localeCompare(b.hours.open);
+                    }
+                    return 0;
                 case 'hours-late':
-                    return b.hours.close.localeCompare(a.hours.close);
+                    // Only sort by hours if they have the childcare hours format
+                    if (a.hours?.close && b.hours?.close) {
+                        return b.hours.close.localeCompare(a.hours.close);
+                    }
+                    return 0;
                 default:
                     return 0;
             }

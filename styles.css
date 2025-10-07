@@ -776,6 +776,107 @@ h4 { font-size: 1.25rem; }
     font-size: 1.1rem;
 }
 
+/* View Toggle */
+.view-toggle {
+    display: flex;
+    gap: 8px;
+    background: var(--light-gray);
+    padding: 4px;
+    border-radius: var(--radius-sm);
+}
+
+.view-btn {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    padding: 8px 16px;
+    border: none;
+    background: transparent;
+    color: var(--dark-gray);
+    font-family: var(--font-body);
+    font-weight: 500;
+    font-size: 0.9rem;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.view-btn:hover {
+    background: var(--white);
+}
+
+.view-btn.active {
+    background: var(--white);
+    color: var(--accent-2);
+    box-shadow: var(--shadow-sm);
+}
+
+.view-btn svg {
+    width: 18px;
+    height: 18px;
+}
+
+/* Map Container */
+.map-container {
+    width: 100%;
+    height: 600px;
+    margin-bottom: 32px;
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    box-shadow: var(--shadow-md);
+}
+
+#map {
+    width: 100%;
+    height: 100%;
+}
+
+/* Custom Leaflet Popup Styles */
+.leaflet-popup-content-wrapper {
+    border-radius: var(--radius-md);
+    padding: 0;
+    overflow: hidden;
+}
+
+.leaflet-popup-content {
+    margin: 0;
+    min-width: 250px;
+}
+
+.map-popup {
+    padding: 16px;
+}
+
+.map-popup h3 {
+    font-family: var(--font-heading);
+    color: var(--neutral-text);
+    font-size: 1.1rem;
+    margin-bottom: 8px;
+}
+
+.map-popup p {
+    color: var(--dark-gray);
+    font-size: 0.9rem;
+    margin-bottom: 4px;
+}
+
+.map-popup .view-details {
+    display: inline-block;
+    margin-top: 12px;
+    padding: 8px 16px;
+    background: var(--primary);
+    color: var(--neutral-text);
+    text-decoration: none;
+    border-radius: var(--radius-sm);
+    font-weight: 500;
+    font-size: 0.9rem;
+    transition: var(--transition);
+}
+
+.map-popup .view-details:hover {
+    background: var(--accent-3);
+}
+
 /* Filters Panel */
 .filters-panel {
     overflow: hidden;

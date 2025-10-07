@@ -10,6 +10,15 @@ Birmingham Kids is a bright, playful, mobile-first tri-directory web application
 
 # Recent Changes
 
+## October 7, 2025 - Interactive Map View
+- **Added map view for Childcare and Pediatricians**: Implemented interactive Leaflet.js map with markers showing all filtered listings (dentists excluded as they lack coordinates)
+- **List/Map view toggle**: Added toggle buttons to switch between traditional list view and map view, with icons for clear visual distinction
+- **Map markers with popups**: Each marker shows listing name, location, and "View Details" link that opens the full listing modal
+- **Filter synchronization**: Map automatically updates markers when filters are applied, maintaining consistency between views
+- **Auto-fit bounds**: Map automatically zooms to show all visible markers based on current filter results
+- **View state management**: Display logic properly respects current view mode, ensuring list stays hidden in map view and vice versa
+- **Empty state handling**: Map clears markers when no results match filters, preventing stale data display
+
 ## October 3, 2025 - Authentication System
 - **Migrated to Node.js/Express backend**: Replaced Python simple HTTP server with Node.js/Express for production-ready server
 - **Implemented Replit Auth**: Full user authentication system with secure session management using Replit's built-in auth
@@ -68,8 +77,9 @@ The application follows a tri-directory single-page application (SPA) architectu
 - **Single HTML File**: All UI sections contained within `index.html`, using tab-based navigation to switch between Childcare, Pediatricians, and Dentists directories
 - **Authentication Manager**: `auth.js` handles user authentication state, login/logout, and favorites synchronization
 - **Directory Manager**: `directory-manager.js` handles switching between childcare, pediatrician, and dentist data/UI dynamically
+- **Interactive Map View**: Leaflet.js integration for childcare and pediatricians with list/map toggle, auto-updating markers, and popup modals
 - **Component-Based CSS**: Modular CSS architecture with CSS custom properties (variables) for consistent theming and responsive design
-- **Class-Based JavaScript**: Core functionality in `ChildcareDirectory` class that manages state, filtering, and rendering for all three directories
+- **Class-Based JavaScript**: Core functionality in `ChildcareDirectory` class that manages state, filtering, rendering, and map views for all three directories
 - **Mobile-First Responsive Design**: Progressive enhancement starting with mobile layouts and enhancing for larger screens
 
 ## Data Management
@@ -117,6 +127,7 @@ The application handles structural differences between childcare and pediatricia
 
 ## Third-Party Services
 - **Replit Auth**: OpenID Connect authentication provider for secure user login
+- **Leaflet.js**: Open-source JavaScript library for mobile-friendly interactive maps using OpenStreetMap tiles
 - **Google Fonts**: Typography service providing Poppins and Inter font families with preconnect optimization for performance
 - **Schema.org**: Structured data markup for SEO optimization and search engine visibility
 

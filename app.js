@@ -30,6 +30,9 @@ class ChildcareDirectory {
         };
         this.currentSort = 'name';
         this.favorites = this.loadFavorites();
+        this.map = null;
+        this.mapMarkers = [];
+        this.currentView = 'list';
         
         window.addEventListener('favoritesLoaded', () => {
             this.favorites = this.loadFavorites();
@@ -209,6 +212,14 @@ class ChildcareDirectory {
             this.handleSubmitForm(e);
         });
 
+        // View toggle buttons
+        document.querySelectorAll('.view-btn').forEach(btn => {
+            btn.addEventListener('click', () => {
+                const view = btn.dataset.view;
+                this.switchView(view);
+            });
+        });
+
         // Handle hash changes
         window.addEventListener('hashchange', () => {
             this.parseUrlHash();
@@ -231,6 +242,12 @@ class ChildcareDirectory {
             if (quickFilters) {
                 quickFilters.style.display = 'none';
             }
+        }
+        
+        // Show view toggle for childcare and pediatricians (they have coordinates)
+        const viewToggle = document.getElementById('viewToggle');
+        if (viewToggle && !this.isDentistMode) {
+            viewToggle.style.display = 'flex';
         }
         
         // Set initial state based on screen size and session storage
@@ -520,18 +537,129 @@ class ChildcareDirectory {
         const noResults = document.getElementById('noResults');
 
         if (this.filteredCenters.length === 0) {
+            // Clear stale list content
+            resultsGrid.innerHTML = '';
+            // Always hide list view content when no results
             resultsGrid.style.display = 'none';
-            noResults.style.display = 'block';
+            // Only show no-results message in list view
+            noResults.style.display = this.currentView === 'list' ? 'block' : 'none';
+            
+            // Update map to clear markers even when no results
+            if (this.currentView === 'map') {
+                this.updateMapMarkers();
+            }
             return;
         }
 
-        resultsGrid.style.display = 'grid';
-        noResults.style.display = 'none';
+        // Only show list view if in list mode
+        if (this.currentView === 'list') {
+            resultsGrid.style.display = 'grid';
+            noResults.style.display = 'none';
+            resultsGrid.innerHTML = this.filteredCenters.map(center => this.createCenterCard(center)).join('');
+            this.setupCardEventListeners();
+        } else {
+            // Hide list view when in map mode
+            resultsGrid.style.display = 'none';
+            noResults.style.display = 'none';
+            // Update map markers
+            this.updateMapMarkers();
+        }
+    }
 
-        resultsGrid.innerHTML = this.filteredCenters.map(center => this.createCenterCard(center)).join('');
+    switchView(view) {
+        this.currentView = view;
+        const viewToggle = document.getElementById('viewToggle');
+        const mapContainer = document.getElementById('mapContainer');
+        const resultsGrid = document.getElementById('resultsGrid');
+        
+        // Update active button
+        document.querySelectorAll('.view-btn').forEach(btn => {
+            btn.classList.toggle('active', btn.dataset.view === view);
+        });
+        
+        if (view === 'map') {
+            mapContainer.style.display = 'block';
+            
+            // Initialize map if not already done
+            if (!this.map) {
+                this.initializeMap();
+            }
+        } else {
+            mapContainer.style.display = 'none';
+        }
+        
+        // Re-render to update display states based on current view
+        this.render();
+    }
 
-        // Add event listeners to new cards
-        this.setupCardEventListeners();
+    initializeMap() {
+        // Only initialize map for childcare and pediatricians (they have coordinates)
+        if (this.isDentistMode) {
+            alert('Map view is not available for dentists at this time.');
+            this.switchView('list');
+            return;
+        }
+
+        const mapDiv = document.getElementById('map');
+        if (!mapDiv) return;
+
+        // Center on Birmingham, AL
+        this.map = L.map('map').setView([33.5186, -86.8104], 11);
+
+        // Add OpenStreetMap tiles
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            attribution: '© OpenStreetMap contributors',
+            maxZoom: 19
+        }).addTo(this.map);
+    }
+
+    updateMapMarkers() {
+        if (!this.map) return;
+
+        // Clear existing markers
+        this.mapMarkers.forEach(marker => this.map.removeLayer(marker));
+        this.mapMarkers = [];
+
+        // Add markers for filtered results
+        this.filteredCenters.forEach(center => {
+            if (center.latitude && center.longitude) {
+                const marker = L.marker([center.latitude, center.longitude]).addTo(this.map);
+                
+                // Create popup content
+                const name = center.name || center.displayName;
+                const location = `${center.neighborhood || center.city}`;
+                const popupContent = `
+                    <div class="map-popup">
+                        <h3>${name}</h3>
+                        <p>${location}</p>
+                        <a href="#" class="view-details" data-center-id="${center.id}">View Details</a>
+                    </div>
+                `;
+                
+                marker.bindPopup(popupContent);
+                this.mapMarkers.push(marker);
+            }
+        });
+
+        // Fit bounds to show all markers
+        if (this.mapMarkers.length > 0) {
+            const group = L.featureGroup(this.mapMarkers);
+            this.map.fitBounds(group.getBounds().pad(0.1));
+        }
+
+        // Add click listeners to popup links
+        setTimeout(() => {
+            document.querySelectorAll('.map-popup .view-details').forEach(link => {
+                link.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    const centerId = e.currentTarget.dataset.centerId;
+                    const center = this.centers.find(c => c.id == centerId || c.id === centerId);
+                    if (center) {
+                        this.openModal(center);
+                    }
+                });
+            });
+        }, 100);
     }
 
     createCenterCard(center) {

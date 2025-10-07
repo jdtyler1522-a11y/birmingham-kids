@@ -595,17 +595,9 @@
             
             // Function to show directory
             function showDirectory(directory) {
-                landingPage.style.display = 'none';
-                directoryContent.classList.add('active');
-                navbar.style.display = 'block';
-                
-                // Update nav links
-                document.querySelectorAll('.nav-link').forEach(link => link.classList.remove('active'));
-                const activeLink = document.querySelector(`.nav-link[data-navigate="${directory}"]`);
-                if (activeLink) activeLink.classList.add('active');
-                
+                // Set the hash and reload the page to trigger directory switching
                 window.location.hash = directory;
-                window.scrollTo(0, 0);
+                window.location.reload();
             }
             
             // Check if there's a hash in URL

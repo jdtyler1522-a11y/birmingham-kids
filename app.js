@@ -12,6 +12,10 @@ if (hash.startsWith('#pediatricians')) {
     window.ACTIVE_DIRECTORY = 'mdo';
 } else if (hash.startsWith('#photographers')) {
     window.ACTIVE_DIRECTORY = 'photographers';
+} else if (hash.startsWith('#activities')) {
+    window.ACTIVE_DIRECTORY = 'activities';
+} else if (hash.startsWith('#birthday-parties')) {
+    window.ACTIVE_DIRECTORY = 'birthday-parties';
 } else if (!window.ACTIVE_DIRECTORY) {
     window.ACTIVE_DIRECTORY = 'childcare';
 }
@@ -80,6 +84,12 @@ class ChildcareDirectory {
             } else if (directory === 'photographers') {
                 dataFile = 'data/photographers.json?v=2025-10-08';
                 label = 'photographers';
+            } else if (directory === 'activities') {
+                dataFile = 'data/activities.json?v=2025-10-08';
+                label = 'activities';
+            } else if (directory === 'birthday-parties') {
+                dataFile = 'data/birthday-parties.json?v=2025-10-08';
+                label = 'party options';
             } else {
                 dataFile = 'data/centers.json?v=2025-10-02-new';
                 label = 'childcare centers';
@@ -92,6 +102,8 @@ class ChildcareDirectory {
             this.isTherapistMode = (directory === 'therapists');
             this.isMDOMode = (directory === 'mdo');
             this.isPhotographerMode = (directory === 'photographers');
+            this.isActivitiesMode = (directory === 'activities');
+            this.isBirthdayPartiesMode = (directory === 'birthday-parties');
             console.log(`Loaded ${this.centers.length} ${label}`);
         } catch (error) {
             console.error('Error loading data:', error);
@@ -253,7 +265,7 @@ class ChildcareDirectory {
 
     initializeFiltersPanel() {
         // Hide childcare-only quick filters for pediatricians, dentists, therapists, MDO, and photographers
-        if (this.isPediatricianMode || this.isDentistMode || this.isTherapistMode || this.isMDOMode || this.isPhotographerMode) {
+        if (this.isPediatricianMode || this.isDentistMode || this.isTherapistMode || this.isMDOMode || this.isPhotographerMode || this.isActivitiesMode || this.isBirthdayPartiesMode) {
             const quickFilters = document.querySelector('.quick-filters');
             if (quickFilters) {
                 quickFilters.style.display = 'none';
@@ -262,7 +274,7 @@ class ChildcareDirectory {
         
         // Show view toggle for childcare and pediatricians (they have coordinates)
         const viewToggle = document.getElementById('viewToggle');
-        if (viewToggle && !this.isDentistMode && !this.isTherapistMode && !this.isMDOMode && !this.isPhotographerMode) {
+        if (viewToggle && !this.isDentistMode && !this.isTherapistMode && !this.isMDOMode && !this.isPhotographerMode && !this.isActivitiesMode && !this.isBirthdayPartiesMode) {
             viewToggle.style.display = 'flex';
         }
         
@@ -399,6 +411,12 @@ class ChildcareDirectory {
                 } else if (this.isPhotographerMode) {
                     // Search photographer fields
                     searchableText = `${center.displayName} ${center.specialty || ''} ${center.services || ''} ${center.city} ${center.description || ''}`.toLowerCase();
+                } else if (this.isActivitiesMode) {
+                    // Search activities fields
+                    searchableText = `${center.displayName} ${center.category || ''} ${center.location || ''} ${center.description || ''}`.toLowerCase();
+                } else if (this.isBirthdayPartiesMode) {
+                    // Search birthday party fields
+                    searchableText = `${center.displayName} ${center.category || ''} ${center.location || ''} ${center.description || ''}`.toLowerCase();
                 } else {
                     // Search childcare fields
                     searchableText = `${center.name} ${center.city} ${center.neighborhood} ${center.programs.join(' ')} ${center.blurb}`.toLowerCase();
@@ -417,7 +435,7 @@ class ChildcareDirectory {
             }
 
             // CHILDCARE-ONLY FILTERS
-            if (!this.isPediatricianMode && !this.isDentistMode && !this.isTherapistMode && !this.isMDOMode && !this.isPhotographerMode) {
+            if (!this.isPediatricianMode && !this.isDentistMode && !this.isTherapistMode && !this.isMDOMode && !this.isPhotographerMode && !this.isActivitiesMode && !this.isBirthdayPartiesMode) {
                 // Age range filter
                 if (this.currentFilters.ageRange.length > 0) {
                     const hasMatchingAge = this.currentFilters.ageRange.some(age => 
@@ -707,6 +725,14 @@ class ChildcareDirectory {
         // If in photographer mode, use photographer card template
         if (this.isPhotographerMode) {
             return this.createPhotographerCard(center);
+        }
+        // If in activities mode, use activities card template
+        if (this.isActivitiesMode) {
+            return this.createActivityCard(center);
+        }
+        // If in birthday parties mode, use birthday party card template
+        if (this.isBirthdayPartiesMode) {
+            return this.createBirthdayPartyCard(center);
         }
         
         const badges = this.generateBadges(center);
@@ -1114,6 +1140,62 @@ class ChildcareDirectory {
                     <button class="card-btn card-btn-primary" onclick="app.openModal('${photographer.id}')">View Details</button>
                     ${photographer.website ? `<a href="${photographer.website}" target="_blank" rel="noopener" class="card-btn card-btn-secondary">Website</a>` : ''}
                     ${photographer.instagram ? `<a href="https://instagram.com/${photographer.instagram.replace('@', '')}" target="_blank" rel="noopener" class="card-btn card-btn-secondary">Instagram</a>` : ''}
+                </div>
+            </article>
+        `;
+    }
+
+    createActivityCard(activity) {
+        const categoryBadge = activity.category ? `<span class="badge badge-naeyc">${activity.category}</span>` : '';
+        
+        return `
+            <article class="center-card fade-in" data-center-id="${activity.id}">
+                <button class="favorite-btn" data-id="${activity.id}" aria-label="Add to favorites">
+                    <svg class="star-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M12 2.5 L14.4 9.1 L21.5 10 L16.8 14.6 L18 21.5 L12 18.3 L6 21.5 L7.2 14.6 L2.5 10 L9.6 9.1 Z" />
+                    </svg>
+                </button>
+                <div class="card-header">
+                    <h3 class="center-name">${activity.displayName}</h3>
+                    <div class="center-location">${activity.location}, AL</div>
+                </div>
+                
+                <p class="center-blurb">${activity.description || 'Activity for Birmingham families.'}</p>
+                
+                <div class="badges">
+                    ${categoryBadge}
+                </div>
+                
+                <div class="card-actions">
+                    <button class="card-btn card-btn-primary" onclick="app.openModal('${activity.id}')">View Details</button>
+                </div>
+            </article>
+        `;
+    }
+
+    createBirthdayPartyCard(party) {
+        const categoryBadge = party.category ? `<span class="badge badge-naeyc">${party.category}</span>` : '';
+        
+        return `
+            <article class="center-card fade-in" data-center-id="${party.id}">
+                <button class="favorite-btn" data-id="${party.id}" aria-label="Add to favorites">
+                    <svg class="star-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M12 2.5 L14.4 9.1 L21.5 10 L16.8 14.6 L18 21.5 L12 18.3 L6 21.5 L7.2 14.6 L2.5 10 L9.6 9.1 Z" />
+                    </svg>
+                </button>
+                <div class="card-header">
+                    <h3 class="center-name">${party.displayName}</h3>
+                    <div class="center-location">${party.location}, AL</div>
+                </div>
+                
+                <p class="center-blurb">${party.description || 'Birthday party venue or service.'}</p>
+                
+                <div class="badges">
+                    ${categoryBadge}
+                </div>
+                
+                <div class="card-actions">
+                    <button class="card-btn card-btn-primary" onclick="app.openModal('${party.id}')">View Details</button>
                 </div>
             </article>
         `;

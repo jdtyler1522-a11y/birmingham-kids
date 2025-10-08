@@ -10,6 +10,8 @@ if (hash.startsWith('#pediatricians')) {
     window.ACTIVE_DIRECTORY = 'therapists';
 } else if (hash.startsWith('#mdo')) {
     window.ACTIVE_DIRECTORY = 'mdo';
+} else if (hash.startsWith('#photographers')) {
+    window.ACTIVE_DIRECTORY = 'photographers';
 } else if (!window.ACTIVE_DIRECTORY) {
     window.ACTIVE_DIRECTORY = 'childcare';
 }
@@ -75,6 +77,9 @@ class ChildcareDirectory {
             } else if (directory === 'mdo') {
                 dataFile = 'data/mdo.json?v=2025-10-08';
                 label = 'MDO programs';
+            } else if (directory === 'photographers') {
+                dataFile = 'data/photographers.json?v=2025-10-08';
+                label = 'photographers';
             } else {
                 dataFile = 'data/centers.json?v=2025-10-02-new';
                 label = 'childcare centers';
@@ -86,6 +91,7 @@ class ChildcareDirectory {
             this.isDentistMode = (directory === 'dentists');
             this.isTherapistMode = (directory === 'therapists');
             this.isMDOMode = (directory === 'mdo');
+            this.isPhotographerMode = (directory === 'photographers');
             console.log(`Loaded ${this.centers.length} ${label}`);
         } catch (error) {
             console.error('Error loading data:', error);
@@ -246,8 +252,8 @@ class ChildcareDirectory {
     }
 
     initializeFiltersPanel() {
-        // Hide childcare-only quick filters for pediatricians, dentists, therapists, and MDO
-        if (this.isPediatricianMode || this.isDentistMode || this.isTherapistMode || this.isMDOMode) {
+        // Hide childcare-only quick filters for pediatricians, dentists, therapists, MDO, and photographers
+        if (this.isPediatricianMode || this.isDentistMode || this.isTherapistMode || this.isMDOMode || this.isPhotographerMode) {
             const quickFilters = document.querySelector('.quick-filters');
             if (quickFilters) {
                 quickFilters.style.display = 'none';
@@ -256,7 +262,7 @@ class ChildcareDirectory {
         
         // Show view toggle for childcare and pediatricians (they have coordinates)
         const viewToggle = document.getElementById('viewToggle');
-        if (viewToggle && !this.isDentistMode && !this.isTherapistMode && !this.isMDOMode) {
+        if (viewToggle && !this.isDentistMode && !this.isTherapistMode && !this.isMDOMode && !this.isPhotographerMode) {
             viewToggle.style.display = 'flex';
         }
         
@@ -390,6 +396,9 @@ class ChildcareDirectory {
                 } else if (this.isMDOMode) {
                     // Search MDO fields
                     searchableText = `${center.displayName} ${center.city} ${center.neighborhood || ''} ${center.daysOffered || ''} ${center.description || ''}`.toLowerCase();
+                } else if (this.isPhotographerMode) {
+                    // Search photographer fields
+                    searchableText = `${center.displayName} ${center.specialty || ''} ${center.services || ''} ${center.city} ${center.description || ''}`.toLowerCase();
                 } else {
                     // Search childcare fields
                     searchableText = `${center.name} ${center.city} ${center.neighborhood} ${center.programs.join(' ')} ${center.blurb}`.toLowerCase();
@@ -408,7 +417,7 @@ class ChildcareDirectory {
             }
 
             // CHILDCARE-ONLY FILTERS
-            if (!this.isPediatricianMode && !this.isDentistMode && !this.isTherapistMode && !this.isMDOMode) {
+            if (!this.isPediatricianMode && !this.isDentistMode && !this.isTherapistMode && !this.isMDOMode && !this.isPhotographerMode) {
                 // Age range filter
                 if (this.currentFilters.ageRange.length > 0) {
                     const hasMatchingAge = this.currentFilters.ageRange.some(age => 
@@ -694,6 +703,10 @@ class ChildcareDirectory {
         // If in MDO mode, use MDO card template
         if (this.isMDOMode) {
             return this.createMDOCard(center);
+        }
+        // If in photographer mode, use photographer card template
+        if (this.isPhotographerMode) {
+            return this.createPhotographerCard(center);
         }
         
         const badges = this.generateBadges(center);
@@ -1051,6 +1064,56 @@ class ChildcareDirectory {
                     <button class="card-btn card-btn-primary" onclick="app.openModal('${mdo.id}')">View Details</button>
                     ${mdo.website ? `<a href="${mdo.website}" target="_blank" rel="noopener" class="card-btn card-btn-secondary">Website</a>` : ''}
                     ${mdo.address ? `<a href="https://maps.google.com/?q=${encodeURIComponent(mdo.address)}" target="_blank" rel="noopener" class="card-btn card-btn-secondary">Directions</a>` : ''}
+                </div>
+            </article>
+        `;
+    }
+
+    createPhotographerCard(photographer) {
+        const specialtyBadge = photographer.specialty ? `<span class="badge badge-naeyc">${photographer.specialty}</span>` : '';
+        
+        return `
+            <article class="center-card fade-in" data-center-id="${photographer.id}">
+                <button class="favorite-btn" data-id="${photographer.id}" aria-label="Add to favorites">
+                    <svg class="star-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M12 2.5 L14.4 9.1 L21.5 10 L16.8 14.6 L18 21.5 L12 18.3 L6 21.5 L7.2 14.6 L2.5 10 L9.6 9.1 Z" />
+                    </svg>
+                </button>
+                <div class="card-header">
+                    <h3 class="center-name">${photographer.displayName}</h3>
+                    <div class="center-location">${photographer.city}, AL</div>
+                </div>
+                
+                <p class="center-blurb">${photographer.description || 'Professional photography services for families in Birmingham.'}</p>
+                
+                <div class="badges">
+                    ${specialtyBadge}
+                </div>
+                
+                <div class="quick-facts">
+                    <div class="fact">
+                        <svg class="fact-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"></path>
+                            <circle cx="12" cy="13" r="4"></circle>
+                        </svg>
+                        <span class="fact-value">${photographer.services || 'Contact for details'}</span>
+                    </div>
+                    ${photographer.instagram ? `
+                    <div class="fact">
+                        <svg class="fact-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+                            <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+                            <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+                        </svg>
+                        <span class="fact-value">${photographer.instagram}</span>
+                    </div>
+                    ` : ''}
+                </div>
+                
+                <div class="card-actions">
+                    <button class="card-btn card-btn-primary" onclick="app.openModal('${photographer.id}')">View Details</button>
+                    ${photographer.website ? `<a href="${photographer.website}" target="_blank" rel="noopener" class="card-btn card-btn-secondary">Website</a>` : ''}
+                    ${photographer.instagram ? `<a href="https://instagram.com/${photographer.instagram.replace('@', '')}" target="_blank" rel="noopener" class="card-btn card-btn-secondary">Instagram</a>` : ''}
                 </div>
             </article>
         `;

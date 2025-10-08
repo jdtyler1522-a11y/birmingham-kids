@@ -1,0 +1,247 @@
+[
+  {
+    "id": "act-001",
+    "displayName": "City Walk BHAM Destination Playground",
+    "category": "Parks & Playgrounds",
+    "description": "Inclusive playground with rubberized surface, inclusive swings and rope climbers; accessible for all ages and abilities",
+    "location": "Birmingham"
+  },
+  {
+    "id": "act-002",
+    "displayName": "Explore Playground & Splashpad",
+    "category": "Parks & Playgrounds",
+    "description": "Accessible playground and splash pad; separate areas for ages 2–5 and 5–12; inclusive equipment, sensory pods, adult changing station and charging stations",
+    "location": "Hoover"
+  },
+  {
+    "id": "act-003",
+    "displayName": "Blue Ridge Park",
+    "category": "Parks & Playgrounds",
+    "description": "Fully inclusive playground with adaptive equipment, shaded pavilion, restrooms and fenced playground",
+    "location": "Birmingham"
+  },
+  {
+    "id": "act-004",
+    "displayName": "Veterans Park",
+    "category": "Parks & Playgrounds",
+    "description": "Two playgrounds with accessible track surface (no sand or mulch); includes pavilions and restrooms",
+    "location": "Hoover"
+  },
+  {
+    "id": "act-005",
+    "displayName": "Bessie Estell All‑Inclusive Playground",
+    "category": "Parks & Playgrounds",
+    "description": "Inclusive playground under construction; will include inclusive equipment and wheelchair‑accessible paths",
+    "location": "Birmingham"
+  },
+  {
+    "id": "act-006",
+    "displayName": "Vulcan Trail",
+    "category": "Parks & Playgrounds",
+    "description": "Paved asphalt trail with gentle grade; accessible parking and wide path",
+    "location": "Birmingham"
+  },
+  {
+    "id": "act-007",
+    "displayName": "Lakeshore Trail",
+    "category": "Parks & Playgrounds",
+    "description": "Accessible paved trails with accessible parking and restrooms",
+    "location": "Birmingham"
+  },
+  {
+    "id": "act-008",
+    "displayName": "Let's Play",
+    "category": "Indoor Play Spaces",
+    "description": "Indoor soft‑play center for ages 0–14 with themed structures, cannon area, obstacle courses and separate toddler area; offers party packages",
+    "location": "Hoover"
+  },
+  {
+    "id": "act-009",
+    "displayName": "Urban Air Adventure Park",
+    "category": "Indoor Play Spaces",
+    "description": "Indoor adventure and trampoline park with multiple attractions; hosts kids' birthday parties and family events",
+    "location": "Homewood"
+  },
+  {
+    "id": "act-010",
+    "displayName": "Itty Bitty Magic City",
+    "category": "Indoor Play Spaces",
+    "description": "Early‑learning exhibit for children 6 and under; includes a mini Main Street, Tot Spot, Water Play area and climbing structure",
+    "location": "Birmingham"
+  },
+  {
+    "id": "act-011",
+    "displayName": "Alabama Swim School",
+    "category": "Swim & Sports",
+    "description": "Private and group swim lessons for ages 12 months and older",
+    "location": "Birmingham"
+  },
+  {
+    "id": "act-012",
+    "displayName": "Aqua‑Tots Swim School",
+    "category": "Swim & Sports",
+    "description": "Year‑round swim classes starting at 4 months old; small class sizes and special‑needs program",
+    "location": "Birmingham"
+  },
+  {
+    "id": "act-013",
+    "displayName": "City of Birmingham Pools",
+    "category": "Swim & Sports",
+    "description": "Affordable two‑week swim lesson sessions",
+    "location": "Birmingham"
+  },
+  {
+    "id": "act-014",
+    "displayName": "Goldfish Swim School",
+    "category": "Swim & Sports",
+    "description": "Year‑round classes for ages 4 months and up with small class ratios",
+    "location": "Birmingham"
+  },
+  {
+    "id": "act-015",
+    "displayName": "Instaswim",
+    "category": "Swim & Sports",
+    "description": "In‑home private swim lessons",
+    "location": "Birmingham"
+  },
+  {
+    "id": "act-016",
+    "displayName": "Lakeshore Foundation",
+    "category": "Swim & Sports",
+    "description": "Year‑round swim classes for ages 6 months to 18 years",
+    "location": "Birmingham"
+  },
+  {
+    "id": "act-017",
+    "displayName": "Levite Jewish Community Center",
+    "category": "Swim & Sports",
+    "description": "Private, buddy and group swim lessons for ages 2 and up; discounts for members",
+    "location": "Birmingham"
+  },
+  {
+    "id": "act-018",
+    "displayName": "Life Time Fitness",
+    "category": "Swim & Sports",
+    "description": "Group and private swim lessons for ages 3 months to 13 years",
+    "location": "Birmingham"
+  },
+  {
+    "id": "act-019",
+    "displayName": "Swim Like a Fish",
+    "category": "Swim & Sports",
+    "description": "Group and private swim lessons for ages 6 months and older",
+    "location": "Birmingham"
+  },
+  {
+    "id": "act-020",
+    "displayName": "UAB Campus Recreation Center",
+    "category": "Swim & Sports",
+    "description": "Private and semi‑private swim lesson packages for ages 6 months and older",
+    "location": "Birmingham"
+  },
+  {
+    "id": "act-021",
+    "displayName": "YMCA",
+    "category": "Swim & Sports",
+    "description": "Group and private swim lessons for ages 6 months and older across multiple branches",
+    "location": "Birmingham"
+  },
+  {
+    "id": "act-022",
+    "displayName": "Soccer Shots Central Alabama",
+    "category": "Swim & Sports",
+    "description": "Age‑appropriate soccer programs for ages 18 months to 8 years focused on character development",
+    "location": "Birmingham"
+  },
+  {
+    "id": "act-023",
+    "displayName": "i9 Sports",
+    "category": "Swim & Sports",
+    "description": "Youth leagues in flag football, soccer, baseball and basketball for ages 3 and up; no tryouts",
+    "location": "Birmingham"
+  },
+  {
+    "id": "act-024",
+    "displayName": "Joy League Baseball",
+    "category": "Swim & Sports",
+    "description": "Noncompetitive baseball league for boys and girls ages 4–12 with games on Saturdays",
+    "location": "Birmingham"
+  },
+  {
+    "id": "act-025",
+    "displayName": "Head Over Heels Gymnastics",
+    "category": "Swim & Sports",
+    "description": "Gymnastics classes for ages 1 and up; fosters self‑confidence and flexibility; offers parties",
+    "location": "Birmingham"
+  },
+  {
+    "id": "act-026",
+    "displayName": "Premier Gymnastics",
+    "category": "Swim & Sports",
+    "description": "Gymnastics program emphasizing physical fitness and self‑esteem; classes and private parties",
+    "location": "Birmingham"
+  },
+  {
+    "id": "act-027",
+    "displayName": "Birmingham Zoo",
+    "category": "Birthday Venues",
+    "description": "Offers tiered birthday packages including admission, unlimited rides and special experiences like bear viewing",
+    "location": "Birmingham"
+  },
+  {
+    "id": "act-028",
+    "displayName": "Urban Air Adventure Park",
+    "category": "Birthday Venues",
+    "description": "Indoor adventure park specializing in unforgettable kids' birthday parties",
+    "location": "Homewood"
+  },
+  {
+    "id": "act-029",
+    "displayName": "Let's Play",
+    "category": "Birthday Venues",
+    "description": "Soft‑play center offering various party packages, including private parties",
+    "location": "Hoover"
+  },
+  {
+    "id": "act-030",
+    "displayName": "Premier Gymnastics",
+    "category": "Birthday Venues",
+    "description": "Hosts uniquely private gymnastics birthday parties",
+    "location": "Birmingham"
+  },
+  {
+    "id": "act-031",
+    "displayName": "Head Over Heels Gymnastics",
+    "category": "Birthday Venues",
+    "description": "Offers weekend birthday parties in a gym setting",
+    "location": "Birmingham"
+  },
+  {
+    "id": "act-032",
+    "displayName": "McWane Science Center",
+    "category": "Family Attractions",
+    "description": "Interactive science museum with exhibits like shark tanks, bubble room, dinosaur fossils and IMAX theatre",
+    "location": "Birmingham"
+  },
+  {
+    "id": "act-033",
+    "displayName": "Railroad Park",
+    "category": "Family Attractions",
+    "description": "19‑acre downtown greenspace with trails, a lake and venues for recreation and events",
+    "location": "Birmingham"
+  },
+  {
+    "id": "act-034",
+    "displayName": "Vulcan Park & Museum",
+    "category": "Family Attractions",
+    "description": "Public park featuring the world's largest cast‑iron statue and scenic views with an interactive museum",
+    "location": "Birmingham"
+  },
+  {
+    "id": "act-035",
+    "displayName": "Birmingham Zoo",
+    "category": "Family Attractions",
+    "description": "Zoo with hundreds of animals, rides and family‑friendly exhibits; also hosts events",
+    "location": "Birmingham"
+  }
+]

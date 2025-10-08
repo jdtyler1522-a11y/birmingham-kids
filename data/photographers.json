@@ -1,0 +1,202 @@
+[
+  {
+    "id": "chuck-st-john-1",
+    "displayName": "Chuck St John",
+    "specialty": "Commercial Photography",
+    "services": "Commercial photography; over 35 years experience; worked with Bacardi, Sports Authority, Revlon and more",
+    "city": "Birmingham",
+    "website": "",
+    "instagram": "",
+    "description": "Helps businesses define their message visually and provides creative partners for clients"
+  },
+  {
+    "id": "clay-carroll-2",
+    "displayName": "Clay Carroll",
+    "specialty": "Wedding & Commercial Photography",
+    "services": "Weddings, commercial events, real estate, promotional videos, live music and landscapes",
+    "city": "Birmingham",
+    "website": "",
+    "instagram": "",
+    "description": "Over 8 years of experience with Sony cameras across multiple photography styles"
+  },
+  {
+    "id": "vasha-h-3",
+    "displayName": "Vasha H.",
+    "specialty": "Sports & Documentary Photography",
+    "services": "Sports, real estate, environmental portraiture and documentary/journalistic projects",
+    "city": "Birmingham",
+    "website": "",
+    "instagram": "",
+    "description": "Experienced across multiple photography fields"
+  },
+  {
+    "id": "roger-o-4",
+    "displayName": "Roger O.",
+    "specialty": "Real Estate Photography",
+    "services": "Real estate photography, video, drone and scanning",
+    "city": "Birmingham",
+    "website": "",
+    "instagram": "",
+    "description": "40+ years of experience, works extensively in real estate photography"
+  },
+  {
+    "id": "lark-l-5",
+    "displayName": "Lark L.",
+    "specialty": "Family & Children Photography",
+    "services": "Newborns, babies, children, high school seniors and family sessions; light and airy style",
+    "city": "Birmingham",
+    "website": "",
+    "instagram": "",
+    "description": "Captures timeless, joyful and personality-filled images"
+  },
+  {
+    "id": "cj-j-6",
+    "displayName": "CJ J.",
+    "specialty": "Wedding & Portrait Photography",
+    "services": "Weddings, portraits and general events",
+    "city": "Birmingham",
+    "website": "",
+    "instagram": "",
+    "description": "Over 6 years of experience and enjoys all kinds of photography"
+  },
+  {
+    "id": "jerimiah-smith-7",
+    "displayName": "Jerimiah Smith",
+    "specialty": "Film & Documentary Photography",
+    "services": "Film-based photography documenting events and portraits; known for capturing Black Lives Matter protests",
+    "city": "Birmingham",
+    "website": "",
+    "instagram": "@jerimiahsmith",
+    "description": "Creates portraits with QR codes linking to stories; displays work around Birmingham"
+  },
+  {
+    "id": "kenwyn-alexander-8",
+    "displayName": "Kenwyn Alexander",
+    "specialty": "Lifestyle & Portrait Photography",
+    "services": "Lifestyle and portrait photography",
+    "city": "Birmingham",
+    "website": "",
+    "instagram": "@kenwynalexander",
+    "description": "Captures people and places around Birmingham"
+  },
+  {
+    "id": "wes-frazer-9",
+    "displayName": "Wes Frazer",
+    "specialty": "Portrait & Lifestyle Photography",
+    "services": "Portrait and lifestyle photography",
+    "city": "Birmingham",
+    "website": "",
+    "instagram": "@wesfrazer",
+    "description": "Known for creative compositions and capturing scenes around Birmingham"
+  },
+  {
+    "id": "mike-fisher-10",
+    "displayName": "Mike Fisher",
+    "specialty": "Portrait & Lifestyle Photography",
+    "services": "Portrait and lifestyle photography; creative portraits including graduation sessions",
+    "city": "Birmingham",
+    "website": "",
+    "instagram": "@1217_mike",
+    "description": "Known for colorful portraits; shares work via Instagram"
+  },
+  {
+    "id": "mary-fehr-11",
+    "displayName": "Mary Fehr",
+    "specialty": "Portrait & Lifestyle Photography",
+    "services": "Portrait and lifestyle photography",
+    "city": "Birmingham",
+    "website": "",
+    "instagram": "@marycfehr",
+    "description": "Focuses on capturing connections and emotions in her images"
+  },
+  {
+    "id": "brian-pride-12",
+    "displayName": "Brian Pride",
+    "specialty": "Portrait & Lifestyle Photography",
+    "services": "Portrait and lifestyle photography",
+    "city": "Birmingham",
+    "website": "",
+    "instagram": "@brianpridephotography",
+    "description": "Creates bright, engaging portraits and lifestyle images"
+  },
+  {
+    "id": "mallory-barry-13",
+    "displayName": "Mallory Barry",
+    "specialty": "Portrait & Lifestyle Photography",
+    "services": "Portrait and lifestyle photography",
+    "city": "Birmingham",
+    "website": "",
+    "instagram": "@malbphotography",
+    "description": "Focuses on capturing authentic moments and natural light"
+  },
+  {
+    "id": "jonathon-black-14",
+    "displayName": "Jonathon Black",
+    "specialty": "Drone & Landscape Photography",
+    "services": "Drone photography and creative perspective photography focusing on landscapes, architecture and events",
+    "city": "Birmingham",
+    "website": "",
+    "instagram": "@jonathon.black",
+    "description": "Uses drone photography and plays with color, shapes and perspective"
+  },
+  {
+    "id": "whitney-carr-15",
+    "displayName": "Whitney Carr",
+    "specialty": "Maternity & Newborn Photography",
+    "services": "Lifestyle maternity, newborn and family photography; heirloom portraits and full-service planning",
+    "city": "Birmingham",
+    "website": "https://whitneycarr.com",
+    "instagram": "",
+    "description": "Offers wardrobe planning, hair and makeup, digital collections and album design"
+  },
+  {
+    "id": "kate-zills-16",
+    "displayName": "Kate Zills",
+    "specialty": "Maternity & Family Photography",
+    "services": "Maternity, newborn, motherhood and family portraits; established in 2015",
+    "city": "Hoover",
+    "website": "https://katezillsphotography.com",
+    "instagram": "",
+    "description": "9 years of experience photographing family memories across the southeast"
+  },
+  {
+    "id": "katie-cindy-17",
+    "displayName": "Katie & Cindy Photography",
+    "specialty": "Family & Wedding Photography",
+    "services": "Mother-daughter team offering engagement, wedding, family and portrait sessions",
+    "city": "Birmingham",
+    "website": "https://katieandcindy.com",
+    "instagram": "",
+    "description": "Prioritizes making clients feel at home; treats clients like family"
+  },
+  {
+    "id": "becca-brown-18",
+    "displayName": "Becca Brown",
+    "specialty": "Motherhood & Family Photography",
+    "services": "Motherhood, newborn and family photography with tailored experiences",
+    "city": "Birmingham",
+    "website": "https://beccabrownphoto.com",
+    "instagram": "",
+    "description": "Documents precious milestones and unique personalities of children"
+  },
+  {
+    "id": "angie-lansdon-19",
+    "displayName": "Angie Lansdon",
+    "specialty": "Newborn & Family Photography",
+    "services": "Newborn, child and family photography sessions",
+    "city": "Trussville",
+    "website": "https://angielansdonphotography.com",
+    "instagram": "",
+    "description": "Springville, Trussville and Birmingham's favorite family photographer"
+  },
+  {
+    "id": "laura-cardan-20",
+    "displayName": "Laura Cardan",
+    "specialty": "Newborn & Family Photography",
+    "services": "Newborn and family photography; timeless, joyful and connection-filled photography",
+    "city": "Birmingham",
+    "website": "https://lauracardanphoto.com",
+    "instagram": "",
+    "description": "Creates beautiful memories for families through newborn and family sessions"
+  }
+]

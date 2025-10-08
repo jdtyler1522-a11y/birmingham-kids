@@ -1,15 +1,15 @@
 // Birmingham Childcare Directory App
 
-// Detect directory mode IMMEDIATELY
-if (!window.ACTIVE_DIRECTORY) {
-    const hash = window.location.hash;
-    if (hash.startsWith('#pediatricians')) {
-        window.ACTIVE_DIRECTORY = 'pediatricians';
-    } else if (hash.startsWith('#dentists')) {
-        window.ACTIVE_DIRECTORY = 'dentists';
-    } else {
-        window.ACTIVE_DIRECTORY = 'childcare';
-    }
+// Detect directory mode IMMEDIATELY (always run to override directory-manager.js)
+const hash = window.location.hash;
+if (hash.startsWith('#pediatricians')) {
+    window.ACTIVE_DIRECTORY = 'pediatricians';
+} else if (hash.startsWith('#dentists')) {
+    window.ACTIVE_DIRECTORY = 'dentists';
+} else if (hash.startsWith('#therapists')) {
+    window.ACTIVE_DIRECTORY = 'therapists';
+} else if (!window.ACTIVE_DIRECTORY) {
+    window.ACTIVE_DIRECTORY = 'childcare';
 }
 
 class ChildcareDirectory {
@@ -67,6 +67,9 @@ class ChildcareDirectory {
             } else if (directory === 'dentists') {
                 dataFile = 'data/dentists.json?v=2025-10-03-final';
                 label = 'pediatric dentists';
+            } else if (directory === 'therapists') {
+                dataFile = 'data/therapists.json?v=2025-10-07';
+                label = 'therapy providers';
             } else {
                 dataFile = 'data/centers.json?v=2025-10-02-new';
                 label = 'childcare centers';
@@ -76,6 +79,7 @@ class ChildcareDirectory {
             this.centers = await response.json();
             this.isPediatricianMode = (directory === 'pediatricians');
             this.isDentistMode = (directory === 'dentists');
+            this.isTherapistMode = (directory === 'therapists');
             console.log(`Loaded ${this.centers.length} ${label}`);
         } catch (error) {
             console.error('Error loading data:', error);
@@ -236,8 +240,8 @@ class ChildcareDirectory {
     }
 
     initializeFiltersPanel() {
-        // Hide childcare-only quick filters for pediatricians and dentists
-        if (this.isPediatricianMode || this.isDentistMode) {
+        // Hide childcare-only quick filters for pediatricians, dentists, and therapists
+        if (this.isPediatricianMode || this.isDentistMode || this.isTherapistMode) {
             const quickFilters = document.querySelector('.quick-filters');
             if (quickFilters) {
                 quickFilters.style.display = 'none';
@@ -246,7 +250,7 @@ class ChildcareDirectory {
         
         // Show view toggle for childcare and pediatricians (they have coordinates)
         const viewToggle = document.getElementById('viewToggle');
-        if (viewToggle && !this.isDentistMode) {
+        if (viewToggle && !this.isDentistMode && !this.isTherapistMode) {
             viewToggle.style.display = 'flex';
         }
         
@@ -671,6 +675,10 @@ class ChildcareDirectory {
         if (this.isDentistMode) {
             return this.createDentistCard(center);
         }
+        // If in therapist mode, use therapist card template
+        if (this.isTherapistMode) {
+            return this.createTherapistCard(center);
+        }
         
         const badges = this.generateBadges(center);
         const tuitionRange = center.tuitionRangeMonthlyUSD.length === 2 
@@ -903,6 +911,71 @@ class ChildcareDirectory {
                     ${dentist.phone ? `<a href="tel:${dentist.phone}" class="card-btn card-btn-secondary">Call</a>` : ''}
                     ${dentist.website ? `<a href="${dentist.website}" target="_blank" rel="noopener" class="card-btn card-btn-secondary">Website</a>` : ''}
                     <a href="https://maps.google.com/?q=${encodeURIComponent(dentist.address)}" target="_blank" rel="noopener" class="card-btn card-btn-secondary">Directions</a>
+                </div>
+            </article>
+        `;
+    }
+
+    createTherapistCard(therapist) {
+        const specialtyBadges = therapist.specialties && therapist.specialties.length > 0
+            ? therapist.specialties.slice(0, 3).map(s => `<span class="badge badge-naeyc">${s}</span>`).join('')
+            : '';
+        
+        const serviceTypes = therapist.serviceType && therapist.serviceType.length > 0
+            ? therapist.serviceType.join(', ')
+            : 'Contact for details';
+        
+        const insurance = therapist.insuranceAccepted && therapist.insuranceAccepted.length > 0
+            ? therapist.insuranceAccepted.join(', ')
+            : 'Contact for details';
+        
+        return `
+            <article class="center-card fade-in" data-center-id="${therapist.id}">
+                <button class="favorite-btn" data-id="${therapist.id}" aria-label="Add to favorites">
+                    <svg class="star-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M12 2.5 L14.4 9.1 L21.5 10 L16.8 14.6 L18 21.5 L12 18.3 L6 21.5 L7.2 14.6 L2.5 10 L9.6 9.1 Z" />
+                    </svg>
+                </button>
+                <div class="card-header">
+                    <h3 class="center-name">${therapist.displayName}</h3>
+                    <div class="center-location">${therapist.neighborhood || therapist.city}, AL</div>
+                </div>
+                
+                <p class="center-blurb">${therapist.description || 'Speech and occupational therapy services for Birmingham families.'}</p>
+                
+                <div class="badges">
+                    ${specialtyBadges}
+                </div>
+                
+                <div class="quick-facts">
+                    <div class="fact">
+                        <svg class="fact-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                            <circle cx="9" cy="7" r="4"></circle>
+                            <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+                            <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+                        </svg>
+                        <span class="fact-value">${therapist.agesServed || 'All ages'}</span>
+                    </div>
+                    <div class="fact">
+                        <svg class="fact-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                            <circle cx="12" cy="7" r="4"></circle>
+                        </svg>
+                        <span class="fact-value">${serviceTypes}</span>
+                    </div>
+                    <div class="fact">
+                        <svg class="fact-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect>
+                            <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path>
+                        </svg>
+                        <span class="fact-value">${insurance}</span>
+                    </div>
+                </div>
+                
+                <div class="card-actions">
+                    <button class="card-btn card-btn-primary" onclick="app.openModal('${therapist.id}')">View Details</button>
+                    ${therapist.website ? `<a href="${therapist.website}" target="_blank" rel="noopener" class="card-btn card-btn-secondary">Website</a>` : ''}
                 </div>
             </article>
         `;

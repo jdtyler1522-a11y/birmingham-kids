@@ -1,6 +1,6 @@
 # Overview
 
-Birmingham Kids is a mobile-first quad-directory web application designed to help parents find quality childcare, pediatricians, pediatric dentists, and speech & occupational therapists in the Birmingham, Alabama metro area. The application features a Node.js/Express backend with user authentication and a vanilla JavaScript frontend. It offers four comprehensive directories with advanced filtering, tab-based navigation, and an interactive map view for childcare and pediatricians. The project's ambition is to simplify parenting in Birmingham by providing a user-friendly platform with verified data and a modern, playful aesthetic.
+Birmingham Kids is a mobile-first quad-directory web application designed to help parents find quality childcare, pediatricians, pediatric dentists, and speech & occupational therapists in the Birmingham, Alabama metro area. The application features a Node.js/Express backend with user authentication and a vanilla JavaScript frontend. It offers four comprehensive directories: (1) 278 childcare centers, (2) 77 pediatricians, (3) 55 pediatric dentists, and (4) 23 speech & OT therapists - all with advanced filtering, tab-based navigation, and an interactive map view for childcare and pediatricians. The project's ambition is to simplify parenting in Birmingham by providing a user-friendly platform with verified data and a modern, playful aesthetic.
 
 # User Preferences
 

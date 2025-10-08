@@ -19,7 +19,7 @@
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin=""/>
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
     
-    <link rel="stylesheet" href="styles.css?v=2025-10-08-activities-parties">
+    <link rel="stylesheet" href="styles.css?v=2025-10-08-dropdown-nav">
     
     <!-- Schema.org structured data -->
     <script type="application/ld+json">
@@ -211,62 +211,94 @@
                 </div>
                 
                 <nav class="directory-nav">
-                    <button class="directory-tab active" data-directory="childcare">
-                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
-                            <polyline points="9 22 9 12 15 12 15 22"></polyline>
-                        </svg>
-                        Childcare
-                    </button>
-                    <button class="directory-tab" data-directory="pediatricians">
-                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <path d="M22 12h-4l-3 9L9 3l-3 9H2"></path>
-                        </svg>
-                        Pediatricians
-                    </button>
-                    <button class="directory-tab" data-directory="dentists">
-                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <path d="M12 2C8.5 2 6 4.5 6 8c0 1.5.5 3 1.5 4L6 22h3l1-6 2 6h3l-1.5-10c1-1 1.5-2.5 1.5-4 0-3.5-2.5-6-6-6z"></path>
-                        </svg>
-                        Dentists
-                    </button>
-                    <button class="directory-tab" data-directory="therapists">
-                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <path d="M12 1a9 9 0 0 0-9 9v7c0 1.657 1.343 3 3 3h3v-8H5v-2a7 7 0 1 1 14 0v2h-4v8h3c1.657 0 3-1.343 3-3v-7a9 9 0 0 0-9-9z"/>
-                        </svg>
-                        Therapists
-                    </button>
-                    <button class="directory-tab" data-directory="mdo">
-                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <circle cx="12" cy="8" r="4"></circle>
-                            <path d="M12 14c-4 0-8 2-8 6v2h16v-2c0-4-4-6-8-6z"></path>
-                        </svg>
-                        MDO
-                    </button>
-                    <button class="directory-tab" data-directory="photographers">
-                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"></path>
-                            <circle cx="12" cy="13" r="4"></circle>
-                        </svg>
-                        Photographers
-                    </button>
-                    <button class="directory-tab" data-directory="activities">
-                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <circle cx="12" cy="12" r="10"></circle>
-                            <path d="M12 6v6l4 2"></path>
-                        </svg>
-                        Activities
-                    </button>
-                    <button class="directory-tab" data-directory="birthday-parties">
-                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
-                            <circle cx="12" cy="7" r="4"></circle>
-                            <path d="M12 2v3"></path>
-                            <path d="M8 2v3"></path>
-                            <path d="M16 2v3"></path>
-                        </svg>
-                        Birthday Parties
-                    </button>
+                    <div class="nav-dropdown">
+                        <button class="nav-dropdown-toggle">
+                            <span>Care & Education</span>
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <polyline points="6,9 12,15 18,9"></polyline>
+                            </svg>
+                        </button>
+                        <div class="nav-dropdown-menu">
+                            <button class="directory-tab" data-directory="childcare">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+                                    <polyline points="9 22 9 12 15 12 15 22"></polyline>
+                                </svg>
+                                Childcare
+                            </button>
+                            <button class="directory-tab" data-directory="mdo">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <circle cx="12" cy="8" r="4"></circle>
+                                    <path d="M12 14c-4 0-8 2-8 6v2h16v-2c0-4-4-6-8-6z"></path>
+                                </svg>
+                                Mother's Day Out
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <div class="nav-dropdown">
+                        <button class="nav-dropdown-toggle">
+                            <span>Healthcare</span>
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <polyline points="6,9 12,15 18,9"></polyline>
+                            </svg>
+                        </button>
+                        <div class="nav-dropdown-menu">
+                            <button class="directory-tab" data-directory="pediatricians">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M22 12h-4l-3 9L9 3l-3 9H2"></path>
+                                </svg>
+                                Pediatricians
+                            </button>
+                            <button class="directory-tab" data-directory="dentists">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M12 2C8.5 2 6 4.5 6 8c0 1.5.5 3 1.5 4L6 22h3l1-6 2 6h3l-1.5-10c1-1 1.5-2.5 1.5-4 0-3.5-2.5-6-6-6z"></path>
+                                </svg>
+                                Pediatric Dentists
+                            </button>
+                            <button class="directory-tab" data-directory="therapists">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M12 1a9 9 0 0 0-9 9v7c0 1.657 1.343 3 3 3h3v-8H5v-2a7 7 0 1 1 14 0v2h-4v8h3c1.657 0 3-1.343 3-3v-7a9 9 0 0 0-9-9z"/>
+                                </svg>
+                                Speech & OT
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <div class="nav-dropdown">
+                        <button class="nav-dropdown-toggle">
+                            <span>Services & Fun</span>
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <polyline points="6,9 12,15 18,9"></polyline>
+                            </svg>
+                        </button>
+                        <div class="nav-dropdown-menu">
+                            <button class="directory-tab" data-directory="photographers">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"></path>
+                                    <circle cx="12" cy="13" r="4"></circle>
+                                </svg>
+                                Photographers
+                            </button>
+                            <button class="directory-tab" data-directory="activities">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <circle cx="12" cy="12" r="10"></circle>
+                                    <path d="M12 6v6l4 2"></path>
+                                </svg>
+                                Activities & Recreation
+                            </button>
+                            <button class="directory-tab" data-directory="birthday-parties">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                                    <circle cx="12" cy="7" r="4"></circle>
+                                    <path d="M12 2v3"></path>
+                                    <path d="M8 2v3"></path>
+                                    <path d="M16 2v3"></path>
+                                </svg>
+                                Birthday Parties
+                            </button>
+                        </div>
+                    </div>
                 </nav>
                 
                 <h1 class="hero-title" id="heroTitle">Birmingham Childcare Directory</h1>
@@ -700,6 +732,36 @@
     </div>
 
     <script>
+        // Dropdown navigation handling
+        document.addEventListener('DOMContentLoaded', function() {
+            const dropdowns = document.querySelectorAll('.nav-dropdown');
+            
+            dropdowns.forEach(dropdown => {
+                const toggle = dropdown.querySelector('.nav-dropdown-toggle');
+                
+                toggle.addEventListener('click', function(e) {
+                    e.stopPropagation();
+                    
+                    // Close all other dropdowns
+                    dropdowns.forEach(d => {
+                        if (d !== dropdown) {
+                            d.classList.remove('active');
+                        }
+                    });
+                    
+                    // Toggle current dropdown
+                    dropdown.classList.toggle('active');
+                });
+            });
+            
+            // Close dropdowns when clicking outside
+            document.addEventListener('click', function(e) {
+                if (!e.target.closest('.nav-dropdown')) {
+                    dropdowns.forEach(d => d.classList.remove('active'));
+                }
+            });
+        });
+        
         // Landing page navigation
         document.addEventListener('DOMContentLoaded', function() {
             const landingPage = document.getElementById('landingPage');
@@ -732,7 +794,7 @@
             
             // Check if there's a hash in URL
             const hash = window.location.hash;
-            if (hash && (hash.includes('childcare') || hash.includes('pediatricians') || hash.includes('dentists') || hash.includes('therapists') || hash.includes('mdo') || hash.includes('photographers'))) {
+            if (hash && (hash.includes('childcare') || hash.includes('pediatricians') || hash.includes('dentists') || hash.includes('therapists') || hash.includes('mdo') || hash.includes('photographers') || hash.includes('activities') || hash.includes('birthday-parties'))) {
                 landingPage.style.display = 'none';
                 directoryContent.classList.add('active');
             }
@@ -763,8 +825,8 @@
             }
         });
     </script>
-    <script src="auth.js?v=2025-10-08-activities-parties" defer></script>
-    <script src="directory-manager.js?v=2025-10-08-activities-parties" defer></script>
-    <script src="app.js?v=2025-10-08-activities-parties" defer></script>
+    <script src="auth.js?v=2025-10-08-dropdown-nav" defer></script>
+    <script src="directory-manager.js?v=2025-10-08-dropdown-nav" defer></script>
+    <script src="app.js?v=2025-10-08-dropdown-nav" defer></script>
 </body>
 </html>

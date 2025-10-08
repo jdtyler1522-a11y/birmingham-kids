@@ -45,6 +45,7 @@
                 <a href="#" class="nav-link" data-navigate="pediatricians">Pediatricians</a>
                 <a href="#" class="nav-link" data-navigate="dentists">Dentists</a>
                 <a href="#" class="nav-link" data-navigate="therapists">Therapists</a>
+                <a href="#" class="nav-link" data-navigate="mdo">MDO</a>
             </div>
             <div class="nav-auth">
                 <button class="auth-button login-button" id="loginButton" style="display: none;">
@@ -94,7 +95,7 @@
                 </div>
                 <div class="hero-right">
                     <h1 class="landing-title">Raising Kids in Birmingham Just Got Easier</h1>
-                    <p class="landing-subtitle">Easily find trusted daycares, pediatricians, dentists, and therapists across the Magic City — all in one place.</p>
+                    <p class="landing-subtitle">Easily find trusted daycares, pediatricians, dentists, therapists, and Mother's Day Out programs across the Magic City — all in one place.</p>
                 </div>
             </div>
             
@@ -143,6 +144,18 @@
                     <p class="card-description">Find speech and occupational therapy providers</p>
                     <button class="card-button">Find Therapists</button>
                 </div>
+                
+                <div class="directory-card mdo-card" data-navigate="mdo">
+                    <div class="card-icon">
+                        <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <circle cx="12" cy="8" r="4"></circle>
+                            <path d="M12 14c-4 0-8 2-8 6v2h16v-2c0-4-4-6-8-6z"></path>
+                        </svg>
+                    </div>
+                    <h2 class="card-title">Mother's Day Out</h2>
+                    <p class="card-description">Explore Mother's Day Out and weekday programs</p>
+                    <button class="card-button">Browse Programs</button>
+                </div>
             </div>
         </div>
     </section>
@@ -182,6 +195,13 @@
                             <path d="M12 1a9 9 0 0 0-9 9v7c0 1.657 1.343 3 3 3h3v-8H5v-2a7 7 0 1 1 14 0v2h-4v8h3c1.657 0 3-1.343 3-3v-7a9 9 0 0 0-9-9z"/>
                         </svg>
                         Therapists
+                    </button>
+                    <button class="directory-tab" data-directory="mdo">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <circle cx="12" cy="8" r="4"></circle>
+                            <path d="M12 14c-4 0-8 2-8 6v2h16v-2c0-4-4-6-8-6z"></path>
+                        </svg>
+                        MDO
                     </button>
                 </nav>
                 
@@ -648,7 +668,7 @@
             
             // Check if there's a hash in URL
             const hash = window.location.hash;
-            if (hash && (hash.includes('childcare') || hash.includes('pediatricians') || hash.includes('dentists') || hash.includes('therapists'))) {
+            if (hash && (hash.includes('childcare') || hash.includes('pediatricians') || hash.includes('dentists') || hash.includes('therapists') || hash.includes('mdo'))) {
                 landingPage.style.display = 'none';
                 directoryContent.classList.add('active');
             }

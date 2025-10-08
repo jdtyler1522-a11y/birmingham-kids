@@ -8,6 +8,8 @@ if (hash.startsWith('#pediatricians')) {
     window.ACTIVE_DIRECTORY = 'dentists';
 } else if (hash.startsWith('#therapists')) {
     window.ACTIVE_DIRECTORY = 'therapists';
+} else if (hash.startsWith('#mdo')) {
+    window.ACTIVE_DIRECTORY = 'mdo';
 } else if (!window.ACTIVE_DIRECTORY) {
     window.ACTIVE_DIRECTORY = 'childcare';
 }
@@ -70,6 +72,9 @@ class ChildcareDirectory {
             } else if (directory === 'therapists') {
                 dataFile = 'data/therapists.json?v=2025-10-07';
                 label = 'therapy providers';
+            } else if (directory === 'mdo') {
+                dataFile = 'data/mdo.json?v=2025-10-08';
+                label = 'MDO programs';
             } else {
                 dataFile = 'data/centers.json?v=2025-10-02-new';
                 label = 'childcare centers';
@@ -80,6 +85,7 @@ class ChildcareDirectory {
             this.isPediatricianMode = (directory === 'pediatricians');
             this.isDentistMode = (directory === 'dentists');
             this.isTherapistMode = (directory === 'therapists');
+            this.isMDOMode = (directory === 'mdo');
             console.log(`Loaded ${this.centers.length} ${label}`);
         } catch (error) {
             console.error('Error loading data:', error);
@@ -240,8 +246,8 @@ class ChildcareDirectory {
     }
 
     initializeFiltersPanel() {
-        // Hide childcare-only quick filters for pediatricians, dentists, and therapists
-        if (this.isPediatricianMode || this.isDentistMode || this.isTherapistMode) {
+        // Hide childcare-only quick filters for pediatricians, dentists, therapists, and MDO
+        if (this.isPediatricianMode || this.isDentistMode || this.isTherapistMode || this.isMDOMode) {
             const quickFilters = document.querySelector('.quick-filters');
             if (quickFilters) {
                 quickFilters.style.display = 'none';
@@ -250,7 +256,7 @@ class ChildcareDirectory {
         
         // Show view toggle for childcare and pediatricians (they have coordinates)
         const viewToggle = document.getElementById('viewToggle');
-        if (viewToggle && !this.isDentistMode && !this.isTherapistMode) {
+        if (viewToggle && !this.isDentistMode && !this.isTherapistMode && !this.isMDOMode) {
             viewToggle.style.display = 'flex';
         }
         
@@ -679,6 +685,10 @@ class ChildcareDirectory {
         if (this.isTherapistMode) {
             return this.createTherapistCard(center);
         }
+        // If in MDO mode, use MDO card template
+        if (this.isMDOMode) {
+            return this.createMDOCard(center);
+        }
         
         const badges = this.generateBadges(center);
         const tuitionRange = center.tuitionRangeMonthlyUSD.length === 2 
@@ -976,6 +986,65 @@ class ChildcareDirectory {
                 <div class="card-actions">
                     <button class="card-btn card-btn-primary" onclick="app.openModal('${therapist.id}')">View Details</button>
                     ${therapist.website ? `<a href="${therapist.website}" target="_blank" rel="noopener" class="card-btn card-btn-secondary">Website</a>` : ''}
+                </div>
+            </article>
+        `;
+    }
+
+    createMDOCard(mdo) {
+        return `
+            <article class="center-card fade-in" data-center-id="${mdo.id}">
+                <button class="favorite-btn" data-id="${mdo.id}" aria-label="Add to favorites">
+                    <svg class="star-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M12 2.5 L14.4 9.1 L21.5 10 L16.8 14.6 L18 21.5 L12 18.3 L6 21.5 L7.2 14.6 L2.5 10 L9.6 9.1 Z" />
+                    </svg>
+                </button>
+                <div class="card-header">
+                    <h3 class="center-name">${mdo.displayName}</h3>
+                    <div class="center-location">${mdo.neighborhood || mdo.city}, AL</div>
+                </div>
+                
+                <p class="center-blurb">${mdo.description || "Mother's Day Out program providing quality care for young children."}</p>
+                
+                <div class="quick-facts">
+                    <div class="fact">
+                        <svg class="fact-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                            <circle cx="9" cy="7" r="4"></circle>
+                        </svg>
+                        <span class="fact-value">${mdo.agesServed || 'Contact for info'}</span>
+                    </div>
+                    <div class="fact">
+                        <svg class="fact-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+                            <line x1="16" y1="2" x2="16" y2="6"></line>
+                            <line x1="8" y1="2" x2="8" y2="6"></line>
+                            <line x1="3" y1="10" x2="21" y2="10"></line>
+                        </svg>
+                        <span class="fact-value">${mdo.daysOffered || 'Contact for schedule'}</span>
+                    </div>
+                    <div class="fact">
+                        <svg class="fact-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <circle cx="12" cy="12" r="10"></circle>
+                            <polyline points="12,6 12,12 16,14"></polyline>
+                        </svg>
+                        <span class="fact-value">${mdo.hours || 'Contact for hours'}</span>
+                    </div>
+                    ${mdo.tuition ? `
+                    <div class="fact">
+                        <svg class="fact-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <line x1="12" y1="1" x2="12" y2="23"></line>
+                            <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path>
+                        </svg>
+                        <span class="fact-value">${mdo.tuition}</span>
+                    </div>
+                    ` : ''}
+                </div>
+                
+                <div class="card-actions">
+                    <button class="card-btn card-btn-primary" onclick="app.openModal('${mdo.id}')">View Details</button>
+                    ${mdo.website ? `<a href="${mdo.website}" target="_blank" rel="noopener" class="card-btn card-btn-secondary">Website</a>` : ''}
+                    ${mdo.address ? `<a href="https://maps.google.com/?q=${encodeURIComponent(mdo.address)}" target="_blank" rel="noopener" class="card-btn card-btn-secondary">Directions</a>` : ''}
                 </div>
             </article>
         `;

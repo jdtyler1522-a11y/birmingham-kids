@@ -98,10 +98,21 @@
     
     // Setup navigation
     function setupNav() {
+        // Handle dropdown menu buttons
         document.querySelectorAll('.directory-tab').forEach(tab => {
             tab.addEventListener('click', (e) => {
                 e.preventDefault();
                 const directory = tab.dataset.directory;
+                window.location.hash = `#${directory}`;
+                window.location.reload();
+            });
+        });
+        
+        // Handle landing page directory cards
+        document.querySelectorAll('[data-navigate]').forEach(card => {
+            card.addEventListener('click', (e) => {
+                e.preventDefault();
+                const directory = card.dataset.navigate;
                 window.location.hash = `#${directory}`;
                 window.location.reload();
             });

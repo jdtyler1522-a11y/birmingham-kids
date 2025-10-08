@@ -376,7 +376,7 @@ class ChildcareDirectory {
 
     applyFilters() {
         this.filteredCenters = this.centers.filter(center => {
-            // Search filter - works for both directories
+            // Search filter - works for all directories
             if (this.currentFilters.search) {
                 const searchTerm = this.currentFilters.search.toLowerCase();
                 let searchableText;
@@ -384,6 +384,12 @@ class ChildcareDirectory {
                 if (this.isPediatricianMode || this.isDentistMode) {
                     // Search pediatrician/dentist fields
                     searchableText = `${center.displayName || center.practiceName} ${center.providerName || ''} ${center.city} ${center.specialty || ''} ${center.description || ''} ${center.services || ''}`.toLowerCase();
+                } else if (this.isTherapistMode) {
+                    // Search therapist fields
+                    searchableText = `${center.displayName} ${center.city} ${center.neighborhood || ''} ${center.specialties?.join(' ') || ''} ${center.description || ''}`.toLowerCase();
+                } else if (this.isMDOMode) {
+                    // Search MDO fields
+                    searchableText = `${center.displayName} ${center.city} ${center.neighborhood || ''} ${center.daysOffered || ''} ${center.description || ''}`.toLowerCase();
                 } else {
                     // Search childcare fields
                     searchableText = `${center.name} ${center.city} ${center.neighborhood} ${center.programs.join(' ')} ${center.blurb}`.toLowerCase();
@@ -402,7 +408,7 @@ class ChildcareDirectory {
             }
 
             // CHILDCARE-ONLY FILTERS
-            if (!this.isPediatricianMode && !this.isDentistMode) {
+            if (!this.isPediatricianMode && !this.isDentistMode && !this.isTherapistMode && !this.isMDOMode) {
                 // Age range filter
                 if (this.currentFilters.ageRange.length > 0) {
                     const hasMatchingAge = this.currentFilters.ageRange.some(age => 

@@ -9,6 +9,8 @@
         currentDirectory = 'dentists';
     } else if (hash.startsWith('#therapists')) {
         currentDirectory = 'therapists';
+    } else if (hash.startsWith('#mdo')) {
+        currentDirectory = 'mdo';
     }
     window.ACTIVE_DIRECTORY = currentDirectory;
     
@@ -42,6 +44,13 @@
                 searchPlaceholder: 'Search by therapist name, specialty, or location...',
                 filtersTitle: 'Find Your Therapist',
                 resultsLabel: 'therapists'
+            },
+            mdo: {
+                title: "Birmingham Mother's Day Out Directory",
+                subtitle: "Find Mother's Day Out and weekday programs across the Birmingham metro—compare schedules, locations, and fees.",
+                searchPlaceholder: 'Search by program name, church, or location...',
+                filtersTitle: 'Find Your MDO Program',
+                resultsLabel: 'programs'
             }
         }[directory];
         

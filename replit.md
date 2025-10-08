@@ -1,6 +1,6 @@
 # Overview
 
-Birmingham Kids is a mobile-first five-directory web application designed to help parents find quality childcare, pediatricians, pediatric dentists, speech & occupational therapists, and Mother's Day Out programs in the Birmingham, Alabama metro area. The application features a Node.js/Express backend with user authentication and a vanilla JavaScript frontend. It offers five comprehensive directories: (1) 278 childcare centers, (2) 77 pediatricians, (3) 55 pediatric dentists, (4) 23 speech & OT therapists, and (5) 21 Mother's Day Out programs - all with advanced filtering, tab-based navigation, and an interactive map view for childcare and pediatricians. The project's ambition is to simplify parenting in Birmingham by providing a user-friendly platform with verified data and a modern, playful aesthetic.
+Birmingham Kids is a mobile-first six-directory web application designed to help parents find quality childcare, pediatricians, pediatric dentists, speech & occupational therapists, Mother's Day Out programs, and family photographers in the Birmingham, Alabama metro area. The application features a Node.js/Express backend with user authentication and a vanilla JavaScript frontend. It offers six comprehensive directories: (1) 278 childcare centers, (2) 77 pediatricians, (3) 55 pediatric dentists, (4) 23 speech & OT therapists, (5) 21 Mother's Day Out programs, and (6) 20 family photographers - all with advanced filtering, tab-based navigation, and an interactive map view for childcare and pediatricians. The project's ambition is to simplify parenting in Birmingham by providing a user-friendly platform with verified data and a modern, playful aesthetic.
 
 # User Preferences
 
@@ -12,10 +12,10 @@ Preferred communication style: Simple, everyday language.
 The application utilizes a Node.js/Express backend with TypeScript, integrating Replit Auth for secure user authentication and session management. A PostgreSQL database, managed with Drizzle ORM, stores user data and favorites. RESTful API endpoints handle authentication and favorite listings.
 
 ## Frontend Architecture
-The frontend is a vanilla JavaScript single-page application (SPA) with a five-directory structure. It uses `auth.js` for user authentication and favorites synchronization, and `directory-manager.js` to dynamically switch between childcare, pediatrician, dentist, therapist, and MDO data/UI. Key features include an interactive Leaflet.js map for childcare and pediatricians, component-based CSS with custom properties, and a mobile-first responsive design approach. Core functionality is encapsulated within a `ChildcareDirectory` class.
+The frontend is a vanilla JavaScript single-page application (SPA) with a six-directory structure. It uses `auth.js` for user authentication and favorites synchronization, and `directory-manager.js` to dynamically switch between childcare, pediatrician, dentist, therapist, MDO, and photographer data/UI. Key features include an interactive Leaflet.js map for childcare and pediatricians, component-based CSS with custom properties, and a mobile-first responsive design approach. Core functionality is encapsulated within a `ChildcareDirectory` class.
 
 ## Data Management
-The application manages data through five local JSON datasets (`centers.json`, `pediatricians.json`, `dentists.json`, `therapists.json`, `mdo.json`) for directory listings. User favorites are stored in a PostgreSQL database. All filtering and search operations are performed client-side using JavaScript, and filter states are synchronized with the URL hash for shareable views.
+The application manages data through six local JSON datasets (`centers.json`, `pediatricians.json`, `dentists.json`, `therapists.json`, `mdo.json`, `photographers.json`) for directory listings. User favorites are stored in a PostgreSQL database. All filtering and search operations are performed client-side using JavaScript, and filter states are synchronized with the URL hash for shareable views.
 
 ## User Interface Design
 The design system features a consistent, playful aesthetic with a sunny color palette (yellow, sky blue, teal accents) and Google Fonts (Poppins, Inter). It prioritizes accessibility (WCAG AA compliance) with semantic HTML and ARIA labels. Interactive elements include modal windows for details, pill-style filter buttons, and icon-based tab navigation.
@@ -45,5 +45,5 @@ The PostgreSQL database includes `users` (id, email, firstName, lastName, profil
 - **tsx**: TypeScript execution for development.
 
 ## Data Sources
-- **Local JSON Datasets**: `data/centers.json`, `data/pediatricians.json`, `data/dentists.json`, `data/therapists.json`, `data/mdo.json`.
+- **Local JSON Datasets**: `data/centers.json`, `data/pediatricians.json`, `data/dentists.json`, `data/therapists.json`, `data/mdo.json`, `data/photographers.json`.
 - **Static Asset Storage**: Local image assets in `assets/` directory.

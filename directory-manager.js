@@ -11,6 +11,8 @@
         currentDirectory = 'therapists';
     } else if (hash.startsWith('#mdo')) {
         currentDirectory = 'mdo';
+    } else if (hash.startsWith('#photographers')) {
+        currentDirectory = 'photographers';
     }
     window.ACTIVE_DIRECTORY = currentDirectory;
     
@@ -51,6 +53,13 @@
                 searchPlaceholder: 'Search by program name, church, or location...',
                 filtersTitle: 'Find Your MDO Program',
                 resultsLabel: 'programs'
+            },
+            photographers: {
+                title: 'Birmingham Family Photographers Directory',
+                subtitle: 'Find trusted family and portrait photographers across the Birmingham metro—compare specialties, styles, and portfolios.',
+                searchPlaceholder: 'Search by photographer name, specialty, or location...',
+                filtersTitle: 'Find Your Photographer',
+                resultsLabel: 'photographers'
             }
         }[directory];
         

@@ -7,6 +7,8 @@
         currentDirectory = 'pediatricians';
     } else if (hash.startsWith('#dentists')) {
         currentDirectory = 'dentists';
+    } else if (hash.startsWith('#therapists')) {
+        currentDirectory = 'therapists';
     }
     window.ACTIVE_DIRECTORY = currentDirectory;
     
@@ -33,6 +35,13 @@
                 searchPlaceholder: 'Search by dentist name, practice, or location...',
                 filtersTitle: 'Find Your Pediatric Dentist',
                 resultsLabel: 'dentists'
+            },
+            therapists: {
+                title: 'Birmingham Speech & OT Therapist Directory',
+                subtitle: 'Find speech and occupational therapy providers across the Birmingham metro—compare specialties, services, and insurance accepted.',
+                searchPlaceholder: 'Search by therapist name, specialty, or location...',
+                filtersTitle: 'Find Your Therapist',
+                resultsLabel: 'therapists'
             }
         }[directory];
         

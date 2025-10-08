@@ -19,7 +19,7 @@
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin=""/>
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
     
-    <link rel="stylesheet" href="styles.css?v=2025-10-08-new-hero">
+    <link rel="stylesheet" href="styles.css?v=2025-10-08-navbar-dropdown">
     
     <!-- Schema.org structured data -->
     <script type="application/ld+json">
@@ -41,12 +41,47 @@
             </div>
             <div class="nav-links">
                 <a href="#" class="nav-link active" id="navHome">Home</a>
-                <a href="#" class="nav-link" data-navigate="childcare">Childcare</a>
-                <a href="#" class="nav-link" data-navigate="pediatricians">Pediatricians</a>
-                <a href="#" class="nav-link" data-navigate="dentists">Dentists</a>
-                <a href="#" class="nav-link" data-navigate="therapists">Therapists</a>
-                <a href="#" class="nav-link" data-navigate="mdo">MDO</a>
-                <a href="#" class="nav-link" data-navigate="photographers">Photographers</a>
+                
+                <div class="nav-dropdown">
+                    <button class="nav-dropdown-toggle">
+                        <span>Care & Education</span>
+                        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <polyline points="6,9 12,15 18,9"></polyline>
+                        </svg>
+                    </button>
+                    <div class="nav-dropdown-menu">
+                        <button class="directory-tab" data-directory="childcare">Childcare</button>
+                        <button class="directory-tab" data-directory="mdo">Mother's Day Out</button>
+                    </div>
+                </div>
+                
+                <div class="nav-dropdown">
+                    <button class="nav-dropdown-toggle">
+                        <span>Healthcare</span>
+                        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <polyline points="6,9 12,15 18,9"></polyline>
+                        </svg>
+                    </button>
+                    <div class="nav-dropdown-menu">
+                        <button class="directory-tab" data-directory="pediatricians">Pediatricians</button>
+                        <button class="directory-tab" data-directory="dentists">Pediatric Dentists</button>
+                        <button class="directory-tab" data-directory="therapists">Speech & OT</button>
+                    </div>
+                </div>
+                
+                <div class="nav-dropdown">
+                    <button class="nav-dropdown-toggle">
+                        <span>Services & Fun</span>
+                        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <polyline points="6,9 12,15 18,9"></polyline>
+                        </svg>
+                    </button>
+                    <div class="nav-dropdown-menu">
+                        <button class="directory-tab" data-directory="photographers">Photographers</button>
+                        <button class="directory-tab" data-directory="activities">Activities & Recreation</button>
+                        <button class="directory-tab" data-directory="birthday-parties">Birthday Parties</button>
+                    </div>
+                </div>
             </div>
             <div class="nav-auth">
                 <button class="auth-button login-button" id="loginButton" style="display: none;">

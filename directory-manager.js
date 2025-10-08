@@ -13,6 +13,10 @@
         currentDirectory = 'mdo';
     } else if (hash.startsWith('#photographers')) {
         currentDirectory = 'photographers';
+    } else if (hash.startsWith('#activities')) {
+        currentDirectory = 'activities';
+    } else if (hash.startsWith('#birthday-parties')) {
+        currentDirectory = 'birthday-parties';
     }
     window.ACTIVE_DIRECTORY = currentDirectory;
     
@@ -60,6 +64,20 @@
                 searchPlaceholder: 'Search by photographer name, specialty, or location...',
                 filtersTitle: 'Find Your Photographer',
                 resultsLabel: 'photographers'
+            },
+            activities: {
+                title: 'Birmingham Activities & Recreation Directory',
+                subtitle: 'Find parks, playgrounds, swimming, sports, and family attractions across the Birmingham metro—discover fun activities for all ages.',
+                searchPlaceholder: 'Search by activity name, category, or location...',
+                filtersTitle: 'Find Activities & Recreation',
+                resultsLabel: 'activities'
+            },
+            'birthday-parties': {
+                title: 'Birmingham Birthday Party Directory',
+                subtitle: 'Find birthday party venues, entertainment, decor, and services across the Birmingham metro—plan the perfect celebration.',
+                searchPlaceholder: 'Search by venue, category, or service...',
+                filtersTitle: 'Find Party Services',
+                resultsLabel: 'party options'
             }
         }[directory];
         

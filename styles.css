@@ -540,6 +540,22 @@ h4 { font-size: 1.25rem; }
     background: linear-gradient(90deg, var(--accent-2), var(--accent-3));
 }
 
+.mdo-card::before {
+    background: linear-gradient(90deg, var(--primary), var(--accent-1));
+}
+
+.photographers-card::before {
+    background: linear-gradient(90deg, var(--primary), #FB8500);
+}
+
+.activities-card::before {
+    background: linear-gradient(90deg, var(--accent-2), var(--accent-1));
+}
+
+.birthday-parties-card::before {
+    background: linear-gradient(90deg, #FB8500, var(--accent-3));
+}
+
 .directory-card:hover {
     transform: translateY(-8px);
     box-shadow: 0 16px 48px rgba(0, 0, 0, 0.2);
@@ -560,6 +576,31 @@ h4 { font-size: 1.25rem; }
 }
 
 .dentists-card .card-icon svg {
+    color: var(--accent-3);
+    filter: drop-shadow(0 2px 4px rgba(251, 133, 0, 0.3));
+}
+
+.therapists-card .card-icon svg {
+    color: var(--accent-2);
+    filter: drop-shadow(0 2px 4px rgba(33, 158, 188, 0.3));
+}
+
+.mdo-card .card-icon svg {
+    color: var(--primary);
+    filter: drop-shadow(0 2px 4px rgba(255, 183, 3, 0.3));
+}
+
+.photographers-card .card-icon svg {
+    color: var(--primary);
+    filter: drop-shadow(0 2px 4px rgba(255, 183, 3, 0.3));
+}
+
+.activities-card .card-icon svg {
+    color: var(--accent-2);
+    filter: drop-shadow(0 2px 4px rgba(33, 158, 188, 0.3));
+}
+
+.birthday-parties-card .card-icon svg {
     color: var(--accent-3);
     filter: drop-shadow(0 2px 4px rgba(251, 133, 0, 0.3));
 }
@@ -601,6 +642,31 @@ h4 { font-size: 1.25rem; }
 }
 
 .dentists-card .card-button {
+    background-color: var(--accent-3);
+    color: var(--white);
+}
+
+.therapists-card .card-button {
+    background-color: var(--accent-2);
+    color: var(--white);
+}
+
+.mdo-card .card-button {
+    background-color: var(--primary);
+    color: var(--neutral-text);
+}
+
+.photographers-card .card-button {
+    background-color: var(--primary);
+    color: var(--neutral-text);
+}
+
+.activities-card .card-button {
+    background-color: var(--accent-2);
+    color: var(--white);
+}
+
+.birthday-parties-card .card-button {
     background-color: var(--accent-3);
     color: var(--white);
 }

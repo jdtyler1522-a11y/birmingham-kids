@@ -5,6 +5,7 @@
   "main": "app.js",
   "type": "module",
   "scripts": {
+    "start": "tsx server/index.ts",
     "dev": "tsx server/index.ts",
     "db:push": "drizzle-kit push",
     "db:studio": "drizzle-kit studio"

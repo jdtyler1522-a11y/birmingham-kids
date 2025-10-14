@@ -1491,7 +1491,7 @@ class ChildcareDirectory {
             return `
                 <div class="modal-header">
                     <h2 class="modal-title" id="modalTitle">${item.displayName || item.name}</h2>
-                    <div class="modal-location">${item.address || item.city}, AL</div>
+                    <div class="modal-location">${item.address || item.location || item.city || 'Birmingham'}, AL</div>
                     ${badges ? `<div class="modal-badges">${badges}</div>` : ''}
                 </div>
                 <div class="modal-description">
@@ -1532,7 +1532,7 @@ class ChildcareDirectory {
             return `
                 <div class="modal-header">
                     <h2 class="modal-title" id="modalTitle">${item.displayName || item.name}</h2>
-                    <div class="modal-location">${item.address || item.city}, AL</div>
+                    <div class="modal-location">${item.address || item.location || item.city || 'Birmingham'}, AL</div>
                     ${badges ? `<div class="modal-badges">${badges}</div>` : ''}
                 </div>
                 <div class="modal-description">

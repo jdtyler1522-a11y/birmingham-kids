@@ -1320,65 +1320,276 @@ class ChildcareDirectory {
         this.addStructuredData(center);
     }
 
-    createModalContent(center) {
-        const badges = this.generateBadges(center);
-        const tuitionRange = center.tuitionRangeMonthlyUSD.length === 2 
-            ? `$${center.tuitionRangeMonthlyUSD[0]}-$${center.tuitionRangeMonthlyUSD[1]} per month`
-            : 'Contact for pricing information';
+    createModalContent(item) {
+        const badges = this.generateBadges(item);
+        
+        // Childcare Centers
+        if (!this.isPediatricianMode && !this.isDentistMode && !this.isTherapistMode && !this.isMDOMode && !this.isPhotographerMode && !this.isActivitiesMode && !this.isBirthdayPartiesMode) {
+            const tuitionRange = item.tuitionRangeMonthlyUSD && item.tuitionRangeMonthlyUSD.length === 2 
+                ? `$${item.tuitionRangeMonthlyUSD[0]}-$${item.tuitionRangeMonthlyUSD[1]} per month`
+                : 'Contact for pricing information';
 
+            return `
+                <div class="modal-header">
+                    <h2 class="modal-title" id="modalTitle">${item.name}</h2>
+                    <div class="modal-location">${item.address}, ${item.city}, AL ${item.zip}</div>
+                    <div class="modal-badges">${badges}</div>
+                </div>
+                <div class="modal-description">
+                    <p>${item.blurb}</p>
+                </div>
+                <div class="modal-details">
+                    <div class="detail-group">
+                        <h4>Ages Served</h4>
+                        <ul class="detail-list">
+                            ${item.agesServed.map(age => `<li>${age}</li>`).join('')}
+                        </ul>
+                    </div>
+                    <div class="detail-group">
+                        <h4>Programs</h4>
+                        <ul class="detail-list">
+                            ${item.programs.map(program => `<li>${program}</li>`).join('')}
+                        </ul>
+                    </div>
+                    <div class="detail-group">
+                        <h4>Accreditations</h4>
+                        <ul class="detail-list">
+                            ${item.accreditations.map(acc => `<li>${acc}</li>`).join('')}
+                        </ul>
+                    </div>
+                    <div class="detail-group">
+                        <h4>Hours & Tuition</h4>
+                        <ul class="detail-list">
+                            <li><strong>Hours:</strong> ${this.formatHours(item.hours)}</li>
+                            <li><strong>Tuition:</strong> ${tuitionRange}</li>
+                            <li><strong>Subsidy:</strong> ${item.acceptsSubsidy ? 'Accepted' : 'Not accepted'}</li>
+                        </ul>
+                    </div>
+                </div>
+                ${this.createContactActions(item)}
+            `;
+        }
+        
+        // Pediatricians & Dentists & Therapists - Similar structure
+        if (this.isPediatricianMode || this.isDentistMode || this.isTherapistMode) {
+            return `
+                <div class="modal-header">
+                    <h2 class="modal-title" id="modalTitle">${item.displayName || item.name}</h2>
+                    <div class="modal-location">${item.address || item.city}, AL</div>
+                    ${badges ? `<div class="modal-badges">${badges}</div>` : ''}
+                </div>
+                <div class="modal-description">
+                    <p>${item.description || item.blurb || 'Professional healthcare services for children and families.'}</p>
+                </div>
+                <div class="modal-details">
+                    ${item.specialty || item.specialties ? `
+                        <div class="detail-group">
+                            <h4>${this.isPediatricianMode || this.isDentistMode ? 'Specialty' : 'Services'}</h4>
+                            <ul class="detail-list">
+                                ${item.specialty ? `<li>${item.specialty}</li>` : ''}
+                                ${item.specialties ? item.specialties.map(s => `<li>${s}</li>`).join('') : ''}
+                            </ul>
+                        </div>
+                    ` : ''}
+                    ${item.insurance ? `
+                        <div class="detail-group">
+                            <h4>Insurance Accepted</h4>
+                            <ul class="detail-list">
+                                ${item.insurance.map(ins => `<li>${ins}</li>`).join('')}
+                            </ul>
+                        </div>
+                    ` : ''}
+                    ${item.ageRange ? `
+                        <div class="detail-group">
+                            <h4>Age Range</h4>
+                            <ul class="detail-list">
+                                <li>${item.ageRange}</li>
+                            </ul>
+                        </div>
+                    ` : ''}
+                </div>
+                ${this.createContactActions(item)}
+            `;
+        }
+        
+        // Mother's Day Out
+        if (this.isMDOMode) {
+            return `
+                <div class="modal-header">
+                    <h2 class="modal-title" id="modalTitle">${item.displayName || item.name}</h2>
+                    <div class="modal-location">${item.address || item.city}, AL</div>
+                    ${badges ? `<div class="modal-badges">${badges}</div>` : ''}
+                </div>
+                <div class="modal-description">
+                    <p>${item.description || 'Mother\'s Day Out program providing quality care for children.'}</p>
+                </div>
+                <div class="modal-details">
+                    ${item.ageRange ? `
+                        <div class="detail-group">
+                            <h4>Age Range</h4>
+                            <ul class="detail-list">
+                                <li>${item.ageRange}</li>
+                            </ul>
+                        </div>
+                    ` : ''}
+                    ${item.hours ? `
+                        <div class="detail-group">
+                            <h4>Hours</h4>
+                            <ul class="detail-list">
+                                <li>${item.hours}</li>
+                            </ul>
+                        </div>
+                    ` : ''}
+                    ${item.tuition ? `
+                        <div class="detail-group">
+                            <h4>Tuition</h4>
+                            <ul class="detail-list">
+                                <li>${item.tuition}</li>
+                            </ul>
+                        </div>
+                    ` : ''}
+                </div>
+                ${this.createContactActions(item)}
+            `;
+        }
+        
+        // Photographers
+        if (this.isPhotographerMode) {
+            return `
+                <div class="modal-header">
+                    <h2 class="modal-title" id="modalTitle">${item.displayName || item.name}</h2>
+                    <div class="modal-location">${item.city}, AL</div>
+                    ${badges ? `<div class="modal-badges">${badges}</div>` : ''}
+                </div>
+                <div class="modal-description">
+                    <p>${item.description || 'Professional photography services for families.'}</p>
+                </div>
+                <div class="modal-details">
+                    ${item.specialty ? `
+                        <div class="detail-group">
+                            <h4>Specialty</h4>
+                            <ul class="detail-list">
+                                <li>${item.specialty}</li>
+                            </ul>
+                        </div>
+                    ` : ''}
+                    ${item.services ? `
+                        <div class="detail-group">
+                            <h4>Services</h4>
+                            <ul class="detail-list">
+                                <li>${item.services}</li>
+                            </ul>
+                        </div>
+                    ` : ''}
+                </div>
+                ${this.createContactActions(item)}
+            `;
+        }
+        
+        // Activities & Recreation
+        if (this.isActivitiesMode) {
+            return `
+                <div class="modal-header">
+                    <h2 class="modal-title" id="modalTitle">${item.displayName || item.name}</h2>
+                    <div class="modal-location">${item.address || item.city}, AL</div>
+                    ${badges ? `<div class="modal-badges">${badges}</div>` : ''}
+                </div>
+                <div class="modal-description">
+                    <p>${item.description || 'Fun activities and recreation for families in Birmingham.'}</p>
+                </div>
+                <div class="modal-details">
+                    ${item.category ? `
+                        <div class="detail-group">
+                            <h4>Category</h4>
+                            <ul class="detail-list">
+                                <li>${item.category}</li>
+                            </ul>
+                        </div>
+                    ` : ''}
+                    ${item.ageRange ? `
+                        <div class="detail-group">
+                            <h4>Age Range</h4>
+                            <ul class="detail-list">
+                                <li>${item.ageRange}</li>
+                            </ul>
+                        </div>
+                    ` : ''}
+                    ${item.cost ? `
+                        <div class="detail-group">
+                            <h4>Cost</h4>
+                            <ul class="detail-list">
+                                <li>${item.cost}</li>
+                            </ul>
+                        </div>
+                    ` : ''}
+                </div>
+                ${this.createContactActions(item)}
+            `;
+        }
+        
+        // Birthday Parties
+        if (this.isBirthdayPartiesMode) {
+            return `
+                <div class="modal-header">
+                    <h2 class="modal-title" id="modalTitle">${item.displayName || item.name}</h2>
+                    <div class="modal-location">${item.address || item.city}, AL</div>
+                    ${badges ? `<div class="modal-badges">${badges}</div>` : ''}
+                </div>
+                <div class="modal-description">
+                    <p>${item.description || 'Party venue and services for memorable celebrations.'}</p>
+                </div>
+                <div class="modal-details">
+                    ${item.category ? `
+                        <div class="detail-group">
+                            <h4>Party Type</h4>
+                            <ul class="detail-list">
+                                <li>${item.category}</li>
+                            </ul>
+                        </div>
+                    ` : ''}
+                    ${item.ageRange ? `
+                        <div class="detail-group">
+                            <h4>Age Range</h4>
+                            <ul class="detail-list">
+                                <li>${item.ageRange}</li>
+                            </ul>
+                        </div>
+                    ` : ''}
+                    ${item.pricing ? `
+                        <div class="detail-group">
+                            <h4>Pricing</h4>
+                            <ul class="detail-list">
+                                <li>${item.pricing}</li>
+                            </ul>
+                        </div>
+                    ` : ''}
+                </div>
+                ${this.createContactActions(item)}
+            `;
+        }
+        
+        return '';
+    }
+    
+    createContactActions(item) {
+        const hasAddress = item.address || (item.city && item.city !== 'Birmingham');
+        const locationQuery = item.address ? 
+            encodeURIComponent(item.address + ', ' + item.city + ', AL') : 
+            encodeURIComponent(item.displayName || item.name + ', Birmingham, AL');
+        
         return `
-            <div class="modal-header">
-                <h2 class="modal-title" id="modalTitle">${center.name}</h2>
-                <div class="modal-location">${center.address}, ${center.city}, AL ${center.zip}</div>
-                <div class="modal-badges">${badges}</div>
-            </div>
-            
-            <div class="modal-description">
-                <p>${center.blurb}</p>
-            </div>
-            
-            <div class="modal-details">
-                <div class="detail-group">
-                    <h4>Ages Served</h4>
-                    <ul class="detail-list">
-                        ${center.agesServed.map(age => `<li>${age}</li>`).join('')}
-                    </ul>
-                </div>
-                
-                <div class="detail-group">
-                    <h4>Programs</h4>
-                    <ul class="detail-list">
-                        ${center.programs.map(program => `<li>${program}</li>`).join('')}
-                    </ul>
-                </div>
-                
-                <div class="detail-group">
-                    <h4>Accreditations</h4>
-                    <ul class="detail-list">
-                        ${center.accreditations.map(acc => `<li>${acc}</li>`).join('')}
-                    </ul>
-                </div>
-                
-                <div class="detail-group">
-                    <h4>Hours & Tuition</h4>
-                    <ul class="detail-list">
-                        <li><strong>Hours:</strong> ${this.formatHours(center.hours)}</li>
-                        <li><strong>Tuition:</strong> ${tuitionRange}</li>
-                        <li><strong>Subsidy:</strong> ${center.acceptsSubsidy ? 'Accepted' : 'Not accepted'}</li>
-                    </ul>
-                </div>
-            </div>
-            
             <div class="contact-actions">
-                <a href="tel:${center.phone}" class="btn btn-primary">
-                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
-                    </svg>
-                    Call ${center.phone}
-                </a>
+                ${item.phone ? `
+                    <a href="tel:${item.phone}" class="btn btn-primary">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+                        </svg>
+                        Call ${item.phone}
+                    </a>
+                ` : ''}
                 
-                ${center.email ? `
-                    <a href="mailto:${center.email}" class="btn btn-secondary">
+                ${item.email ? `
+                    <a href="mailto:${item.email}" class="btn btn-secondary">
                         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                             <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
                             <polyline points="22,6 12,13 2,6"></polyline>
@@ -1387,8 +1598,8 @@ class ChildcareDirectory {
                     </a>
                 ` : ''}
                 
-                ${center.website ? `
-                    <a href="${center.website}" target="_blank" rel="noopener" class="btn btn-secondary">
+                ${item.website ? `
+                    <a href="${item.website}" target="_blank" rel="noopener" class="btn btn-secondary">
                         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                             <circle cx="12" cy="12" r="10"></circle>
                             <path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path>
@@ -1397,13 +1608,26 @@ class ChildcareDirectory {
                     </a>
                 ` : ''}
                 
-                <a href="https://maps.google.com/?q=${encodeURIComponent(center.address + ', ' + center.city + ', AL')}" target="_blank" rel="noopener" class="btn btn-secondary">
-                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
-                        <circle cx="12" cy="10" r="3"></circle>
-                    </svg>
-                    Get Directions
-                </a>
+                ${item.instagram ? `
+                    <a href="https://instagram.com/${item.instagram.replace('@', '')}" target="_blank" rel="noopener" class="btn btn-secondary">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+                            <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+                            <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+                        </svg>
+                        Instagram
+                    </a>
+                ` : ''}
+                
+                ${hasAddress ? `
+                    <a href="https://maps.google.com/?q=${locationQuery}" target="_blank" rel="noopener" class="btn btn-secondary">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                            <circle cx="12" cy="10" r="3"></circle>
+                        </svg>
+                        Get Directions
+                    </a>
+                ` : ''}
             </div>
         `;
     }

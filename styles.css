@@ -1898,6 +1898,47 @@ h4 { font-size: 1.25rem; }
     margin-top: 24px;
 }
 
+/* Verification CTA */
+.verification-cta {
+    margin-top: 32px;
+    padding-top: 24px;
+    border-top: 1px solid var(--light-gray);
+}
+
+.verification-message {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    padding: 16px;
+    background: linear-gradient(135deg, #FEF3C7 0%, #FDE68A 100%);
+    border-radius: var(--radius-md);
+    border: 1px solid #FCD34D;
+}
+
+.verification-message svg {
+    flex-shrink: 0;
+    margin-top: 2px;
+    color: var(--primary);
+}
+
+.verification-message p {
+    margin: 0;
+    color: var(--neutral-text);
+    font-size: 0.95rem;
+    line-height: 1.5;
+}
+
+.verification-link {
+    color: var(--neutral-text);
+    font-weight: 600;
+    text-decoration: underline;
+    transition: var(--transition);
+}
+
+.verification-link:hover {
+    color: #92400E;
+}
+
 /* Responsive Design */
 @media (max-width: 768px) {
     :root {

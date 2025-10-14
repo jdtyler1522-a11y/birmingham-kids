@@ -814,7 +814,7 @@ class ChildcareDirectory {
             badges.push('<span class="badge badge-subsidy">Accepts Subsidy</span>');
         }
 
-        if (center.accreditations.includes('NAEYC')) {
+        if (center.accreditations && center.accreditations.includes('NAEYC')) {
             badges.push('<span class="badge badge-naeyc">NAEYC</span>');
         }
 
@@ -1367,6 +1367,7 @@ class ChildcareDirectory {
                     </div>
                 </div>
                 ${this.createContactActions(item)}
+                ${this.createVerificationCTA()}
             `;
         }
         
@@ -1409,6 +1410,7 @@ class ChildcareDirectory {
                     ` : ''}
                 </div>
                 ${this.createContactActions(item)}
+                ${this.createVerificationCTA()}
             `;
         }
         
@@ -1424,11 +1426,19 @@ class ChildcareDirectory {
                     <p>${item.description || 'Mother\'s Day Out program providing quality care for children.'}</p>
                 </div>
                 <div class="modal-details">
-                    ${item.ageRange ? `
+                    ${item.agesServed ? `
                         <div class="detail-group">
-                            <h4>Age Range</h4>
+                            <h4>Ages Served</h4>
                             <ul class="detail-list">
-                                <li>${item.ageRange}</li>
+                                <li>${item.agesServed}</li>
+                            </ul>
+                        </div>
+                    ` : ''}
+                    ${item.daysOffered ? `
+                        <div class="detail-group">
+                            <h4>Days Offered</h4>
+                            <ul class="detail-list">
+                                <li>${item.daysOffered}</li>
                             </ul>
                         </div>
                     ` : ''}
@@ -1450,6 +1460,7 @@ class ChildcareDirectory {
                     ` : ''}
                 </div>
                 ${this.createContactActions(item)}
+                ${this.createVerificationCTA()}
             `;
         }
         
@@ -1483,6 +1494,7 @@ class ChildcareDirectory {
                     ` : ''}
                 </div>
                 ${this.createContactActions(item)}
+                ${this.createVerificationCTA()}
             `;
         }
         
@@ -1524,6 +1536,7 @@ class ChildcareDirectory {
                     ` : ''}
                 </div>
                 ${this.createContactActions(item)}
+                ${this.createVerificationCTA()}
             `;
         }
         
@@ -1565,10 +1578,25 @@ class ChildcareDirectory {
                     ` : ''}
                 </div>
                 ${this.createContactActions(item)}
+                ${this.createVerificationCTA()}
             `;
         }
         
         return '';
+    }
+    
+    createVerificationCTA() {
+        return `
+            <div class="verification-cta">
+                <div class="verification-message">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+                        <polyline points="22 4 12 14.01 9 11.01"></polyline>
+                    </svg>
+                    <p>Do you represent this business? <a href="mailto:hello@birminghamkids.com?subject=Verified Listing Request" class="verification-link">Apply for a verified listing</a> to update your information and stand out to families.</p>
+                </div>
+            </div>
+        `;
     }
     
     createContactActions(item) {

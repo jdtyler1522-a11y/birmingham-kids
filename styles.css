@@ -2110,21 +2110,38 @@ h4 { font-size: 1.25rem; }
     }
     
     .nav-logo-img {
-        height: 40px;
+        height: 36px;
     }
     
     .nav-links {
-        gap: 4px;
+        gap: 6px;
+        margin-top: 10px;
     }
     
-    .nav-link, .nav-dropdown-toggle {
+    .nav-dropdown {
+        min-width: 30%;
+    }
+    
+    .nav-dropdown-toggle {
+        font-size: 0.7rem;
+        padding: 12px 8px;
+        min-height: 48px;
+    }
+    
+    .nav-dropdown-toggle span {
+        font-size: 0.7rem;
+    }
+    
+    .auth-button, .login-button {
+        padding: 12px 14px;
         font-size: 0.75rem;
-        padding: 6px 8px;
+        min-height: 48px;
     }
     
-    .btn-signin {
-        padding: 6px 12px;
-        font-size: 0.8rem;
+    .nav-dropdown-menu .directory-tab {
+        min-height: 48px;
+        font-size: 0.85rem;
+        padding: 12px 16px;
     }
     
     h1 { font-size: 1.75rem; }
@@ -2273,47 +2290,98 @@ h4 { font-size: 1.25rem; }
     
     /* Navbar Mobile */
     .navbar {
-        padding: 12px 0;
+        padding: 10px 0;
     }
     
     .nav-container {
-        padding: 0 16px;
-    }
-    
-    .nav-brand {
-        font-size: 0.9rem;
+        padding: 0 12px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-wrap: wrap;
     }
     
     .nav-logo-img {
-        height: 45px;
+        height: 40px;
     }
     
+    /* Simplify mobile nav - stack everything */
     .nav-links {
+        order: 3;
+        width: 100%;
+        margin-top: 12px;
         gap: 8px;
-        font-size: 0.8rem;
+        flex-direction: column;
+        align-items: stretch;
     }
     
     .nav-link {
-        font-size: 0.8rem;
-        padding: 8px 12px;
+        display: none; /* Hide Home link on mobile, logo serves this purpose */
+    }
+    
+    .nav-dropdown {
+        width: 100%;
     }
     
     .nav-dropdown-toggle {
-        font-size: 0.8rem;
-        padding: 8px 12px;
+        font-size: 0.85rem;
+        padding: 14px 16px;
+        min-height: 48px;
+        line-height: 20px;
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
         white-space: nowrap;
     }
     
     .nav-dropdown-toggle span {
-        max-width: 100px;
-        overflow: hidden;
-        text-overflow: ellipsis;
+        font-size: 0.85rem;
     }
     
-    .btn-signin {
-        padding: 8px 16px;
+    .nav-dropdown-menu {
+        left: 0;
+        right: 0;
+        width: 100%;
+    }
+    
+    .nav-dropdown-menu .directory-tab {
+        min-height: 48px;
+        line-height: 20px;
+        font-size: 0.9rem;
+        padding: 14px 16px;
+        display: flex;
+        align-items: center;
+    }
+    
+    .nav-auth {
+        order: 2;
+    }
+    
+    .auth-button, .login-button {
+        padding: 14px 16px;
         font-size: 0.85rem;
+        min-height: 48px;
+        line-height: 20px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
         min-width: auto;
+    }
+    
+    .user-menu {
+        position: relative;
+    }
+    
+    .user-avatar {
+        min-width: 48px;
+        min-height: 48px;
+        width: 48px;
+        height: 48px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 12px;
     }
 }
 /* Pediatrician Card Styles */

@@ -1299,7 +1299,7 @@ class ChildcareDirectory {
     }
 
     openModal(centerId) {
-        const center = this.centers.find(c => c.id === centerId);
+        const center = this.centers.find(c => c.id == centerId);
         if (!center) return;
 
         const modal = document.getElementById('detailModal');

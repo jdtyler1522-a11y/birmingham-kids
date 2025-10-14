@@ -1316,8 +1316,10 @@ class ChildcareDirectory {
             closeButton.focus();
         }
 
-        // Add schema.org structured data for the center
-        this.addStructuredData(center);
+        // Add schema.org structured data for childcare centers only
+        if (!this.isPediatricianMode && !this.isDentistMode && !this.isTherapistMode && !this.isMDOMode && !this.isPhotographerMode && !this.isActivitiesMode && !this.isBirthdayPartiesMode) {
+            this.addStructuredData(center);
+        }
     }
 
     createModalContent(item) {
@@ -1376,7 +1378,7 @@ class ChildcareDirectory {
             return `
                 <div class="modal-header">
                     <h2 class="modal-title" id="modalTitle">${item.displayName || item.name}</h2>
-                    <div class="modal-location">${item.address || item.city}, AL</div>
+                    <div class="modal-location">${this.formatLocation(item)}</div>
                     ${badges ? `<div class="modal-badges">${badges}</div>` : ''}
                 </div>
                 <div class="modal-description">
@@ -1419,7 +1421,7 @@ class ChildcareDirectory {
             return `
                 <div class="modal-header">
                     <h2 class="modal-title" id="modalTitle">${item.displayName || item.name}</h2>
-                    <div class="modal-location">${item.address || item.city}, AL</div>
+                    <div class="modal-location">${this.formatLocation(item)}</div>
                     ${badges ? `<div class="modal-badges">${badges}</div>` : ''}
                 </div>
                 <div class="modal-description">
@@ -1469,7 +1471,7 @@ class ChildcareDirectory {
             return `
                 <div class="modal-header">
                     <h2 class="modal-title" id="modalTitle">${item.displayName || item.name}</h2>
-                    <div class="modal-location">${item.city}, AL</div>
+                    <div class="modal-location">${this.formatLocation(item)}</div>
                     ${badges ? `<div class="modal-badges">${badges}</div>` : ''}
                 </div>
                 <div class="modal-description">
@@ -1503,7 +1505,7 @@ class ChildcareDirectory {
             return `
                 <div class="modal-header">
                     <h2 class="modal-title" id="modalTitle">${item.displayName || item.name}</h2>
-                    <div class="modal-location">${item.address || item.location || item.city || 'Birmingham'}, AL</div>
+                    <div class="modal-location">${this.formatLocation(item)}</div>
                     ${badges ? `<div class="modal-badges">${badges}</div>` : ''}
                 </div>
                 <div class="modal-description">
@@ -1545,7 +1547,7 @@ class ChildcareDirectory {
             return `
                 <div class="modal-header">
                     <h2 class="modal-title" id="modalTitle">${item.displayName || item.name}</h2>
-                    <div class="modal-location">${item.address || item.location || item.city || 'Birmingham'}, AL</div>
+                    <div class="modal-location">${this.formatLocation(item)}</div>
                     ${badges ? `<div class="modal-badges">${badges}</div>` : ''}
                 </div>
                 <div class="modal-description">
@@ -1597,6 +1599,19 @@ class ChildcareDirectory {
                 </div>
             </div>
         `;
+    }
+    
+    formatLocation(item) {
+        // Helper function to format location without duplicating "AL"
+        const location = item.address || item.location || item.city || 'Birmingham';
+        
+        // Check if location already ends with AL
+        if (location.endsWith(', AL') || location.endsWith(' AL')) {
+            return location;
+        }
+        
+        // Add AL if not present
+        return `${location}, AL`;
     }
     
     createContactActions(item) {

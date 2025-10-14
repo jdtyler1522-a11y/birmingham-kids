@@ -2023,33 +2023,113 @@ h4 { font-size: 1.25rem; }
 
 @media (max-width: 480px) {
     .hero-title {
-        font-size: 2rem;
+        font-size: 1.75rem;
+        line-height: 1.2;
     }
     
     .hero {
-        padding: 60px 0;
+        padding: 40px 0;
     }
     
     .quick-filters {
         gap: 8px;
+        flex-direction: column;
+        width: 100%;
     }
     
     .quick-filter {
-        padding: 10px 16px;
+        padding: 12px 16px;
         font-size: 0.9rem;
+        width: 100%;
+        justify-content: center;
     }
     
     .center-card {
-        padding: 20px;
+        padding: 16px;
     }
     
     .submit-form {
-        padding: 24px;
+        padding: 20px 16px;
     }
     
-    h1 { font-size: 2rem; }
-    h2 { font-size: 1.5rem; }
-    h3 { font-size: 1.25rem; }
+    .search-container {
+        flex-direction: column;
+        gap: 12px;
+    }
+    
+    .search-input {
+        border-radius: var(--radius-md);
+        font-size: 1rem;
+        padding: 14px 16px;
+    }
+    
+    .btn-primary, .btn-secondary {
+        width: 100%;
+        justify-content: center;
+        padding: 14px;
+        font-size: 1rem;
+        min-height: 48px;
+    }
+    
+    .card-btn {
+        flex: 1 1 100%;
+        min-width: auto;
+        padding: 12px 16px;
+        font-size: 0.9rem;
+    }
+    
+    .contact-actions {
+        flex-direction: column;
+        gap: 8px;
+    }
+    
+    .contact-actions .btn {
+        width: 100%;
+        justify-content: center;
+    }
+    
+    .modal-body {
+        padding: 16px;
+    }
+    
+    .modal-header h2 {
+        font-size: 1.25rem;
+    }
+    
+    .modal-location {
+        font-size: 0.85rem;
+    }
+    
+    .verification-message {
+        flex-direction: column;
+        gap: 8px;
+    }
+    
+    .nav-container {
+        padding: 0 12px;
+    }
+    
+    .nav-logo-img {
+        height: 40px;
+    }
+    
+    .nav-links {
+        gap: 4px;
+    }
+    
+    .nav-link, .nav-dropdown-toggle {
+        font-size: 0.75rem;
+        padding: 6px 8px;
+    }
+    
+    .btn-signin {
+        padding: 6px 12px;
+        font-size: 0.8rem;
+    }
+    
+    h1 { font-size: 1.75rem; }
+    h2 { font-size: 1.35rem; }
+    h3 { font-size: 1.15rem; }
 }
 
 /* Focus States for Accessibility */
@@ -2158,10 +2238,14 @@ h4 { font-size: 1.25rem; }
     
     .landing-title {
         font-size: 2rem;
+        line-height: 1.2;
+        padding: 0 16px;
     }
     
     .landing-subtitle {
         font-size: 1.1rem;
+        line-height: 1.5;
+        padding: 0 16px;
     }
     
     .landing-logo {
@@ -2175,27 +2259,61 @@ h4 { font-size: 1.25rem; }
     .directory-cards {
         grid-template-columns: 1fr;
         gap: 24px;
+        padding: 0 16px;
     }
     
     .directory-card {
         padding: 32px 24px;
     }
     
+    .directory-card-icon {
+        width: 50px;
+        height: 50px;
+    }
+    
     /* Navbar Mobile */
+    .navbar {
+        padding: 12px 0;
+    }
+    
+    .nav-container {
+        padding: 0 16px;
+    }
+    
     .nav-brand {
         font-size: 0.9rem;
     }
     
     .nav-logo-img {
-        height: 55px;
+        height: 45px;
     }
     
     .nav-links {
-        gap: 16px;
+        gap: 8px;
+        font-size: 0.8rem;
     }
     
     .nav-link {
+        font-size: 0.8rem;
+        padding: 8px 12px;
+    }
+    
+    .nav-dropdown-toggle {
+        font-size: 0.8rem;
+        padding: 8px 12px;
+        white-space: nowrap;
+    }
+    
+    .nav-dropdown-toggle span {
+        max-width: 100px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+    
+    .btn-signin {
+        padding: 8px 16px;
         font-size: 0.85rem;
+        min-width: auto;
     }
 }
 /* Pediatrician Card Styles */

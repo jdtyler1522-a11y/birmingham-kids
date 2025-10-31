@@ -281,12 +281,10 @@ class ChildcareDirectory {
         // Set initial state based on screen size and session storage
         const isMobile = window.innerWidth <= 768;
         const savedState = sessionStorage.getItem('filtersCollapsed');
-        let isCollapsed = false;
+        let isCollapsed = true; // Default collapsed
 
         if (savedState !== null) {
             isCollapsed = savedState === 'true';
-        } else {
-            isCollapsed = isMobile; // Default collapsed on mobile
         }
 
         const filtersSection = document.getElementById('filters');

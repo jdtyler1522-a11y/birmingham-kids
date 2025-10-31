@@ -766,6 +766,59 @@
         </div>
     </div>
 
+    <!-- Sign In Modal -->
+    <div class="modal" id="signInModal" role="dialog" aria-labelledby="signInModalTitle" aria-hidden="true">
+        <div class="modal-overlay" data-close-signin-modal></div>
+        <div class="modal-content signin-modal-content">
+            <button class="modal-close" data-close-signin-modal aria-label="Close modal">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <line x1="18" y1="6" x2="6" y2="18"></line>
+                    <line x1="6" y1="6" x2="18" y2="18"></line>
+                </svg>
+            </button>
+            <div class="modal-body signin-modal-body">
+                <div class="signin-icon">
+                    <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
+                    </svg>
+                </div>
+                <h2 class="signin-modal-title" id="signInModalTitle">Save Your Favorites</h2>
+                <p class="signin-modal-description">Create a free account to save and organize your favorite childcare centers, pediatricians, dentists, and more across all our directories.</p>
+                <div class="signin-benefits">
+                    <div class="signin-benefit">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <polyline points="20 6 9 17 4 12"></polyline>
+                        </svg>
+                        <span>Save unlimited favorites</span>
+                    </div>
+                    <div class="signin-benefit">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <polyline points="20 6 9 17 4 12"></polyline>
+                        </svg>
+                        <span>Access from any device</span>
+                    </div>
+                    <div class="signin-benefit">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <polyline points="20 6 9 17 4 12"></polyline>
+                        </svg>
+                        <span>Keep your search organized</span>
+                    </div>
+                </div>
+                <div class="signin-actions">
+                    <button class="btn btn-primary btn-signin" id="modalSignInButton">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M15 3h4a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-4"></path>
+                            <polyline points="10 17 15 12 10 7"></polyline>
+                            <line x1="15" y1="12" x2="3" y2="12"></line>
+                        </svg>
+                        Sign In to Continue
+                    </button>
+                    <button class="btn btn-secondary" data-close-signin-modal>Maybe Later</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <script>
         // Dropdown navigation handling
         document.addEventListener('DOMContentLoaded', function() {
@@ -860,8 +913,8 @@
             }
         });
     </script>
-    <script src="auth.js?v=2025-10-08-dropdown-nav" defer></script>
+    <script src="auth.js?v=2025-10-14-signin-modal" defer></script>
     <script src="directory-manager.js?v=2025-10-08-final" defer></script>
-    <script src="app.js?v=2025-10-14-dentist-modal-fix" defer></script>
+    <script src="app.js?v=2025-10-14-signin-modal" defer></script>
 </body>
 </html>

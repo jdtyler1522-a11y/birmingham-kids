@@ -116,9 +116,7 @@ class AuthManager {
 
     async addFavorite(directory, listingId) {
         if (!this.user) {
-            if (confirm('Please sign in to save favorites. Would you like to sign in now?')) {
-                this.login();
-            }
+            this.showSignInModal();
             return false;
         }
 
@@ -198,6 +196,55 @@ class AuthManager {
     isAuthenticated() {
         return this.user !== null;
     }
+
+    showSignInModal() {
+        const modal = document.getElementById('signInModal');
+        if (modal) {
+            modal.classList.add('show');
+            modal.setAttribute('aria-hidden', 'false');
+            document.body.style.overflow = 'hidden';
+
+            const signInButton = document.getElementById('modalSignInButton');
+            if (signInButton) {
+                signInButton.focus();
+            }
+        }
+    }
+
+    closeSignInModal() {
+        const modal = document.getElementById('signInModal');
+        if (modal) {
+            modal.classList.remove('show');
+            modal.setAttribute('aria-hidden', 'true');
+            document.body.style.overflow = '';
+        }
+    }
 }
 
 window.authManager = new AuthManager();
+
+document.addEventListener('DOMContentLoaded', () => {
+    const signInModal = document.getElementById('signInModal');
+    const modalSignInButton = document.getElementById('modalSignInButton');
+    const closeButtons = document.querySelectorAll('[data-close-signin-modal]');
+
+    if (modalSignInButton) {
+        modalSignInButton.addEventListener('click', () => {
+            window.location.href = '/api/login';
+        });
+    }
+
+    closeButtons.forEach(button => {
+        button.addEventListener('click', () => {
+            window.authManager.closeSignInModal();
+        });
+    });
+
+    if (signInModal) {
+        signInModal.addEventListener('click', (e) => {
+            if (e.target === signInModal) {
+                window.authManager.closeSignInModal();
+            }
+        });
+    }
+});

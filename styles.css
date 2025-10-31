@@ -1939,6 +1939,112 @@ h4 { font-size: 1.25rem; }
     color: #92400E;
 }
 
+/* Sign In Modal */
+.signin-modal-content {
+    max-width: 500px;
+}
+
+.signin-modal-body {
+    text-align: center;
+    padding: 48px 40px;
+}
+
+.signin-icon {
+    margin: 0 auto 24px;
+    width: 64px;
+    height: 64px;
+}
+
+.signin-icon svg {
+    stroke: var(--primary);
+    fill: none;
+    filter: drop-shadow(0 2px 8px rgba(255, 183, 3, 0.3));
+}
+
+.signin-modal-title {
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--neutral-text);
+    margin-bottom: 16px;
+}
+
+.signin-modal-description {
+    font-size: 1.05rem;
+    color: var(--dark-gray);
+    line-height: 1.6;
+    margin-bottom: 32px;
+}
+
+.signin-benefits {
+    text-align: left;
+    margin-bottom: 32px;
+}
+
+.signin-benefit {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 12px 0;
+}
+
+.signin-benefit svg {
+    stroke: var(--accent-2);
+    flex-shrink: 0;
+}
+
+.signin-benefit span {
+    color: var(--neutral-text);
+    font-size: 1rem;
+    font-weight: 500;
+}
+
+.signin-actions {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.btn {
+    padding: 14px 28px;
+    border-radius: var(--radius-md);
+    font-weight: 600;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: var(--transition);
+    border: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    min-height: 48px;
+}
+
+.btn-primary {
+    background: linear-gradient(135deg, var(--primary) 0%, var(--accent-1) 100%);
+    color: white;
+    box-shadow: 0 4px 12px rgba(255, 183, 3, 0.3);
+}
+
+.btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(255, 183, 3, 0.4);
+}
+
+.btn-secondary {
+    background-color: transparent;
+    color: var(--dark-gray);
+    border: 1px solid var(--medium-gray);
+}
+
+.btn-secondary:hover {
+    background-color: var(--light-gray);
+    border-color: var(--dark-gray);
+}
+
+.btn svg {
+    flex-shrink: 0;
+}
+
 /* Responsive Design */
 @media (max-width: 768px) {
     :root {

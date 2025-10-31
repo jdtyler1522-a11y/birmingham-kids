@@ -1274,10 +1274,6 @@ class ChildcareDirectory {
                 if (success) {
                     this.favorites.add(id);
                 }
-            } else {
-                if (confirm('Please sign in to save favorites. Would you like to sign in now?')) {
-                    window.location.href = '/api/login';
-                }
             }
         }
         

@@ -27,56 +27,48 @@
                 title: 'Birmingham Childcare Directory',
                 subtitle: 'Find quality childcare across the Birmingham metro—compare programs, locations, costs, and openings.',
                 searchPlaceholder: 'Search by name, neighborhood, or keyword...',
-                filtersTitle: 'Find Your Perfect Childcare',
                 resultsLabel: 'centers'
             },
             pediatricians: {
                 title: 'Birmingham Pediatrician Directory',
                 subtitle: 'Find trusted pediatric care across the Birmingham metro—compare practices, specialties, and insurance accepted.',
                 searchPlaceholder: 'Search by doctor name, practice, or specialty...',
-                filtersTitle: 'Find Your Pediatrician',
                 resultsLabel: 'providers'
             },
             dentists: {
                 title: 'Birmingham Pediatric Dentist Directory',
                 subtitle: 'Find trusted pediatric dental care across the Birmingham metro—compare practices, specialties, and patient reviews.',
                 searchPlaceholder: 'Search by dentist name, practice, or location...',
-                filtersTitle: 'Find Your Pediatric Dentist',
                 resultsLabel: 'dentists'
             },
             therapists: {
                 title: 'Birmingham Speech & OT Therapist Directory',
                 subtitle: 'Find speech and occupational therapy providers across the Birmingham metro—compare specialties, services, and insurance accepted.',
                 searchPlaceholder: 'Search by therapist name, specialty, or location...',
-                filtersTitle: 'Find Your Therapist',
                 resultsLabel: 'therapists'
             },
             mdo: {
                 title: "Birmingham Mother's Day Out Directory",
                 subtitle: "Find Mother's Day Out and weekday programs across the Birmingham metro—compare schedules, locations, and fees.",
                 searchPlaceholder: 'Search by program name, church, or location...',
-                filtersTitle: 'Find Your MDO Program',
                 resultsLabel: 'programs'
             },
             photographers: {
                 title: 'Birmingham Family Photographers Directory',
                 subtitle: 'Find trusted family and portrait photographers across the Birmingham metro—compare specialties, styles, and portfolios.',
                 searchPlaceholder: 'Search by photographer name, specialty, or location...',
-                filtersTitle: 'Find Your Photographer',
                 resultsLabel: 'photographers'
             },
             activities: {
                 title: 'Birmingham Activities & Recreation Directory',
                 subtitle: 'Find parks, playgrounds, swimming, sports, and family attractions across the Birmingham metro—discover fun activities for all ages.',
                 searchPlaceholder: 'Search by activity name, category, or location...',
-                filtersTitle: 'Find Activities & Recreation',
                 resultsLabel: 'activities'
             },
             'birthday-parties': {
                 title: 'Birmingham Birthday Party Directory',
                 subtitle: 'Find birthday party venues, entertainment, decor, and services across the Birmingham metro—plan the perfect celebration.',
                 searchPlaceholder: 'Search by venue, category, or service...',
-                filtersTitle: 'Find Party Services',
                 resultsLabel: 'party options'
             }
         }[directory];

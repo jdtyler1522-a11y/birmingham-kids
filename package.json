@@ -1,36 +1,33 @@
 {
-  "name": "workspace",
+  "name": "birmingham-kids",
   "version": "1.0.0",
-  "description": "A bright, playful, mobile-first childcare directory website for the Birmingham, Alabama metro area built with vanilla HTML, CSS, and JavaScript.",
-  "main": "app.js",
-  "type": "module",
+  "description": "A bright, playful, mobile-first directory website for the Birmingham, Alabama metro area featuring childcare, pediatricians, dentists, therapists, and more.",
+  "main": "api/index.js",
   "scripts": {
     "start": "tsx server/index.ts",
     "dev": "tsx server/index.ts",
+    "vercel-build": "echo 'No build step required'",
     "db:push": "drizzle-kit push",
     "db:studio": "drizzle-kit studio"
   },
-  "keywords": [],
+  "keywords": ["birmingham", "childcare", "directory", "parenting", "alabama"],
   "author": "",
   "license": "ISC",
+  "engines": {
+    "node": ">=18.x"
+  },
   "dependencies": {
-    "@types/connect-pg-simple": "^7.0.3",
-    "@types/cors": "^2.8.19",
-    "@types/express": "^5.0.3",
-    "@types/express-session": "^1.18.2",
-    "@types/memoizee": "^0.4.12",
-    "@types/passport": "^1.0.17",
     "connect-pg-simple": "^10.0.0",
-    "cors": "^2.8.5",
-    "dotenv": "^17.2.3",
-    "drizzle-kit": "^0.31.5",
     "drizzle-orm": "^0.44.6",
     "express": "^5.1.0",
     "express-session": "^1.18.2",
-    "memoizee": "^0.4.17",
-    "openid-client": "^6.8.1",
-    "passport": "^0.7.0",
-    "postgres": "^3.4.7",
+    "postgres": "^3.4.7"
+  },
+  "devDependencies": {
+    "@types/connect-pg-simple": "^7.0.3",
+    "@types/express": "^5.0.3",
+    "@types/express-session": "^1.18.2",
+    "drizzle-kit": "^0.31.5",
     "tsx": "^4.20.6",
     "typescript": "^5.9.3"
   }

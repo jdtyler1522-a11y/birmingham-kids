@@ -1,9 +1,5 @@
 const express = require('express');
 const path = require('path');
-const { drizzle } = require('drizzle-orm/postgres-js');
-const postgres = require('postgres');
-const session = require('express-session');
-const connectPg = require('connect-pg-simple');
 
 const app = express();
 
@@ -11,39 +7,11 @@ const app = express();
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-// Session setup for Vercel
-const sessionTtl = 7 * 24 * 60 * 60 * 1000; // 1 week
-const PgStore = connectPg(session);
-
-if (process.env.DATABASE_URL) {
-  const sessionStore = new PgStore({
-    conString: process.env.DATABASE_URL,
-    createTableIfMissing: false,
-    ttl: sessionTtl,
-    tableName: 'sessions',
-  });
-
-  app.use(session({
-    secret: process.env.SESSION_SECRET || 'your-secret-key-change-this',
-    store: sessionStore,
-    resave: false,
-    saveUninitialized: false,
-    cookie: {
-      httpOnly: true,
-      secure: process.env.NODE_ENV === 'production',
-      sameSite: 'lax',
-      maxAge: sessionTtl,
-    },
-  }));
-}
-
-// Database connection
-let db;
-if (process.env.DATABASE_URL) {
-  const client = postgres(process.env.DATABASE_URL);
-  const schema = require('../shared/schema.js');
-  db = drizzle(client, { schema });
-}
+// Note: Session and database setup removed for basic deployment
+// When you implement authentication, you'll need to add:
+// 1. Session middleware with connect-pg-simple
+// 2. Database connection with drizzle-orm
+// 3. Auth provider integration (Clerk, Auth0, etc.)
 
 // Simple auth middleware (placeholder)
 const isAuthenticated = (req, res, next) => {

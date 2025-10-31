@@ -77,6 +77,15 @@ You'll need to create the database tables. Run these SQL commands in your databa
 
 ### SQL Schema:
 
+**Important:** First enable the pgcrypto extension (required for UUID generation):
+
+```sql
+-- Enable UUID generation (run this first)
+CREATE EXTENSION IF NOT EXISTS pgcrypto;
+```
+
+Then create the tables:
+
 ```sql
 -- Sessions table (for user sessions)
 CREATE TABLE sessions (
@@ -109,6 +118,8 @@ CREATE INDEX favorites_user_id_idx ON favorites(user_id);
 CREATE INDEX favorites_directory_idx ON favorites(directory);
 ```
 
+**Note:** For Vercel Postgres, the pgcrypto extension is usually pre-enabled. For Neon and Supabase, you may need to enable it manually.
+
 ## Step 4: Deploy to Vercel
 
 ### 4.1 Import Your Repository
@@ -130,14 +141,14 @@ CREATE INDEX favorites_directory_idx ON favorites(directory);
 
 ### 4.3 Add Environment Variables
 
-Click "Environment Variables" and add:
+For the initial deployment, **no environment variables are required**. The site will work without authentication.
 
-**Required:**
+**When you add authentication later**, you'll need to set:
 - `DATABASE_URL`: Your PostgreSQL connection string from Step 2
 - `SESSION_SECRET`: A random string (e.g., generate with: `openssl rand -base64 32`)
 
-**Optional (for production):**
-- `NODE_ENV`: `production`
+**Optional:**
+- `NODE_ENV`: `production` (automatically set by Vercel)
 
 ### 4.4 Deploy
 
@@ -156,7 +167,15 @@ Click "Environment Variables" and add:
 
 ## Step 6: Set Up Authentication (Optional)
 
-The app currently has authentication disabled. To add it back, you have several options:
+The app currently has authentication disabled to simplify the initial deployment. To add authentication and enable the favorites feature, you'll need to:
+
+**First, add the necessary packages:**
+
+```bash
+npm install drizzle-orm postgres express-session connect-pg-simple
+```
+
+Then choose one of these authentication options:
 
 ### Option A: Clerk (Recommended - Easiest)
 

@@ -137,24 +137,38 @@ Badge styles are defined in `styles.css` with classes like `.badge-openings`, `.
 
 ## Deployment
 
-### Hosting on Replit
+### Hosting on Replit (Easiest)
 
 This project is ready to deploy on Replit:
 
-1. Upload all project files to a new Repl
-2. Set the run command to serve the HTML file
-3. The site will be automatically available at your Repl's URL
-4. Share the URL with families in your community
+1. Click the "Deploy" button at the top of your Replit workspace
+2. Configure your deployment settings
+3. The site will be live with a custom domain option
+4. Database and authentication are included
+
+### Hosting on Vercel via GitHub
+
+For serverless deployment to Vercel:
+
+1. See **[VERCEL_DEPLOYMENT.md](./VERCEL_DEPLOYMENT.md)** for complete step-by-step instructions
+2. Push your code to GitHub
+3. Connect your GitHub repo to Vercel
+4. Deploy automatically on every git push
+
+**Key features of Vercel deployment:**
+- Serverless functions for API routes
+- Automatic HTTPS and CDN
+- Preview deployments for branches
+- Free tier available
 
 ### Other Hosting Options
 
-The site uses only static files and can be hosted on:
-- GitHub Pages
-- Netlify
-- Vercel
+The site can also be hosted on:
+- GitHub Pages (static only, no authentication)
+- Netlify (serverless functions supported)
 - Any static hosting service
 
-Simply upload the files and configure the service to serve `index.html` as the main page.
+For static-only deployment, simply upload the HTML, CSS, JS, and data files.
 
 ### Production Considerations
 
